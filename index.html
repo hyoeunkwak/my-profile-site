@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hyoeun Kwak — Digital Designer</title>
+  <meta
+    name="description"
+    content="Hyoeun Kwak is a digital designer working on e-commerce product pages and brand campaigns — Samsung.com product pages and campaign visuals, and earlier work across retail, healthcare, fashion and F&B."
+  />
+  <meta name="author" content="Hyoeun Kwak" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hyoeun Kwak — Digital Designer" />
+  <meta
+    property="og:description"
+    content="Digital designer working on e-commerce product pages and brand campaigns. 15 projects, 2012–2026."
+  />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:url" content="https://example.github.io/portfolio/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- FOUC 방지: CSS 로드 전에 테마 확정 -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        if (stored === "dark" || stored === "light") {
+          document.documentElement.setAttribute("data-theme", stored);
+        } else {
+          document.documentElement.removeAttribute("data-theme");
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- JS 비활성 시 스크롤 등장 요소가 숨겨지지 않도록 -->
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="topbar__name" href="#hero">Hyoeun K</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ Hero ============ -->
+    <!-- TODO(review): h1 문구 · 스테이트먼트 · 직함(Digital Designer) 확인 -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <h1>Complex products, clearer screens.</h1>
+        <p class="hero__statement">
+          I'm a digital designer focused on e-commerce product pages and brand
+          campaigns. Since 2022 I've designed product pages and campaign visuals
+          for Samsung.com.
+        </p>
+        <a class="hero__cta" href="#work">
+          Selected work <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ Work ============ -->
+    <section id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Work</h2>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filter work by category">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" type="button" data-filter="product" aria-pressed="false">Product</button>
+          <button class="filter-btn" type="button" data-filter="campaign" aria-pressed="false">Campaign</button>
+          <button class="filter-btn" type="button" data-filter="visual" aria-pressed="false">Visual</button>
+          <button class="filter-btn" type="button" data-filter="earlier" aria-pressed="false">Earlier</button>
+        </div>
+
+        <!-- 그리드 카드는 현재 링크 없음. 프로젝트 상세 페이지는 다음 단계. -->
+        <div class="work-grid reveal">
+            <figure class="work-item" data-category="product">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-1.svg" width="1200" height="800" loading="lazy" alt="Flatbed Microwave Oven Product Page thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Flatbed Microwave Oven Product Page</span>
+                <span class="work-item__cat">Product · 2026</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="visual">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-2.svg" width="1200" height="800" loading="lazy" alt="Editorial thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Editorial</span>
+                <span class="work-item__cat">Visual · 2026</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="product">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-3.svg" width="1200" height="800" loading="lazy" alt="Compatible Devices Page thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Compatible Devices Page</span>
+                <span class="work-item__cat">Product · 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="campaign">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-4.svg" width="1200" height="800" loading="lazy" alt="Switch to Galaxy thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Switch to Galaxy</span>
+                <span class="work-item__cat">Campaign · 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="product">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-5.svg" width="1200" height="800" loading="lazy" alt="Watch Bands Product Page thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Watch Bands Product Page</span>
+                <span class="work-item__cat">Product · 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="campaign">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-6.svg" width="1200" height="800" loading="lazy" alt="#YouMake 2023 Campaign thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">#YouMake 2023 Campaign</span>
+                <span class="work-item__cat">Campaign · 2023</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="campaign">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-7.svg" width="1200" height="800" loading="lazy" alt="EPP Flash Sale Campaign thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">EPP Flash Sale Campaign</span>
+                <span class="work-item__cat">Campaign · 2023</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="visual">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-8.svg" width="1200" height="800" loading="lazy" alt="Home Appliances B2B Key Visual thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Home Appliances B2B Key Visual</span>
+                <span class="work-item__cat">Visual · 2023</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="product">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-9.svg" width="1200" height="800" loading="lazy" alt="Galaxy A15 Product Page thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Galaxy A15 Product Page</span>
+                <span class="work-item__cat">Product · 2023</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="product">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-10.svg" width="1200" height="800" loading="lazy" alt="OLED TV S95C S90C Product Page thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">OLED TV S95C · S90C Product Page</span>
+                <span class="work-item__cat">Product · 2022</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="earlier">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-11.svg" width="1200" height="800" loading="lazy" alt="Healthcare Contents and Marketing thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Healthcare Contents &amp; Marketing</span>
+                <span class="work-item__cat">Content · 2021</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="earlier">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-12.svg" width="1200" height="800" loading="lazy" alt="F and B Product Design thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">F&amp;B Product Design</span>
+                <span class="work-item__cat">Product Design · 2019</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="earlier">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-13.svg" width="1200" height="800" loading="lazy" alt="Fashion Contents thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Fashion Contents</span>
+                <span class="work-item__cat">Content · 2017</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="earlier">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-14.svg" width="1200" height="800" loading="lazy" alt="Retail CRM and Marketing thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Retail CRM &amp; Marketing</span>
+                <span class="work-item__cat">CRM · 2016</span>
+              </figcaption>
+            </figure>
+            <figure class="work-item" data-category="earlier">
+              <span class="work-item__frame">
+                <img src="assets/img/work/thumb-15.svg" width="1200" height="800" loading="lazy" alt="Exhibition Graphic thumbnail" />
+              </span>
+              <figcaption>
+                <span class="work-item__title">Exhibition Graphic</span>
+                <span class="work-item__cat">Graphic · 2012</span>
+              </figcaption>
+            </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <!-- TODO(review): bio 2문단 · summary-list 값 · 직함을 실제 정보로 확인 -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="reveal">
+            <div class="section-head">
+              <h2>About</h2>
+            </div>
+            <div class="prose">
+              <p>
+                Since 2012 I've worked across retail, healthcare, fashion and
+                F&amp;B, moving toward digital content design. For the past few
+                years I've designed product detail pages and campaign key visuals
+                for Galaxy, OLED TV and home appliances at Samsung.com.
+              </p>
+              <p>
+                I care about turning dense product information into a readable
+                structure and hierarchy, and holding a brand's tone inside the
+                screen.
+              </p>
+            </div>
+            <div class="about-actions">
+              <a class="btn" href="assets/resume.pdf" download>
+                Résumé (PDF) <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <dl class="summary-list">
+              <div>
+                <dt>Role</dt>
+                <dd>Digital Design · Product Page · Campaign · Key Visual</dd>
+              </div>
+              <div>
+                <dt>Tools</dt>
+                <dd>Figma · Photoshop · Illustrator · After Effects</dd>
+              </div>
+              <div>
+                <dt>Clients</dt>
+                <dd>Samsung.com (2022–present) · earlier: retail, healthcare, fashion, F&amp;B</dd>
+              </div>
+              <div>
+                <dt>Experience</dt>
+                <dd>2012 – present</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <!-- TODO(review): 실제 이메일 · LinkedIn URL 로 교체 -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Contact</h2>
+          <p>Have a project in mind? Open to product page, campaign and content design enquiries.</p>
+        </div>
+        <ul class="contact-links reveal">
+          <li>
+            <a href="mailto:hyoeun@example.com">
+              <span>hyoeun@example.com</span>
+              <span class="ext" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://hyoni-k.tistory.com/" rel="noopener" target="_blank">
+              <span>Blog</span>
+              <span class="ext" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="https://hyoeunkwak.myportfolio.com" rel="noopener" target="_blank">
+              <span class="label-caps">Portfolio</span>
+              <span class="ext" aria-hidden="true">↗</span>
+            </a>
+          </li> -->
+          <li>
+            <a href="www.linkedin.com/in/hyoeun2025" rel="noopener" target="_blank">
+              <span class="label-caps">LinkedIn</span>
+              <span class="ext" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© 2026 Hyoeun Kwak</span>
+      <!-- <span>HTML · CSS · Vanilla JS</span> -->
+    </div>
+  </footer>
+
+  <div class="floating-ctrl">
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Switch to dark mode"
+      title="Toggle theme"
+    >
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6" />
+        <path
+          d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
+    <button class="to-top" type="button" aria-label="Scroll to top" title="Top">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

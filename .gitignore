@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 에디터 / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# 로그 / 임시
+*.log
+*.tmp
+
+# 의존성 (현재 미사용 — 향후 대비)
+node_modules/
+
+# Claude Code 로컬 설정 (개인 환경값이라 배포 제외)
+settings.json
+.claude/settings.local.json
+
+# 로컬 미리보기 서버 캐시 등
+.cache/

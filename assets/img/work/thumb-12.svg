@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="F&amp;B Product Design thumbnail">
+  <rect width="1200" height="800" fill="#e9e9e9"/>
+  <rect x="260" y="220" width="200" height="150" fill="none" stroke="#111112" stroke-width="6"/><rect x="500" y="220" width="200" height="150" fill="none" stroke="#111112" stroke-width="6"/><rect x="740" y="220" width="200" height="150" fill="none" stroke="#111112" stroke-width="6"/><rect x="260" y="420" width="200" height="150" fill="none" stroke="#111112" stroke-width="6"/><rect x="500" y="420" width="200" height="150" fill="none" stroke="#111112" stroke-width="6"/><rect x="740" y="420" width="200" height="150" fill="none" stroke="#111112" stroke-width="6"/>
+  <rect x="260" y="220" width="200" height="150" fill="#111112"/>
+  <text x="72" y="726" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="1" fill="#6a6a6d">F&amp;B PRODUCT DESIGN</text>
+</svg>

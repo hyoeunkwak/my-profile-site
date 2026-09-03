@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="OLED TV S95C / S90C thumbnail">
+  <rect width="1200" height="800" fill="#e9e9e9"/>
+  <rect x="410" y="170" width="440" height="460" rx="26" fill="#111112"/>
+  <rect x="460" y="230" width="340" height="18" fill="#e9e9e9"/>
+  <rect x="460" y="270" width="220" height="12" fill="#b9b9bc"/>
+  <rect x="460" y="540" width="160" height="12" fill="#b9b9bc"/>
+  <text x="72" y="726" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="1" fill="#6a6a6d">OLED TV S95C / S90C</text>
+</svg>
