@@ -4,7 +4,7 @@
    색·폰트·간격·비율은 반드시 이 토큰을 통해서만 사용한다.
 
    팔레트 방향: 거의 모노크롬. --color-accent(블루)는 기능 요소에만 —
-   :focus-visible / 활성 네비 언더라인 / .prose a / .hero__cta·.contact-links hover / 활성 필터.
+   :focus-visible / 활성 네비 링크(진하게) / .contact-links hover.
    ============================================================ */
 
 :root {
@@ -31,10 +31,11 @@
   --fs-100: 0.875rem;  /* 14 — 캡션 / footer / 버튼 / work 메타 */
   --fs-200: 1rem;      /* 16 — 보조 UI / summary dd */
   --fs-300: 1.0625rem; /* 17 — 본문 / 프로즈 / 스테이트먼트 */
+  --fs-350: 1.25rem;   /* 20 — GNB 링크 · 섹션 라벨 · 리드 문단 */
   --fs-400: 1.375rem;  /* 22 — 네비 / Work 탭 / contact 링크 */
   --fs-500: 2rem;      /* 32 — 이름(HYOEUN K) */
   --fs-600: clamp(1.75rem, 1.35rem + 1.8vw, 2.1875rem);  /* 35 — 섹션 제목(Work/About/Contact) */
-  --fs-700: clamp(2.25rem, 1.4rem + 4vw, 3.75rem);       /* 60 — hero h1 */
+  --fs-700: clamp(2.25rem, 1.4rem + 4vw, 4rem);          /* 64 — hero · About · Contact 선언문 */
 
   /* 무게 */
   --fw-regular: 400;
@@ -49,6 +50,7 @@
   --lh-normal: 1.55;
 
   --tracking-tight: -0.02em;
+  --tracking-display: -0.03em;  /* 64px 선언문 */
   --tracking-caps: 0.02em;   /* 대문자 타이틀 */
   --tracking-label: 0.06em;  /* 대문자 소형 라벨 */
 
@@ -86,21 +88,17 @@
 
   /* --- 모션 --- */
   --ease: cubic-bezier(0.2, 0, 0, 1);
+  --ease-quint: cubic-bezier(0.23, 1, 0.32, 1);  /* GNB 알약 전환 */
   --dur-fast: 150ms;
   --dur: 250ms;
   --dur-slow: 500ms;
+  --dur-nav: 650ms;
 
   /* --- 그림자 (거의 안 보이는 수준) --- */
   --shadow-float: 0 2px 8px rgba(15, 16, 17, 0.06),
     0 12px 32px rgba(15, 16, 17, 0.1);
 
   color-scheme: light;
-}
-
-@media (max-width: 359px) {
-  :root {
-    --container-pad: var(--space-2);
-  }
 }
 
 @media (min-width: 768px) {

@@ -63,41 +63,65 @@ body {
   border-radius: 1px;
 }
 
-/* ---------- 고정 헤더 ---------- */
+/* ---------- 고정 헤더 (참고: wolffolins.com) ----------
+   상단: 전폭 투명 바(이름 좌 · 링크 우) → 스크롤: 가운데로 모이는 알약 + 블러 배경(0.65s quint).
+   모바일(<768px): 햄버거로 알약이 아래로 펼쳐지며 링크가 큰 글씨로 세로 정렬된다. */
 
 .topbar {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
-  min-height: var(--header-height);
-  border-bottom: 1px solid transparent;
-  transition: background var(--dur) var(--ease),
-    border-color var(--dur) var(--ease);
+  height: var(--header-height);
+  pointer-events: none;
 }
 
-.topbar.is-scrolled {
-  border-bottom-color: var(--color-border);
-  background: color-mix(in srgb, var(--color-bg) 80%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+.topbar__bar {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-content: start;
+  /* 상단 상태: 콘텐츠 폭 + 좌우 24 (이름 글자가 콘텐츠 가장자리에 맞도록) */
+  width: calc(100% - 2 * var(--container-pad) + 2 * var(--space-3));
+  max-width: calc(var(--container-max) - 2 * var(--container-pad) + 2 * var(--space-3));
+  margin: var(--space-2) auto 0;
+  padding-inline: var(--space-2);
+  border-radius: var(--space-4);
+  pointer-events: auto;
+  transition: width var(--dur-nav) var(--ease-quint);
 }
 
-.topbar__inner {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  min-height: var(--header-height);
-  width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--container-pad);
+/* 알약 배경 — 스크롤하면 나타난다 */
+.topbar__bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+  -webkit-backdrop-filter: blur(1.5rem);
+  backdrop-filter: blur(1.5rem);
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.topbar.is-scrolled .topbar__bar {
+  width: min(24rem, calc(100% - var(--space-4)));
+}
+
+.topbar.is-scrolled .topbar__bar::before,
+.topbar.is-open .topbar__bar::before {
+  opacity: 1;
 }
 
 .topbar__name {
+  display: flex;
+  align-items: center;
+  min-height: 3.5rem;
+  padding-inline: var(--space-1);
+  font-size: var(--fs-600);
   font-weight: var(--fw-bold);
-  font-size: var(--fs-500);
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
   line-height: 1;
   white-space: nowrap;
 }
@@ -105,32 +129,14 @@ body {
 .nav {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
-  margin-left: auto;
+  gap: var(--space-2);
 }
 
 .nav a {
-  position: relative;
-  font-size: var(--fs-400);
-  font-weight: var(--fw-medium);
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
+  padding-inline: var(--space-1);
+  font-size: var(--fs-350);
   color: var(--color-text-muted);
-  padding-block: var(--space-1);
   transition: color var(--dur-fast) var(--ease);
-}
-
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: var(--color-accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--dur) var(--ease);
 }
 
 .nav a:hover,
@@ -139,53 +145,67 @@ body {
   color: var(--color-text);
 }
 
-.nav a.is-active::after {
-  transform: scaleX(1);
+.topbar__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 3.5rem;
+  color: var(--color-text);
 }
 
-@media (max-width: 640px) {
-  .topbar__inner {
-    gap: var(--space-2);
-  }
-  .topbar__name {
-    font-size: 1.5rem;
-  }
-  .nav {
-    gap: var(--space-2);
-  }
-  .nav a {
-    font-size: 1.0625rem;
-  }
+.topbar__toggle svg {
+  width: 1rem;
+  height: 1rem;
 }
 
-/* 320~440px: 이름 + 메뉴 3개가 한 줄에 들어가도록 축소 (Contact 잘림 방지) */
-@media (max-width: 440px) {
-  .topbar__inner {
-    gap: var(--space-1);
+.topbar__toggle .close,
+.topbar.is-open .topbar__toggle .bars {
+  display: none;
+}
+
+.topbar.is-open .topbar__toggle .close {
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .topbar.is-scrolled .topbar__bar {
+    width: clamp(32rem, 70%, 56rem);
   }
-  .topbar__name {
-    font-size: var(--fs-300);
-  }
-  .nav {
-    gap: var(--space-1);
-  }
-  .nav a {
-    font-size: var(--fs-200);
+  .topbar__toggle {
+    display: none;
   }
 }
 
-@media (max-width: 359px) {
-  .topbar__inner {
-    gap: var(--space-1);
-  }
-  .topbar__name {
-    font-size: var(--fs-200);
-  }
+@media (max-width: 767px) {
   .nav {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: stretch;
     gap: var(--space-1);
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 300ms ease-out, visibility 0s linear 300ms;
+  }
+  .topbar.is-open .nav {
+    max-height: 24rem;
+    padding-bottom: var(--space-3);
+    visibility: visible;
+    transition-delay: 0s;
   }
   .nav a {
-    font-size: var(--fs-100);
+    padding-block: var(--space-1);
+    font-size: var(--fs-600);
+    line-height: var(--lh-snug);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar__bar,
+  .topbar__bar::before,
+  .nav {
+    transition: none;
   }
 }
 
@@ -290,14 +310,12 @@ main > section {
   margin-bottom: var(--space-7);
 }
 
-/* 섹션 타이틀(Work/About/Contact): 35px · 레귤러 · 라인 없이 · 일관 */
+/* 섹션 라벨(Work/About/Contact): 20px · 레귤러 · 일반 대소문자 · 라인 없이 */
 .section-head h2 {
-  font-size: var(--fs-600);
-  font-weight: var(--fw-regular);
-  line-height: var(--lh-heading);
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
   margin: 0;
+  font-size: var(--fs-350);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
 }
 
 .section-head p {
@@ -307,100 +325,38 @@ main > section {
   font-size: var(--fs-300);
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (참고: wolffolins.com/work — 선언문 하나 + 서브, 그 외 텍스트 없음) ---------- */
 
 .hero {
-  padding-block: var(--space-9) var(--space-9);
+  padding-block: var(--space-8) var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-block: var(--space-12) var(--space-20);
+  }
 }
 
 .hero h1 {
-  max-width: 22ch;
+  max-width: 18em;
+  text-wrap: balance;
   font-size: var(--fs-700);
-  font-weight: var(--fw-semibold);
-  line-height: 1.05;
-  letter-spacing: var(--tracking-tight);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
 }
 
 .hero__statement {
-  margin-top: var(--space-4);
-  max-width: 52ch;
-  font-size: var(--fs-300);
-  font-weight: var(--fw-regular);
-  line-height: var(--lh-normal);
-  color: var(--color-text-muted);
-}
-
-/* 경력 흐름: Samsung.com Global → LG.com → Focus (장식 없이 타이포로만) */
-.hero__path {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-3);
-  margin-top: var(--space-6);
-  list-style: none;
-}
-
-.hero__path li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: var(--space-3);
-  align-items: start;
-}
-
-.hero__path-arrow {
-  grid-row: 1 / span 2;
-  color: var(--color-text-muted);
-}
-
-.hero__path li:first-child {
-  grid-template-columns: 1fr;
-}
-
-.hero__path-period {
-  font-size: var(--fs-50);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.hero__path-name {
-  font-size: var(--fs-200);
-  font-weight: var(--fw-semibold);
-}
-
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2) var(--space-4);
+  max-width: 40ch;
   margin-top: var(--space-5);
+  font-size: var(--fs-350);
+  line-height: var(--lh-snug);
+  color: var(--color-text-muted);
 }
 
-.hero__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  font-size: var(--fs-100);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-text);
-  border-bottom: 1px solid currentColor;
-  padding-bottom: var(--space-1);
-  transition: color var(--dur-fast) var(--ease);
-}
-
-.hero__cta .arrow {
-  transition: transform var(--dur) var(--ease);
-}
-
-.hero__cta:hover {
-  color: var(--color-accent);
-}
-
-.hero__cta:hover .arrow {
-  transform: translateX(4px);
-}
+/* 메인 페이지 텍스트 위계(한 스케일, 굵기는 regular — 위계는 크기 + 색으로):
+   L1 64 선언문(hero · About · Contact) / L2 35 타이틀(대표 프로젝트 · Working approach · 이메일)
+   L3 20 라벨 · 리드 · 목록 · 링크(섹션 라벨 · More work · 요약 · GNB) / L4 16 라벨(진하게) · 값(연하게) · 항목명 / L5 14 캡션 · 번호 */
 
 /* ---------- Work — 대표 프로젝트(.feature) + MORE WORK(.more-grid) ---------- */
 
@@ -464,23 +420,21 @@ main > section {
 }
 
 .feature__index {
-  font-size: var(--fs-50);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-label);
+  font-size: var(--fs-200);
+  font-weight: var(--fw-regular);
   color: var(--color-text-muted);
 }
 
 .feature__title {
   margin-top: var(--space-1);
-  font-size: var(--fs-500);
-  font-weight: var(--fw-semibold);
+  font-size: var(--fs-600);
+  font-weight: var(--fw-regular);
   line-height: var(--lh-heading);
   letter-spacing: var(--tracking-tight);
 }
 
 .feature__meta {
-  margin-top: var(--space-3);
-  border-top: var(--border-hairline);
+  margin-top: var(--space-4);
 }
 
 .feature__meta > div {
@@ -488,21 +442,18 @@ main > section {
   grid-template-columns: 8rem 1fr;
   align-items: baseline;
   gap: var(--space-2);
-  padding-block: var(--space-2);
-  border-bottom: var(--border-hairline);
-  font-size: var(--fs-100);
+  padding-block: var(--space-1);
+  font-size: var(--fs-200);
 }
 
 .feature__meta dt {
-  font-size: var(--fs-50);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
+  font-size: var(--fs-200);
+  font-weight: var(--fw-regular);
 }
 
 .feature__meta dd {
   margin: 0;
+  color: var(--color-text-muted);
 }
 
 .feature__text {
@@ -510,7 +461,9 @@ main > section {
 }
 
 .feature__summary {
-  max-width: 46ch;
+  max-width: 40ch;
+  font-size: var(--fs-350);
+  line-height: var(--lh-snug);
   color: var(--color-text-muted);
 }
 
@@ -587,11 +540,9 @@ main > section {
 
 .more-work__title {
   margin-bottom: var(--space-4);
-  font-size: var(--fs-100);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
+  font-size: var(--fs-350);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
 }
 
 .more-grid {
@@ -599,6 +550,8 @@ main > section {
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-4) var(--grid-gap);
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 @media (max-width: 900px) {
@@ -640,99 +593,98 @@ main > section {
 
 .more-item__title {
   margin-top: var(--space-1);
-  font-size: var(--fs-100);
-  font-weight: var(--fw-medium);
-  line-height: 1.3;
+  font-size: var(--fs-200);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
 }
 
 .more-item__meta {
   margin-top: var(--space-1);
-  font-size: var(--fs-50);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
+  font-size: var(--fs-100);
   color: var(--color-text-muted);
 }
 
-/* ---------- About ---------- */
+/* ---------- About / Contact (참고: wolffolins.com/about — 64px 선언문 + 라벨 + 2열/그리드) ---------- */
 
-.about-grid {
+.nowrap {
+  white-space: nowrap;
+}
+
+.about-statement,
+.contact-statement {
+  max-width: 18em;
+  text-wrap: balance;
+  font-size: var(--fs-700);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+}
+
+/* 라벨(진하게) 아래 값(연하게) — 4열 사실 목록 */
+.about-facts {
   display: grid;
-  gap: var(--space-9);
+  gap: var(--space-4) var(--grid-gap);
+  margin: var(--space-12) 0 0;
 }
 
 @media (min-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1.2fr 1fr;
-    gap: var(--space-12);
+  .about-facts {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.about-grid .section-head {
-  margin-bottom: var(--space-5);
+@media (min-width: 1024px) {
+  .about-facts {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-.prose {
-  max-width: 60ch;
-  font-size: var(--fs-300);
-  font-weight: var(--fw-regular);
-  line-height: var(--lh-normal);
-}
-
-.prose p + p {
-  margin-top: var(--space-2);
-}
-
-.prose a {
-  color: var(--color-accent);
-  text-underline-offset: 4px;
-  text-decoration: underline;
-}
-
-.summary-list {
-  border-top: var(--border-hairline);
-}
-
-.summary-list > div {
-  display: grid;
-  grid-template-columns: 8rem 1fr;
-  align-items: baseline;
-  gap: var(--space-2);
-  padding-block: var(--space-2);
-  border-bottom: var(--border-hairline);
+.about-facts dt {
   font-size: var(--fs-200);
+  font-weight: var(--fw-regular);
 }
 
-.summary-list dt {
-  font-size: var(--fs-50);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
+.about-facts dd {
+  margin: var(--space-1) 0 0;
+  font-size: var(--fs-200);
   color: var(--color-text-muted);
 }
 
-.summary-list dd {
-  margin: 0;
-}
-
-/* Working approach: About 하위의 작은 역량 목록 (대표 프로젝트보다 시각적 비중 낮게) */
+/* Working approach: 제목 | 설명 2열 → 번호가 붙은 3열 항목 */
 .approach {
   margin-top: var(--space-12);
 }
 
+.approach__head {
+  display: grid;
+  gap: var(--space-3) var(--grid-gap);
+}
+
+@media (min-width: 1024px) {
+  .approach__head {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .approach__title {
-  margin-bottom: var(--space-2);
-  font-size: var(--fs-100);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
+  font-size: var(--fs-600);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+}
+
+.approach__lead {
+  max-width: 40ch;
+  font-size: var(--fs-350);
+  line-height: var(--lh-snug);
 }
 
 .approach__list {
   display: grid;
-  grid-template-columns: 1fr;
-  column-gap: var(--grid-gap);
+  gap: var(--space-5) var(--grid-gap);
+  margin: var(--space-8) 0 0;
+  padding: 0;
   list-style: none;
+  counter-reset: approach;
 }
 
 @media (min-width: 768px) {
@@ -741,52 +693,71 @@ main > section {
   }
 }
 
-.approach__list li {
-  padding-block: var(--space-2);
-  border-bottom: var(--border-hairline);
-  font-size: var(--fs-200);
+@media (min-width: 1024px) {
+  .approach__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* ---------- Contact ---------- */
+.approach__list li {
+  font-size: var(--fs-350);
+  line-height: var(--lh-snug);
+  counter-increment: approach;
+}
 
+.approach__list li::before {
+  content: counter(approach, decimal-leading-zero);
+  display: block;
+  margin-bottom: var(--space-1);
+  font-size: var(--fs-100);
+  color: var(--color-text-muted);
+}
+
+/* Contact: 선언문 → 큰 이메일 링크 → 보조 링크 */
 .contact-links {
-  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-6) 0 0;
   padding: 0;
-  margin: 0;
-  border-top: var(--border-hairline);
-  max-width: var(--content-narrow);
+  list-style: none;
 }
 
 .contact-links a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: inline-flex;
+  align-items: baseline;
   gap: var(--space-2);
-  padding-block: var(--space-3);
-  border-bottom: var(--border-hairline);
-  font-size: var(--fs-400);
-  font-weight: var(--fw-medium);
-  color: var(--color-text);
+  font-size: var(--fs-350);
+  color: var(--color-text-muted);
   transition: color var(--dur-fast) var(--ease);
 }
 
 .contact-links a:hover {
-  color: var(--color-accent);
+  color: var(--color-text);
 }
 
-.contact-links .label-caps {
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-caps);
+.contact-links .contact-mail {
+  font-size: var(--fs-350);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) {
+  .contact-links .contact-mail {
+    font-size: var(--fs-600);
+  }
+}
+
+.contact-links .contact-mail:hover {
+  color: var(--color-accent);
 }
 
 .contact-links .ext {
-  font-size: var(--fs-200);
-  color: var(--color-text-muted);
-  transition: transform var(--dur) var(--ease), color var(--dur-fast) var(--ease);
+  transition: transform var(--dur) var(--ease);
 }
 
 .contact-links a:hover .ext {
-  color: var(--color-accent);
   transform: translate(2px, -2px);
 }
 
@@ -798,10 +769,8 @@ main > section {
   gap: var(--space-1);
   padding-bottom: var(--space-1);
   border-bottom: 1px solid var(--color-text);
-  font-size: var(--fs-100);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
+  font-size: var(--fs-200);
+  font-weight: var(--fw-regular);
   color: var(--color-text);
   transition: color var(--dur-fast) var(--ease),
     border-color var(--dur-fast) var(--ease);
@@ -810,17 +779,6 @@ main > section {
 .btn:hover {
   color: var(--color-accent);
   border-color: var(--color-accent);
-}
-
-.tag {
-  display: inline-block;
-  padding: var(--space-1) var(--space-2);
-  border: var(--border-hairline);
-  border-radius: var(--radius-pill);
-  font-size: var(--fs-100);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
 }
 
 /* ---------- Footer ---------- */
@@ -891,8 +849,7 @@ main > section {
   }
   .topbar,
   .floating-ctrl,
-  .skip-link,
-  .hero__actions {
+  .skip-link {
     display: none !important;
   }
   #work,

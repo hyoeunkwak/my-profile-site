@@ -1,6 +1,6 @@
 /* ============================================================
    main.js — 다섯 개의 독립 IIFE
-   1) 테마 토글  2) 스크롤 스파이  3) 스크롤 등장(reveal)  4) 헤더 스크롤 상태  5) 탑 버튼
+   1) 테마 토글  2) 스크롤 스파이  3) 스크롤 등장(reveal)  4) 헤더(알약 + 모바일 메뉴)  5) 탑 버튼
    각 IIFE는 필요한 요소가 없으면 즉시 return → 프로젝트 상세 페이지에서도 안전하게 로드된다.
    ============================================================ */
 
@@ -105,8 +105,8 @@
   });
 })();
 
-/* ---------- 4) 헤더 스크롤 상태 ---------- */
-(function headerState() {
+/* ---------- 4) 헤더: 스크롤 시 알약 모양 + 모바일 메뉴 ---------- */
+(function header() {
   var bar = document.querySelector(".topbar");
   if (!bar) return;
 
@@ -116,6 +116,35 @@
 
   update();
   window.addEventListener("scroll", update, { passive: true });
+
+  var btn = bar.querySelector(".topbar__toggle");
+  var nav = bar.querySelector(".nav");
+  if (!btn || !nav) return;
+
+  function setOpen(open) {
+    bar.classList.toggle("is-open", open);
+    btn.setAttribute("aria-expanded", String(open));
+    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+
+  btn.addEventListener("click", function () {
+    setOpen(!bar.classList.contains("is-open"));
+  });
+
+  nav.addEventListener("click", function (event) {
+    if (event.target.closest("a")) setOpen(false);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && bar.classList.contains("is-open")) {
+      setOpen(false);
+      btn.focus();
+    }
+  });
+
+  window.matchMedia("(min-width: 768px)").addEventListener("change", function (event) {
+    if (event.matches) setOpen(false);
+  });
 })();
 
 /* ---------- 5) 탑 버튼 (스크롤 후 표시 + 맨 위로) ---------- */

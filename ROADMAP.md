@@ -37,7 +37,7 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 
 ### 2. 디자인 설계
 - [x] 팔레트: **거의 모노크롬(화이트/잉크/그레이) + 미세한 블루**(기능 요소 한정) — 라이트/다크
-- [x] 헤더: **상단 고정 + 이름·메뉴만**, 스크롤 시 헤어라인+블러(`.is-scrolled`)
+- [x] 헤더(GNB, 참고 wolffolins.com): 상단 전폭 투명 바 → **스크롤 시 가운데 알약 + 블러**(650ms quint), 모바일 햄버거 펼침 메뉴
 - [x] **테마 토글은 우측 하단 플로팅 버튼**(상단바에서 분리)
 - [x] **단일 서체 Inter**(Aktiv Grotesk 스타일). 위계 = 사이즈(`--fs-50`~`--fs-700`) + 무게(`--fw-*`)
 - [x] **내용 제외 모든 타이틀·버튼·네비·탭·라벨 대문자**. 네비·탭 22px / 이름(HYOEUN K) 32px
@@ -45,6 +45,7 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] 작품 썸네일 비율 **3:2** (`--ratio-work`), 프로젝트 상세 와이드 16:9 (`--ratio-wide`), 모바일 결과물 9:16 (`--ratio-mobile`)
 - [x] Work 썸네일: **선 없이 프레임 가득**(플레이스홀더의 점선 프레임 제거) + **마우스오버 · 포커스 확대**(대표는 중앙 원형 → 버튼 추가, reduced-motion 대응)
 - [x] **간격 일관성**: `.container` 하나 + `--section-y` 통일 리듬, 헤어라인은 내부 컴포넌트만
+- [x] **메인 텍스트 위계 한 스케일**: 64 / 35 / 20 / 16 / 14, 굵기 regular(워드마크 bold), 대문자 · 12/17/22/32px · semibold 제거, 위계는 크기 + 색(진함/연함)으로
 - [x] **섹션 구분은 선 없이 배경 명암**(hero bg → Work surface → About bg → Contact surface → footer bg), 하위 제목 밑줄 · hero 경력 흐름 상단선 · footer 상단선 제거
 
 ### 3. 공통 CSS · 디자인 토큰
@@ -56,11 +57,11 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 ### 4. 메인 페이지 마크업 (`index.html`)
 - [x] `<head>` — 메타/OG(Samsung.com + LG.com 문구), favicon, Google Fonts, FOUC 방지 인라인 스크립트
 - [x] `.topbar` (이름 → `.nav`), `.theme-toggle`는 `<body>` 직속 플로팅
-- [x] `#hero` (h1 · 설명 · 경력 흐름 `.hero__path`(2022–2024 → 2025–Present) · CTA: View selected work)
+- [x] `#hero` — **헤드라인 + 서브만**(참고 wolffolins.com/work; 경력 흐름 · CTA 제거)
 - [x] `#work` — `<h2>Work</h2>` 하나 + 대표 프로젝트 `article.feature` 3건(중간 제목 없음, `View Project` 링크) + `h3 More work`(`ul.more-grid` 4건, 링크 없음)
 - [x] 노출하지 않는 프로젝트는 `data/projects.json`에 보존(featured / more / candidate / archive, HTML 주석 코드 없음)
-- [x] `#about` (짧은 소개 2문단 + `.summary-list` + **Working approach**) — 이력서 다운로드 링크는 실제 PDF 준비 전까지 숨김
-- [x] `#contact` (`.contact-links`)
+- [x] `#about` — 참고 wolffolins.com/about: 라벨 → 64px 선언문 → 4열 사실 → Working approach(제목|설명 + 번호 3열)
+- [x] `#contact` — 라벨 → 64px 선언문 → 큰 이메일 링크 + 보조 링크
 - [x] `.footer`
 
 ### 5. 메인 페이지 스타일 (`css/style.css`)
@@ -96,7 +97,7 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [ ] MORE WORK: RAC/Aircare Buying Guide · HVAC Main Page · B2B Commercial Laundry Page 연도, 기존 항목(Galaxy A15 · B2B Home Appliances Asset · EPP)과의 동일 여부, 남은 후보 2개(`candidate`) 승격 여부, 아카이브(Pocket Rice · World IT Show 2012 · Tripitaka 2011) 역할 서술·영문 명칭 검수
 - [ ] LinkedIn URL (미확정 → 목록에서 제외, 이전 값은 `index.html` 주석)
 - [ ] 실제 영문 이력서 PDF → `assets/resume.pdf` 추가 후 다운로드 링크 복원
-- [ ] bio 2문단 · summary-list(Tools · Experience "2012 – present") · 직함 확정
+- [ ] 선언문 · 사실 목록(Tools · Experience "2012 – present") · 직함 확정
 - [ ] `assets/favicon.svg` + `favicon.ico`, `assets/og-image.png`(이전 문구 "Product · Campaign · Visual" → 새 포지셔닝)
 - [x] `index.html`의 `og:url` / `og:image` → `https://hyoeunkwak.github.io/my-profile-site/` (커스텀 도메인 사용 시 재변경)
 

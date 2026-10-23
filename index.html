@@ -61,9 +61,15 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="topbar">
-    <div class="topbar__inner">
+    <div class="topbar__bar">
       <a class="topbar__name" href="#hero">Hyoeun K</a>
-      <nav class="nav" aria-label="Primary">
+      <button class="topbar__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path class="bars" d="M2 4.5h12M2 8h12M2 11.5h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          <path class="close" d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </button>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
         <a href="#work">Work</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -73,8 +79,7 @@
 
   <main id="main">
     <!-- ============ Hero ============ -->
-    <!-- TODO(review): h1 · 설명 문구 · 직함(Digital Designer) 확인.
-         경력 흐름 기간은 확정값: Samsung 프로젝트 2022.08–2024.12 / LG 프로젝트 2025.07–현재. -->
+    <!-- TODO(review): h1 · 설명 문구 · 직함(Digital Designer) 확인. (참고 사이트처럼 헤드라인 + 서브 외 텍스트 없음 — 경력 흐름 · CTA 제거) -->
     <section id="hero" class="hero">
       <div class="container">
         <h1>Designing global commerce experiences with clarity and consistency.</h1>
@@ -82,30 +87,6 @@
           Digital designer specializing in global e-commerce, design systems,
           and scalable content operations across Samsung.com and LG.com.
         </p>
-
-        <ol class="hero__path" aria-label="Career path">
-          <li>
-            <span class="hero__path-period">2022 – 2024</span>
-            <span class="hero__path-name">Samsung.com Global</span>
-          </li>
-          <li>
-            <span class="hero__path-arrow" aria-hidden="true">→</span>
-            <span class="hero__path-period">2025 – Present</span>
-            <span class="hero__path-name">LG.com</span>
-          </li>
-          <li>
-            <span class="hero__path-arrow" aria-hidden="true">→</span>
-            <span class="hero__path-period">Focus</span>
-            <span class="hero__path-name">Global commerce &amp; large-scale site operations</span>
-          </li>
-        </ol>
-
-        <div class="hero__actions">
-          <a class="hero__cta" href="#work">
-            View selected work <span class="arrow" aria-hidden="true">→</span>
-          </a>
-          <!-- TODO(review): 실제 영문 이력서 PDF 준비 후 "Download résumé" 링크(assets/resume.pdf)를 복원. 가상 인물 이력서는 제거함. -->
-        </div>
       </div>
     </section>
 
@@ -271,55 +252,49 @@
     </section>
 
     <!-- ============ About ============ -->
-    <!-- TODO(review): bio 2문단 · summary-list(Tools · Experience "2012 – present") 값 · 직함 확인.
+    <!-- TODO(review): 선언문 · Working approach 문구 · Tools · Experience "2012 – present" · 직함 확인.
          Clients 기간은 확정값(Samsung 2022–2024 / LG 2025–현재). -->
     <section id="about">
       <div class="container">
-        <div class="about-grid">
-          <div class="reveal">
-            <div class="section-head">
-              <h2>About</h2>
-            </div>
-            <div class="prose">
-              <p>
-                I'm a digital designer with experience in global commerce and
-                brand sites, from Samsung.com Global projects (2022–2024) to
-                LG.com (2025–present).
-              </p>
-              <p>
-                I work with design systems, global guidelines, localization and
-                design QA, and collaborate with planners, developers and
-                stakeholders across countries to keep large sites consistent and
-                scalable.
-              </p>
-            </div>
-          </div>
-
-          <div class="reveal">
-            <dl class="summary-list">
-              <div>
-                <dt>Focus</dt>
-                <dd>Global e-commerce · Design systems · Localization · Design QA</dd>
-              </div>
-              <div>
-                <dt>Tools</dt>
-                <dd>Figma · Photoshop · Illustrator · After Effects</dd>
-              </div>
-              <div>
-                <dt>Clients</dt>
-                <dd>Samsung.com Global (2022–2024) · LG.com (2025–present) · earlier: retail, healthcare, fashion, F&amp;B</dd>
-              </div>
-              <div>
-                <dt>Experience</dt>
-                <dd>2012 – present</dd>
-              </div>
-            </dl>
-          </div>
+        <div class="section-head reveal">
+          <h2>About</h2>
         </div>
+        <p class="about-statement reveal">
+          I'm a digital designer with experience in global commerce and brand
+          sites, from Samsung.com Global projects
+          <span class="nowrap">(2022–2024)</span> to LG.com
+          <span class="nowrap">(2025–present)</span>.
+        </p>
 
-        <!-- TODO(review): Working approach 7개 항목이 실제 업무 방식과 일치하는지 확인 -->
+        <dl class="about-facts reveal">
+          <div>
+            <dt>Focus</dt>
+            <dd>Global e-commerce · Design systems · Localization · Design QA</dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd>Figma · Photoshop · Illustrator · After Effects</dd>
+          </div>
+          <div>
+            <dt>Clients</dt>
+            <dd>Samsung.com Global (2022–2024) · LG.com (2025–present) · earlier: retail, healthcare, fashion, F&amp;B</dd>
+          </div>
+          <div>
+            <dt>Experience</dt>
+            <dd>2012 – present</dd>
+          </div>
+        </dl>
+
         <div class="approach reveal">
-          <h3 class="approach__title">Working approach</h3>
+          <div class="approach__head">
+            <h3 class="approach__title">Working approach</h3>
+            <p class="approach__lead">
+              I work with design systems, global guidelines, localization and
+              design QA, and collaborate with planners, developers and
+              stakeholders across countries to keep large sites consistent and
+              scalable.
+            </p>
+          </div>
           <ul class="approach__list">
             <li>Following and applying global design guidelines</li>
             <li>Component-based design</li>
@@ -339,11 +314,14 @@
       <div class="container">
         <div class="section-head reveal">
           <h2>Contact</h2>
-          <p>Open to global commerce and design operations opportunities, and to product page, campaign and content design enquiries.</p>
         </div>
+        <p class="contact-statement reveal">
+          Open to global commerce and design operations opportunities, and to
+          product page, campaign and content design enquiries.
+        </p>
         <ul class="contact-links reveal">
           <li>
-            <a href="mailto:hyoeunkwak@gmail.com">
+            <a class="contact-mail" href="mailto:hyoeunkwak@gmail.com">
               <span>hyoeunkwak@gmail.com</span>
               <span class="ext" aria-hidden="true">↗</span>
             </a>
@@ -354,12 +332,6 @@
               <span class="ext" aria-hidden="true">↗</span>
             </a>
           </li>
-          <!-- <li>
-            <a href="https://hyoeunkwak.myportfolio.com" rel="noopener" target="_blank">
-              <span class="label-caps">Portfolio</span>
-              <span class="ext" aria-hidden="true">↗</span>
-            </a>
-          </li> -->
         </ul>
       </div>
     </section>

@@ -55,9 +55,15 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="topbar">
-    <div class="topbar__inner">
+    <div class="topbar__bar">
       <a class="topbar__name" href="../index.html">Hyoeun K</a>
-      <nav class="nav" aria-label="Primary">
+      <button class="topbar__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path class="bars" d="M2 4.5h12M2 8h12M2 11.5h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          <path class="close" d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </button>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
         <a class="is-active" href="../index.html#work" aria-current="page">Work</a>
         <a href="../index.html#about">About</a>
         <a href="../index.html#contact">Contact</a>
