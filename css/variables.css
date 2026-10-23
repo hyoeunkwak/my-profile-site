@@ -52,28 +52,29 @@
   --tracking-caps: 0.02em;   /* 대문자 타이틀 */
   --tracking-label: 0.06em;  /* 대문자 소형 라벨 */
 
-  /* --- 간격 스케일 (0.25rem 단위) --- */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.5rem;
-  --space-6: 2rem;
-  --space-8: 2.5rem;
-  --space-10: 3.5rem;
-  --space-12: 4.5rem;
-  --space-16: 6rem;
-  --space-20: 8rem;
-  --space-24: 10rem;
+  /* --- 간격 스케일: 8px 배수만 사용 (--space-N = N × 8px) --- */
+  --space-1: 0.5rem;   /*   8 */
+  --space-2: 1rem;     /*  16 */
+  --space-3: 1.5rem;   /*  24 */
+  --space-4: 2rem;     /*  32 */
+  --space-5: 2.5rem;   /*  40 */
+  --space-6: 3rem;     /*  48 */
+  --space-7: 3.5rem;   /*  56 */
+  --space-8: 4rem;     /*  64 */
+  --space-9: 4.5rem;   /*  72 */
+  --space-10: 5rem;    /*  80 */
+  --space-12: 6rem;    /*  96 */
+  --space-16: 8rem;    /* 128 */
+  --space-20: 10rem;   /* 160 */
 
-  /* --- 레이아웃 --- */
-  --container-max: 88rem;
-  --container-pad: clamp(1.25rem, 0.5rem + 3vw, 3.5rem);
-  --content-narrow: 46rem;
-  --section-y: clamp(4rem, 2rem + 8vw, 9rem);
-  --grid-gap: clamp(0.75rem, 0.3rem + 1.5vw, 1.5rem);
+  /* --- 레이아웃 (화면 폭에 따라 연속 변화하지 않고 8배수 단계로만 변경) --- */
+  --container-max: 88rem;            /* 1408 */
+  --container-pad: var(--space-3);   /* 24 → 768px↑ 40 → 1280px↑ 56 */
+  --content-narrow: 46rem;           /* 736 */
+  --section-y: var(--space-8);       /* 64 → 768px↑ 96 → 1280px↑ 128 */
+  --grid-gap: var(--space-2);        /* 16 → 768px↑ 24 → 1280px↑ 32 */
   --col-gap: var(--grid-gap);
-  --header-height: 4.5rem;
+  --header-height: 4.5rem;           /* 72 → 768px↑ 88 */
   --ratio-work: 3 / 2;
   --ratio-wide: 16 / 9;    /* 프로젝트 상세 와이드 이미지 */
   --ratio-mobile: 9 / 16;  /* 프로젝트 상세 모바일 결과물 */
@@ -96,9 +97,26 @@
   color-scheme: light;
 }
 
+@media (max-width: 359px) {
+  :root {
+    --container-pad: var(--space-2);
+  }
+}
+
 @media (min-width: 768px) {
   :root {
     --header-height: 5.5rem;
+    --container-pad: var(--space-5);
+    --section-y: var(--space-12);
+    --grid-gap: var(--space-3);
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-pad: var(--space-7);
+    --section-y: var(--space-16);
+    --grid-gap: var(--space-4);
   }
 }
 

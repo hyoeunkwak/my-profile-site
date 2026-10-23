@@ -43,11 +43,14 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] **내용 제외 모든 타이틀·버튼·네비·탭·라벨 대문자**. 네비·탭 22px / 이름(HYOEUN K) 32px
 - [x] Work: **대표 프로젝트 3(첫 항목 전폭 + 이후 좌우 교차) + MORE WORK 8(작은 썸네일, 4열 × 2행 → 2열 → 1열)**
 - [x] 작품 썸네일 비율 **3:2** (`--ratio-work`), 프로젝트 상세 와이드 16:9 (`--ratio-wide`), 모바일 결과물 9:16 (`--ratio-mobile`)
+- [x] Work 썸네일: **선 없이 프레임 가득**(플레이스홀더의 점선 프레임 제거) + **마우스오버 · 포커스 확대**(대표는 중앙 원형 → 버튼 추가, reduced-motion 대응)
 - [x] **간격 일관성**: `.container` 하나 + `--section-y` 통일 리듬, 헤어라인은 내부 컴포넌트만
+- [x] **섹션 구분은 선 없이 배경 명암**(hero bg → Work surface → About bg → Contact surface → footer bg), 하위 제목 밑줄 · hero 경력 흐름 상단선 · footer 상단선 제거
 
 ### 3. 공통 CSS · 디자인 토큰
 - [x] `css/reset.css`
 - [x] `css/variables.css` — 색(3중 정의) / 타이포 / 간격 / 레이아웃(`--header-height`) / 비율 / 모션(`--ease`)
+- [x] **8px 간격 체계**: `--space-N` = N×8px(4px·12px 토큰 제거), 컨테이너 패딩 · 섹션 패딩 · 그리드 갭을 연속 `clamp()`에서 **8배수 단계값**(768px / 1280px)으로 전환, 라벨 광학 패딩 → `align-items: baseline`, 상세 페이지 섹션 상하 여백 확대(64 → 96). 모든 요소의 computed margin/padding/gap 8배수 검수 통과(375/768/1280/1518px)
 - [x] `css/style.css` 공통부 — 고정 topbar, 본문 오프셋(`body padding-top` + `scroll-padding-top`), footer, `.reveal`, `@media print`
 
 ### 4. 메인 페이지 마크업 (`index.html`)
@@ -120,9 +123,11 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 ### 12. 프로젝트 상세
 대표 3건 구조·카피 구현 완료, 이미지는 플레이스홀더.
 - [x] `css/work.css` (Project Hero · 메타 · 섹션 · 갤러리/풀블리드 · Project Navigation)
-- [x] `work/_template.html` (Hero(대표 이미지) → Context → My Role → Design Approach → What I Designed → Final Deliverables → Project Notes → Project Navigation)
+- [x] 상세 페이지 내용 글 **영문(좌) · 국문(우) 2단**(국문은 브리프 원문, 모바일은 쌓임) + **헤어라인 제거**(여백·배경 밴드로 구분), 목록 들여쓰기 수정
+- [x] `work/_template.html` (Hero(대표 이미지 + 메타 표: Contribution · Constraints · Deliverables) → What I Designed → Final Deliverables → Project Notes(Key decisions · Takeaway) → Project Navigation) — **Context · My Role · Design Approach 폐지, 텍스트는 메타 표와 Project Notes 두 곳**
+- [x] More Projects: 이전/다음을 **이미지 아래에 제목**을 두는 카드로 변경(이미지 위 글씨 + 스크림 방식 폐기), Back to Work
 - [x] `work/switch-to-galaxy.html` / `data-center-solutions.html` / `smartthings-compatible-devices.html` (Previous / Next 순환, Back to Work)
-- [ ] 이미지·캡션·alt 를 실제 원본 기준으로 교체 (캡션 초안은 현재 반영됨)
+- [ ] 이미지·캡션(영문/국문)·alt 를 실제 원본 기준으로 교체 (캡션 초안은 현재 반영됨, 국문 캡션은 번역본이라 검수)
 - [ ] 미확인 항목 확정 후 해당 섹션에 반영 (화면에 표시하지 않던 항목은 확정되면 추가)
 - [ ] 이후 프로젝트 추가 시: README의 "프로젝트 추가" 절차
 
