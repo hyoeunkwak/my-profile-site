@@ -75,6 +75,8 @@
   --col-gap: var(--grid-gap);
   --header-height: 4.5rem;
   --ratio-work: 3 / 2;
+  --ratio-wide: 16 / 9;    /* 프로젝트 상세 와이드 이미지 */
+  --ratio-mobile: 9 / 16;  /* 프로젝트 상세 모바일 결과물 */
 
   /* --- 형태 --- */
   --radius: 2px;

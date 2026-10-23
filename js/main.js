@@ -1,8 +1,7 @@
 /* ============================================================
-   main.js — 여섯 개의 독립 IIFE
-   1) 테마 토글  2) 스크롤 스파이  3) 스크롤 등장(reveal)  4) 작품 필터
-   5) 헤더 스크롤 상태  6) 탑 버튼
-   각 IIFE는 필요한 요소가 없으면 즉시 return → 케이스 스터디 페이지에서도 안전하게 로드된다.
+   main.js — 다섯 개의 독립 IIFE
+   1) 테마 토글  2) 스크롤 스파이  3) 스크롤 등장(reveal)  4) 헤더 스크롤 상태  5) 탑 버튼
+   각 IIFE는 필요한 요소가 없으면 즉시 return → 프로젝트 상세 페이지에서도 안전하게 로드된다.
    ============================================================ */
 
 /* ---------- 1) 테마 토글 ---------- */
@@ -25,7 +24,7 @@
     btn.setAttribute("aria-pressed", String(isDark));
     btn.setAttribute(
       "aria-label",
-      isDark ? "라이트 모드로 전환" : "다크 모드로 전환"
+      isDark ? "Switch to light mode" : "Switch to dark mode"
     );
   }
 
@@ -106,33 +105,7 @@
   });
 })();
 
-/* ---------- 4) 작품 필터 ---------- */
-(function workFilter() {
-  var filters = document.querySelector(".filters");
-  if (!filters) return;
-
-  var buttons = filters.querySelectorAll("[data-filter]");
-  var items = document.querySelectorAll(".work-item[data-category]");
-  if (!buttons.length || !items.length) return;
-
-  filters.addEventListener("click", function (event) {
-    var btn = event.target.closest("[data-filter]");
-    if (!btn) return;
-
-    var filter = btn.getAttribute("data-filter");
-
-    buttons.forEach(function (b) {
-      b.setAttribute("aria-pressed", String(b === btn));
-    });
-
-    items.forEach(function (item) {
-      var match = filter === "all" || item.getAttribute("data-category") === filter;
-      item.hidden = !match;
-    });
-  });
-})();
-
-/* ---------- 5) 헤더 스크롤 상태 ---------- */
+/* ---------- 4) 헤더 스크롤 상태 ---------- */
 (function headerState() {
   var bar = document.querySelector(".topbar");
   if (!bar) return;
@@ -145,7 +118,7 @@
   window.addEventListener("scroll", update, { passive: true });
 })();
 
-/* ---------- 6) 탑 버튼 (스크롤 후 표시 + 맨 위로) ---------- */
+/* ---------- 5) 탑 버튼 (스크롤 후 표시 + 맨 위로) ---------- */
 (function toTop() {
   var btn = document.querySelector(".to-top");
   if (!btn) return;

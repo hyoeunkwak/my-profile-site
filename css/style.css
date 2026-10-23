@@ -158,6 +158,37 @@ body {
   }
 }
 
+/* 320~440px: 이름 + 메뉴 3개가 한 줄에 들어가도록 축소 (Contact 잘림 방지) */
+@media (max-width: 440px) {
+  .topbar__inner {
+    gap: var(--space-2);
+  }
+  .topbar__name {
+    font-size: var(--fs-300);
+  }
+  .nav {
+    gap: var(--space-3);
+  }
+  .nav a {
+    font-size: var(--fs-200);
+  }
+}
+
+@media (max-width: 340px) {
+  .topbar__inner {
+    gap: var(--space-2);
+  }
+  .topbar__name {
+    font-size: var(--fs-200);
+  }
+  .nav {
+    gap: var(--space-2);
+  }
+  .nav a {
+    font-size: var(--fs-100);
+  }
+}
+
 /* ---------- 우측 하단 플로팅 컨트롤 (다크모드 → 탑 순) ---------- */
 
 .floating-ctrl {
@@ -203,12 +234,14 @@ body {
 /* 탑 버튼은 스크롤 후에만 표시 */
 .to-top {
   opacity: 0;
+  visibility: hidden; /* 숨겨진 동안 키보드 포커스도 받지 않도록 */
   pointer-events: none;
   transform: translateY(6px);
 }
 
 .to-top.is-visible {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   transform: none;
 }
@@ -275,7 +308,7 @@ main > section {
 }
 
 .hero h1 {
-  max-width: 16ch;
+  max-width: 22ch;
   font-size: var(--fs-700);
   font-weight: var(--fw-semibold);
   line-height: 1.05;
@@ -284,18 +317,65 @@ main > section {
 
 .hero__statement {
   margin-top: var(--space-6);
-  max-width: 46ch;
+  max-width: 52ch;
   font-size: var(--fs-300);
   font-weight: var(--fw-regular);
   line-height: var(--lh-normal);
   color: var(--color-text-muted);
 }
 
+/* 경력 흐름: Samsung.com Global → LG.com → Focus (장식 없이 타이포로만) */
+.hero__path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-5);
+  margin-top: var(--space-8);
+  padding: var(--space-4) 0 0;
+  border-top: var(--border-hairline);
+  list-style: none;
+}
+
+.hero__path li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-5);
+  align-items: start;
+}
+
+.hero__path-arrow {
+  grid-row: 1 / span 2;
+  color: var(--color-text-muted);
+}
+
+.hero__path li:first-child {
+  grid-template-columns: 1fr;
+}
+
+.hero__path-period {
+  font-size: var(--fs-50);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.hero__path-name {
+  font-size: var(--fs-200);
+  font-weight: var(--fw-semibold);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+  margin-top: var(--space-8);
+}
+
 .hero__cta {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  margin-top: var(--space-8);
   font-size: var(--fs-100);
   font-weight: var(--fw-semibold);
   letter-spacing: var(--tracking-label);
@@ -318,116 +398,215 @@ main > section {
   transform: translateX(4px);
 }
 
-/* ---------- Work — 탭 + 배경 패널 4열 그리드 ---------- */
+/* ---------- Work — 대표 프로젝트(.feature) + MORE WORK(.more-grid) ---------- */
 
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-6);
-  margin-bottom: var(--space-6);
-}
-
-.filter-btn {
-  padding-block: var(--space-2);
-  border-bottom: 2px solid transparent;
-  font-size: var(--fs-400);
-  font-weight: var(--fw-medium);
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  transition: color var(--dur-fast) var(--ease),
-    border-color var(--dur-fast) var(--ease);
-}
-
-.filter-btn:hover {
-  color: var(--color-text);
-}
-
-.filter-btn[aria-pressed="true"] {
-  color: var(--color-text);
-  border-bottom-color: var(--color-accent);
-}
-
-@media (max-width: 640px) {
-  .filters {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: var(--space-5);
-    scrollbar-width: none;
-  }
-  .filters::-webkit-scrollbar {
-    display: none;
-  }
-  .filter-btn {
-    font-size: 1.0625rem;
-    white-space: nowrap;
-  }
-}
-
-.work-grid {
+/* 대표 프로젝트: 큰 이미지 + 메타 + 짧은 설명. 모바일은 세로, 768px↑는 12열(이미지 7 / 텍스트 4),
+   짝수 항목은 좌우 반전, 첫 항목(.feature--lead)은 1024px↑에서 이미지를 전폭으로 두고 텍스트를 아래 3단으로 배치 */
+.feature {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-10) var(--grid-gap);
-  align-content: start;
+  gap: var(--space-5);
 }
 
-@media (max-width: 900px) {
-  .work-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.feature + .feature {
+  margin-top: var(--space-16);
 }
 
-@media (max-width: 520px) {
-  .work-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.work-item {
-  margin: 0;
-}
-
-.work-item[hidden] {
-  display: none;
-}
-
-.work-item__frame {
+.feature__media {
   display: block;
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--color-bg);
 }
 
-.work-item__frame img {
+.feature__media img {
   width: 100%;
   aspect-ratio: var(--ratio-work);
   object-fit: cover;
   transition: transform var(--dur-slow) var(--ease);
 }
 
-.work-item:hover .work-item__frame img {
-  transform: scale(1.03);
+.feature:hover .feature__media img {
+  transform: scale(1.02);
 }
 
-.work-item figcaption {
-  margin-top: var(--space-3);
+.feature__index {
+  font-size: var(--fs-50);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-text-muted);
 }
 
-.work-item__title {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  min-height: 2.5em; /* 캡션 높이 정렬 (2줄 기준) */
+.feature__title {
+  margin-top: var(--space-2);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-tight);
+}
+
+.feature__meta {
+  margin-top: var(--space-5);
+  border-top: var(--border-hairline);
+}
+
+.feature__meta > div {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-bottom: var(--border-hairline);
+  font-size: var(--fs-100);
+}
+
+.feature__meta dt {
+  font-size: var(--fs-50);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-top: 0.2em;
+}
+
+.feature__meta dd {
+  margin: 0;
+}
+
+.feature__text {
+  margin-top: var(--space-5);
+}
+
+.feature__summary {
+  max-width: 46ch;
+  color: var(--color-text-muted);
+}
+
+.feature .btn {
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .feature {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--col-gap);
+    align-items: center;
+  }
+  .feature__media {
+    grid-column: 1 / span 7;
+  }
+  .feature__body {
+    grid-column: 9 / span 4;
+  }
+  .feature:nth-of-type(even) .feature__media {
+    grid-column: 6 / span 7;
+    grid-row: 1;
+  }
+  .feature:nth-of-type(even) .feature__body {
+    grid-column: 1 / span 4;
+    grid-row: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .feature--lead {
+    grid-template-columns: 1fr;
+    align-items: start;
+    row-gap: var(--space-6);
+  }
+  .feature--lead .feature__media,
+  .feature--lead .feature__body {
+    grid-column: 1 / -1;
+  }
+  .feature--lead .feature__media img {
+    aspect-ratio: var(--ratio-wide);
+  }
+  .feature--lead .feature__body {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--col-gap);
+    align-items: start;
+  }
+  .feature--lead .feature__head {
+    grid-column: 1 / span 5;
+  }
+  .feature--lead .feature__meta {
+    grid-column: 6 / span 4;
+    margin-top: 0;
+  }
+  .feature--lead .feature__text {
+    grid-column: 10 / span 3;
+    margin-top: 0;
+  }
+}
+
+/* 텍스트 칸이 좁은 768~1099px: 라벨을 값 위로 쌓아 값 칼럼이 짓눌리지 않게 */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .feature__meta > div {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}
+
+/* MORE WORK: 대표 프로젝트보다 작은 썸네일 · 가벼운 캡션 (링크 없음) */
+.more-work {
+  margin-top: var(--space-20);
+}
+
+.more-work__title {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-3);
+  border-bottom: var(--border-hairline);
   font-size: var(--fs-100);
   font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-caps);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  line-height: 1.25;
+  color: var(--color-text-muted);
 }
 
-.work-item__cat {
+.more-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6) var(--grid-gap);
+  list-style: none;
+}
+
+@media (max-width: 900px) {
+  .more-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .more-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.more-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.more-item__frame {
   display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--color-bg);
+}
+
+.more-item__frame img {
+  width: 100%;
+  aspect-ratio: var(--ratio-work);
+  object-fit: cover;
+}
+
+.more-item__title {
+  margin-top: var(--space-2);
+  font-size: var(--fs-100);
+  font-weight: var(--fw-medium);
+  line-height: 1.3;
+}
+
+.more-item__meta {
   margin-top: var(--space-1);
   font-size: var(--fs-50);
   letter-spacing: var(--tracking-label);
@@ -470,10 +649,6 @@ main > section {
   text-decoration: underline;
 }
 
-.about-actions {
-  margin-top: var(--space-8);
-}
-
 .summary-list {
   border-top: var(--border-hairline);
 }
@@ -498,6 +673,40 @@ main > section {
 
 .summary-list dd {
   margin: 0;
+}
+
+/* Working approach: About 하위의 작은 역량 목록 (대표 프로젝트보다 시각적 비중 낮게) */
+.approach {
+  margin-top: var(--space-16);
+}
+
+.approach__title {
+  padding-bottom: var(--space-3);
+  border-bottom: var(--border-hairline);
+  font-size: var(--fs-100);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.approach__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: var(--grid-gap);
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .approach__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.approach__list li {
+  padding-block: var(--space-3);
+  border-bottom: var(--border-hairline);
+  font-size: var(--fs-200);
 }
 
 /* ---------- Contact ---------- */
@@ -611,16 +820,6 @@ main > section {
   transform: none;
 }
 
-.work-grid .work-item.reveal:nth-child(4n + 2) {
-  transition-delay: 40ms;
-}
-.work-grid .work-item.reveal:nth-child(4n + 3) {
-  transition-delay: 80ms;
-}
-.work-grid .work-item.reveal:nth-child(4n + 4) {
-  transition-delay: 120ms;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -643,8 +842,7 @@ main > section {
   .topbar,
   .floating-ctrl,
   .skip-link,
-  .hero__cta,
-  .filters {
+  .hero__actions {
     display: none !important;
   }
   #work,

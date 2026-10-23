@@ -1,0 +1,211 @@
+{
+ "_note": "프로젝트 데이터 보존용(사이트가 읽지 않음). display: featured(메인 대표) / more(MORE WORK 노출) / candidate(MORE WORK 후보 — 콘텐츠·이미지 준비 후 승격) / archive(EARLIER WORK). thumb 은 assets/img/work/ 기준. category·year 가 null 이면 미확인(TODO(review)). title 은 확정 브리프 표기이며 todo 가 있는 항목은 기존 항목과의 동일성 확인 필요.",
+ "projects": [
+  {
+   "id": 4,
+   "title": "Switch to Galaxy",
+   "client": "Samsung Electronics / Samsung.com",
+   "category": "Campaign",
+   "year": 2024,
+   "thumb": "thumb-4.svg",
+   "display": "featured",
+   "order": 1,
+   "detail": "work/switch-to-galaxy.html"
+  },
+  {
+   "id": 21,
+   "title": "Data Center Solutions",
+   "client": "LG Electronics / LG.com B2B",
+   "category": "B2B content",
+   "year": 2026,
+   "thumb": null,
+   "display": "featured",
+   "order": 2,
+   "detail": "work/data-center-solutions.html",
+   "todo": "정확한 기간 · 런칭 상태"
+  },
+  {
+   "id": 3,
+   "title": "SmartThings Compatible Devices",
+   "client": "Samsung Electronics / Samsung.com",
+   "category": "UX/UI",
+   "year": 2024,
+   "thumb": "thumb-3.svg",
+   "display": "featured",
+   "order": 3,
+   "detail": "work/smartthings-compatible-devices.html"
+  },
+  {
+   "id": 16,
+   "title": "LG RAC / Aircare Buying Guide",
+   "client": "LG.com",
+   "category": "Buying guide",
+   "year": null,
+   "thumb": "thumb-16.svg",
+   "display": "more",
+   "order": 1,
+   "todo": "연도 · 공개 가능 여부"
+  },
+  {
+   "id": 1,
+   "title": "LG Flatbed Microwave Oven PDP",
+   "client": "LG.com",
+   "category": "Product page",
+   "year": 2026,
+   "thumb": "thumb-1.svg",
+   "display": "more",
+   "order": 2
+  },
+  {
+   "id": 6,
+   "title": "#YouMake 2H Promotion",
+   "client": "Samsung.com",
+   "category": "Campaign",
+   "year": 2023,
+   "thumb": "thumb-6.svg",
+   "display": "more",
+   "order": 3,
+   "todo": "기존 \"#YouMake 2023 Campaign\" 항목과 동일 프로젝트로 취급"
+  },
+  {
+   "id": 17,
+   "title": "LG Global / PH HVAC Main Page",
+   "client": "LG.com",
+   "category": "Main page",
+   "year": null,
+   "thumb": "thumb-17.svg",
+   "display": "more",
+   "order": 4,
+   "todo": "연도 · 공개 가능 여부"
+  },
+  {
+   "id": 9,
+   "title": "Galaxy A15 LTE / 5G PDP",
+   "client": "Samsung.com",
+   "category": "Product page",
+   "year": 2023,
+   "thumb": "thumb-9.svg",
+   "display": "more",
+   "todo": "기존 \"Galaxy A15 Product Page\" 와 동일 여부",
+   "order": 5
+  },
+  {
+   "id": 18,
+   "title": "LG B2B Commercial Laundry Page",
+   "client": "LG.com B2B",
+   "category": "B2B page",
+   "year": null,
+   "thumb": "thumb-18.svg",
+   "display": "more",
+   "order": 6
+  },
+  {
+   "id": 8,
+   "title": "Samsung B2B Home Appliances Asset",
+   "client": "Samsung.com",
+   "category": "Visual",
+   "year": 2023,
+   "thumb": "thumb-8.svg",
+   "display": "more",
+   "todo": "기존 \"Home Appliances B2B Key Visual\" 와 동일 여부",
+   "order": 7
+  },
+  {
+   "id": 7,
+   "title": "EPP Flash Sale Campaign",
+   "client": "Samsung.com",
+   "category": "Campaign",
+   "year": 2023,
+   "thumb": "thumb-7.svg",
+   "display": "more",
+   "order": 8
+  },
+  {
+   "id": 5,
+   "title": "Galaxy Watch7 / X2 Bands",
+   "client": "Samsung.com",
+   "category": "Product page",
+   "year": 2024,
+   "thumb": "thumb-5.svg",
+   "display": "candidate",
+   "todo": "기존 \"Watch Bands Product Page\" 와 동일 여부"
+  },
+  {
+   "id": 19,
+   "title": "LG AX-R Washing Machine PDP (Africa)",
+   "client": "LG.com",
+   "category": "Product page",
+   "year": null,
+   "thumb": null,
+   "display": "candidate"
+  },
+  {
+   "id": 12,
+   "title": "Pocket Rice Season 1, 2 — F&B Product Design",
+   "category": "Product Design",
+   "year": 2019,
+   "thumb": "thumb-12.svg",
+   "display": "archive",
+   "todo": "기존 \"F&B Product Design\" 와 동일 여부"
+  },
+  {
+   "id": 15,
+   "title": "World IT Show 2012 — KT Exhibition Graphics",
+   "category": "Graphic",
+   "year": 2012,
+   "thumb": "thumb-15.svg",
+   "display": "archive",
+   "todo": "공동작업 및 현장 핸들링 — 역할 서술 검수 필요"
+  },
+  {
+   "id": 20,
+   "title": "2011 Tripitaka Koreana Millennium Festival — Exhibition Graphics for the Knowledge Civilization Hall",
+   "category": "Graphic",
+   "year": 2011,
+   "thumb": null,
+   "display": "archive",
+   "todo": "공식 영문 명칭 확인 필요"
+  },
+  {
+   "id": 2,
+   "title": "Editorial",
+   "category": "Visual",
+   "year": 2026,
+   "thumb": "thumb-2.svg",
+   "display": "archive"
+  },
+  {
+   "id": 10,
+   "title": "OLED TV S95C · S90C Product Page",
+   "client": "Samsung.com",
+   "category": "Product page",
+   "year": 2022,
+   "thumb": "thumb-10.svg",
+   "display": "archive"
+  },
+  {
+   "id": 11,
+   "title": "Healthcare Contents & Marketing",
+   "category": "Content",
+   "year": 2021,
+   "thumb": "thumb-11.svg",
+   "display": "archive"
+  },
+  {
+   "id": 13,
+   "title": "Fashion Contents",
+   "category": "Content",
+   "year": 2017,
+   "thumb": "thumb-13.svg",
+   "display": "archive"
+  },
+  {
+   "id": 14,
+   "title": "Retail CRM & Marketing",
+   "category": "CRM",
+   "year": 2016,
+   "thumb": "thumb-14.svg",
+   "display": "archive"
+  }
+ ]
+}

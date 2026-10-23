@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hyoeun Kwak — Digital Designer</title>
+  <title>Hyoeun Kwak — Digital Designer · Samsung.com &amp; LG.com</title>
+  <!-- TODO(review): 메타 설명 · OG 문구(Samsung.com + LG.com 경력 표기) 확인 -->
   <meta
     name="description"
-    content="Hyoeun Kwak is a digital designer working on e-commerce product pages and brand campaigns — Samsung.com product pages and campaign visuals, and earlier work across retail, healthcare, fashion and F&B."
+    content="Hyoeun Kwak is a digital designer specializing in global e-commerce, design systems, and scalable content operations across Samsung.com and LG.com."
   />
   <meta name="author" content="Hyoeun Kwak" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hyoeun Kwak — Digital Designer" />
+  <meta property="og:title" content="Hyoeun Kwak — Digital Designer · Samsung.com &amp; LG.com" />
   <meta
     property="og:description"
-    content="Digital designer working on e-commerce product pages and brand campaigns. 15 projects, 2012–2026."
+    content="Digital designer specializing in global e-commerce, design systems, and scalable content operations across Samsung.com and LG.com."
   />
-  <meta property="og:image" content="assets/og-image.png" />
-  <meta property="og:url" content="https://example.github.io/portfolio/" />
+  <!-- TODO(review): og:url · og:image 는 현재 GitHub Pages 주소(hyoeunkwak.github.io/my-profile-site) 기준 —
+       커스텀 도메인을 쓰면 교체. assets/og-image.png 는 이전 문구("Product · Campaign · Visual")의 플레이스홀더 — 교체 필요. -->
+  <meta property="og:image" content="https://hyoeunkwak.github.io/my-profile-site/assets/og-image.png" />
+  <meta property="og:url" content="https://hyoeunkwak.github.io/my-profile-site/" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -70,179 +73,203 @@
 
   <main id="main">
     <!-- ============ Hero ============ -->
-    <!-- TODO(review): h1 문구 · 스테이트먼트 · 직함(Digital Designer) 확인 -->
+    <!-- TODO(review): h1 · 설명 문구 · 직함(Digital Designer) 확인.
+         경력 흐름 기간은 확정값: Samsung 프로젝트 2022.08–2024.12 / LG 프로젝트 2025.07–현재. -->
     <section id="hero" class="hero">
       <div class="container">
-        <h1>Complex products, clearer screens.</h1>
+        <h1>Designing global commerce experiences with clarity and consistency.</h1>
         <p class="hero__statement">
-          I'm a digital designer focused on e-commerce product pages and brand
-          campaigns. Since 2022 I've designed product pages and campaign visuals
-          for Samsung.com.
+          Digital designer specializing in global e-commerce, design systems,
+          and scalable content operations across Samsung.com and LG.com.
         </p>
-        <a class="hero__cta" href="#work">
-          Selected work <span class="arrow" aria-hidden="true">→</span>
-        </a>
+
+        <ol class="hero__path" aria-label="Career path">
+          <li>
+            <span class="hero__path-period">2022 – 2024</span>
+            <span class="hero__path-name">Samsung.com Global</span>
+          </li>
+          <li>
+            <span class="hero__path-arrow" aria-hidden="true">→</span>
+            <span class="hero__path-period">2025 – Present</span>
+            <span class="hero__path-name">LG.com</span>
+          </li>
+          <li>
+            <span class="hero__path-arrow" aria-hidden="true">→</span>
+            <span class="hero__path-period">Focus</span>
+            <span class="hero__path-name">Global commerce &amp; large-scale site operations</span>
+          </li>
+        </ol>
+
+        <div class="hero__actions">
+          <a class="hero__cta" href="#work">
+            View selected work <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <!-- TODO(review): 실제 영문 이력서 PDF 준비 후 "Download résumé" 링크(assets/resume.pdf)를 복원. 가상 인물 이력서는 제거함. -->
+        </div>
       </div>
     </section>
 
     <!-- ============ Work ============ -->
+    <!-- 대표 프로젝트(Project Detail 연결) → MORE WORK(작은 썸네일, 링크 없음) 순. 중간 제목 없음.
+         TODO(review): 대표 이미지는 임시 플레이스홀더(assets/img/work/feature-*.svg, 3:2) — 실제 원본 이미지로 교체.
+         NDA·고객 사용 승인이 확인되기 전에는 실제 이미지를 게시하지 않는다.
+         노출하지 않는 프로젝트 데이터는 data/projects.json 에 보존. -->
     <section id="work">
       <div class="container">
         <div class="section-head reveal">
           <h2>Work</h2>
         </div>
 
-        <div class="filters reveal" role="group" aria-label="Filter work by category">
-          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
-          <button class="filter-btn" type="button" data-filter="product" aria-pressed="false">Product</button>
-          <button class="filter-btn" type="button" data-filter="campaign" aria-pressed="false">Campaign</button>
-          <button class="filter-btn" type="button" data-filter="visual" aria-pressed="false">Visual</button>
-          <button class="filter-btn" type="button" data-filter="earlier" aria-pressed="false">Earlier</button>
-        </div>
+        <!-- TODO(review): Switch to Galaxy — 정확한 주차, 운영 여부, 공개 URL, NDA·고객 사용 승인 확인 (상세: work/switch-to-galaxy.html) -->
+        <article class="feature feature--lead reveal">
+          <a class="feature__media" href="work/switch-to-galaxy.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/work/feature-switch-to-galaxy.svg" width="1200" height="800" alt="Placeholder image for the Switch to Galaxy project" />
+          </a>
+          <div class="feature__body">
+            <div class="feature__head">
+              <p class="feature__index" aria-hidden="true">01</p>
+              <h3 class="feature__title">Switch to Galaxy</h3>
+            </div>
+            <dl class="feature__meta">
+              <div><dt>Client / Platform</dt><dd>Samsung Electronics / Samsung.com</dd></div>
+              <div><dt>Period</dt><dd>Jun – Oct 2024</dd></div>
+              <div><dt>My role</dt><dd>Project Leader · KV concept · Digital content design</dd></div>
+            </dl>
+            <div class="feature__text">
+              <p class="feature__summary">
+                A Samsung.com marketing page that eases the move from iPhone to Galaxy by presenting data transfer and cross-platform compatibility as intuitive content.
+              </p>
+              <a class="btn" href="work/switch-to-galaxy.html">
+                View Project <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
 
-        <!-- 그리드 카드는 현재 링크 없음. 프로젝트 상세 페이지는 다음 단계. -->
-        <div class="work-grid reveal">
-            <figure class="work-item" data-category="product">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-1.svg" width="1200" height="800" loading="lazy" alt="Flatbed Microwave Oven Product Page thumbnail" />
+        <!-- TODO(review): Data Center Solutions — 정확한 기간, 런칭 상태, 공개 URL, NDA·고객 사용 승인 확인. 페이지 전체 UX/UI 를 단독 수행했다고 쓰지 않는다 (상세: work/data-center-solutions.html) -->
+        <article class="feature reveal">
+          <a class="feature__media" href="work/data-center-solutions.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/work/feature-data-center-solutions.svg" width="1200" height="800" alt="Placeholder image for the Data Center Solutions project" />
+          </a>
+          <div class="feature__body">
+            <div class="feature__head">
+              <p class="feature__index" aria-hidden="true">02</p>
+              <h3 class="feature__title">Data Center Solutions</h3>
+            </div>
+            <dl class="feature__meta">
+              <div><dt>Client / Platform</dt><dd>LG Electronics / LG.com B2B</dd></div>
+              <div><dt>Period</dt><dd>2026</dd></div>
+              <div><dt>My role</dt><dd>B2B digital content design · Visual assets</dd></div>
+            </dl>
+            <div class="feature__text">
+              <p class="feature__summary">
+                Visual content and product information modules for LG.com B2B that connect key data center spaces with cooling solutions.
+              </p>
+              <a class="btn" href="work/data-center-solutions.html">
+                View Project <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TODO(review): SmartThings Compatible Devices — 정확한 일자, 런칭 상태, 공개 URL, NDA·고객 사용 승인 확인 (상세: work/smartthings-compatible-devices.html) -->
+        <article class="feature reveal">
+          <a class="feature__media" href="work/smartthings-compatible-devices.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/work/feature-smartthings-compatible-devices.svg" width="1200" height="800" alt="Placeholder image for the SmartThings Compatible Devices project" />
+          </a>
+          <div class="feature__body">
+            <div class="feature__head">
+              <p class="feature__index" aria-hidden="true">03</p>
+              <h3 class="feature__title">SmartThings Compatible Devices</h3>
+            </div>
+            <dl class="feature__meta">
+              <div><dt>Client / Platform</dt><dd>Samsung Electronics / Samsung.com</dd></div>
+              <div><dt>Period</dt><dd>Aug – Sep 2024</dd></div>
+              <div><dt>My role</dt><dd>UX/UI Designer · UI structure &amp; content design</dd></div>
+            </dl>
+            <div class="feature__text">
+              <p class="feature__summary">
+                A UX/UI project that brings SmartThings compatible-device information into Samsung.com's design system within an existing development structure.
+              </p>
+              <a class="btn" href="work/smartthings-compatible-devices.html">
+                View Project <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- More Work ---------- -->
+        <!-- Project Detail 가 없는 작업이라 링크 없음(404 방지). 썸네일은 플레이스홀더/기존 임시 이미지 — 실제 이미지로 교체.
+             TODO(review): 8건(4×2) — 연도 미확인: RAC/Aircare Buying Guide · HVAC Main Page · B2B Commercial Laundry Page. 카테고리·연도 확정,
+             Galaxy A15 / B2B Home Appliances Asset / EPP 가 기존 항목(thumb-9 · thumb-8 · thumb-7)과 동일한지, 각 항목 NDA·공개 가능 여부.
+             남은 후보(Galaxy Watch7 / X2 Bands · LG AX-R Washing Machine PDP)와 아카이브는 data/projects.json -->
+        <div class="more-work">
+          <h3 class="more-work__title reveal">More work</h3>
+          <ul class="more-grid reveal">
+            <li class="more-item">
+              <span class="more-item__frame">
+                <img src="assets/img/work/thumb-16.svg" width="1200" height="800" loading="lazy" alt="LG RAC / Aircare Buying Guide thumbnail" />
               </span>
-              <figcaption>
-                <span class="work-item__title">Flatbed Microwave Oven Product Page</span>
-                <span class="work-item__cat">Product · 2026</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="visual">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-2.svg" width="1200" height="800" loading="lazy" alt="Editorial thumbnail" />
+              <span class="more-item__title">LG RAC / Aircare Buying Guide</span>
+              <span class="more-item__meta">Buying guide</span>
+            </li>
+            <li class="more-item">
+              <span class="more-item__frame">
+                <img src="assets/img/work/thumb-1.svg" width="1200" height="800" loading="lazy" alt="LG Flatbed Microwave Oven PDP thumbnail" />
               </span>
-              <figcaption>
-                <span class="work-item__title">Editorial</span>
-                <span class="work-item__cat">Visual · 2026</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="product">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-3.svg" width="1200" height="800" loading="lazy" alt="Compatible Devices Page thumbnail" />
+              <span class="more-item__title">LG Flatbed Microwave Oven PDP</span>
+              <span class="more-item__meta">Product page · 2026</span>
+            </li>
+            <li class="more-item">
+              <span class="more-item__frame">
+                <img src="assets/img/work/thumb-6.svg" width="1200" height="800" loading="lazy" alt="#YouMake 2H Promotion thumbnail" />
               </span>
-              <figcaption>
-                <span class="work-item__title">Compatible Devices Page</span>
-                <span class="work-item__cat">Product · 2025</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="campaign">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-4.svg" width="1200" height="800" loading="lazy" alt="Switch to Galaxy thumbnail" />
+              <span class="more-item__title">#YouMake 2H Promotion</span>
+              <span class="more-item__meta">Campaign · 2023</span>
+            </li>
+            <li class="more-item">
+              <span class="more-item__frame">
+                <img src="assets/img/work/thumb-17.svg" width="1200" height="800" loading="lazy" alt="LG Global / PH HVAC Main Page thumbnail" />
               </span>
-              <figcaption>
-                <span class="work-item__title">Switch to Galaxy</span>
-                <span class="work-item__cat">Campaign · 2024</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="product">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-5.svg" width="1200" height="800" loading="lazy" alt="Watch Bands Product Page thumbnail" />
+              <span class="more-item__title">LG Global / PH HVAC Main Page</span>
+              <span class="more-item__meta">Main page</span>
+            </li>
+            <li class="more-item">
+              <span class="more-item__frame">
+                <img src="assets/img/work/thumb-9.svg" width="1200" height="800" loading="lazy" alt="Galaxy A15 LTE / 5G PDP thumbnail" />
               </span>
-              <figcaption>
-                <span class="work-item__title">Watch Bands Product Page</span>
-                <span class="work-item__cat">Product · 2024</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="campaign">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-6.svg" width="1200" height="800" loading="lazy" alt="#YouMake 2023 Campaign thumbnail" />
+              <span class="more-item__title">Galaxy A15 LTE / 5G PDP</span>
+              <span class="more-item__meta">Product page · 2023</span>
+            </li>
+            <li class="more-item">
+              <span class="more-item__frame">
+                <img src="assets/img/work/thumb-18.svg" width="1200" height="800" loading="lazy" alt="LG B2B Commercial Laundry Page thumbnail" />
               </span>
-              <figcaption>
-                <span class="work-item__title">#YouMake 2023 Campaign</span>
-                <span class="work-item__cat">Campaign · 2023</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="campaign">
-              <span class="work-item__frame">
+              <span class="more-item__title">LG B2B Commercial Laundry Page</span>
+              <span class="more-item__meta">B2B page</span>
+            </li>
+            <li class="more-item">
+              <span class="more-item__frame">
+                <img src="assets/img/work/thumb-8.svg" width="1200" height="800" loading="lazy" alt="Samsung B2B Home Appliances Asset thumbnail" />
+              </span>
+              <span class="more-item__title">Samsung B2B Home Appliances Asset</span>
+              <span class="more-item__meta">Visual · 2023</span>
+            </li>
+            <li class="more-item">
+              <span class="more-item__frame">
                 <img src="assets/img/work/thumb-7.svg" width="1200" height="800" loading="lazy" alt="EPP Flash Sale Campaign thumbnail" />
               </span>
-              <figcaption>
-                <span class="work-item__title">EPP Flash Sale Campaign</span>
-                <span class="work-item__cat">Campaign · 2023</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="visual">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-8.svg" width="1200" height="800" loading="lazy" alt="Home Appliances B2B Key Visual thumbnail" />
-              </span>
-              <figcaption>
-                <span class="work-item__title">Home Appliances B2B Key Visual</span>
-                <span class="work-item__cat">Visual · 2023</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="product">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-9.svg" width="1200" height="800" loading="lazy" alt="Galaxy A15 Product Page thumbnail" />
-              </span>
-              <figcaption>
-                <span class="work-item__title">Galaxy A15 Product Page</span>
-                <span class="work-item__cat">Product · 2023</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="product">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-10.svg" width="1200" height="800" loading="lazy" alt="OLED TV S95C S90C Product Page thumbnail" />
-              </span>
-              <figcaption>
-                <span class="work-item__title">OLED TV S95C · S90C Product Page</span>
-                <span class="work-item__cat">Product · 2022</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="earlier">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-11.svg" width="1200" height="800" loading="lazy" alt="Healthcare Contents and Marketing thumbnail" />
-              </span>
-              <figcaption>
-                <span class="work-item__title">Healthcare Contents &amp; Marketing</span>
-                <span class="work-item__cat">Content · 2021</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="earlier">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-12.svg" width="1200" height="800" loading="lazy" alt="F and B Product Design thumbnail" />
-              </span>
-              <figcaption>
-                <span class="work-item__title">F&amp;B Product Design</span>
-                <span class="work-item__cat">Product Design · 2019</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="earlier">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-13.svg" width="1200" height="800" loading="lazy" alt="Fashion Contents thumbnail" />
-              </span>
-              <figcaption>
-                <span class="work-item__title">Fashion Contents</span>
-                <span class="work-item__cat">Content · 2017</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="earlier">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-14.svg" width="1200" height="800" loading="lazy" alt="Retail CRM and Marketing thumbnail" />
-              </span>
-              <figcaption>
-                <span class="work-item__title">Retail CRM &amp; Marketing</span>
-                <span class="work-item__cat">CRM · 2016</span>
-              </figcaption>
-            </figure>
-            <figure class="work-item" data-category="earlier">
-              <span class="work-item__frame">
-                <img src="assets/img/work/thumb-15.svg" width="1200" height="800" loading="lazy" alt="Exhibition Graphic thumbnail" />
-              </span>
-              <figcaption>
-                <span class="work-item__title">Exhibition Graphic</span>
-                <span class="work-item__cat">Graphic · 2012</span>
-              </figcaption>
-            </figure>
+              <span class="more-item__title">EPP Flash Sale Campaign</span>
+              <span class="more-item__meta">Campaign · 2023</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- ============ About ============ -->
-    <!-- TODO(review): bio 2문단 · summary-list 값 · 직함을 실제 정보로 확인 -->
+    <!-- TODO(review): bio 2문단 · summary-list(Tools · Experience "2012 – present") 값 · 직함 확인.
+         Clients 기간은 확정값(Samsung 2022–2024 / LG 2025–현재). -->
     <section id="about">
       <div class="container">
         <div class="about-grid">
@@ -252,29 +279,24 @@
             </div>
             <div class="prose">
               <p>
-                Since 2012 I've worked across retail, healthcare, fashion and
-                F&amp;B, moving toward digital content design. For the past few
-                years I've designed product detail pages and campaign key visuals
-                for Galaxy, OLED TV and home appliances at Samsung.com.
+                I'm a digital designer with experience in global commerce and
+                brand sites, from Samsung.com Global projects (2022–2024) to
+                LG.com (2025–present).
               </p>
               <p>
-                I care about turning dense product information into a readable
-                structure and hierarchy, and holding a brand's tone inside the
-                screen.
+                I work with design systems, global guidelines, localization and
+                design QA, and collaborate with planners, developers and
+                stakeholders across countries to keep large sites consistent and
+                scalable.
               </p>
-            </div>
-            <div class="about-actions">
-              <a class="btn" href="assets/resume.pdf" download>
-                Résumé (PDF) <span aria-hidden="true">↓</span>
-              </a>
             </div>
           </div>
 
           <div class="reveal">
             <dl class="summary-list">
               <div>
-                <dt>Role</dt>
-                <dd>Digital Design · Product Page · Campaign · Key Visual</dd>
+                <dt>Focus</dt>
+                <dd>Global e-commerce · Design systems · Localization · Design QA</dd>
               </div>
               <div>
                 <dt>Tools</dt>
@@ -282,7 +304,7 @@
               </div>
               <div>
                 <dt>Clients</dt>
-                <dd>Samsung.com (2022–present) · earlier: retail, healthcare, fashion, F&amp;B</dd>
+                <dd>Samsung.com Global (2022–2024) · LG.com (2025–present) · earlier: retail, healthcare, fashion, F&amp;B</dd>
               </div>
               <div>
                 <dt>Experience</dt>
@@ -291,21 +313,35 @@
             </dl>
           </div>
         </div>
+
+        <!-- TODO(review): Working approach 7개 항목이 실제 업무 방식과 일치하는지 확인 -->
+        <div class="approach reveal">
+          <h3 class="approach__title">Working approach</h3>
+          <ul class="approach__list">
+            <li>Following and applying global design guidelines</li>
+            <li>Component-based design</li>
+            <li>Responsive design</li>
+            <li>Localization awareness</li>
+            <li>Cross-functional collaboration</li>
+            <li>Design QA and handoff</li>
+            <li>Maintaining consistency across repeated operational work</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- ============ Contact ============ -->
-    <!-- TODO(review): 실제 이메일 · LinkedIn URL 로 교체 -->
+    <!-- TODO(review): LinkedIn URL 미확정 — 확정 후 목록에 복원. 이전 값: https://www.linkedin.com/in/hyoeun2025 -->
     <section id="contact">
       <div class="container">
         <div class="section-head reveal">
           <h2>Contact</h2>
-          <p>Have a project in mind? Open to product page, campaign and content design enquiries.</p>
+          <p>Open to global commerce and design operations opportunities, and to product page, campaign and content design enquiries.</p>
         </div>
         <ul class="contact-links reveal">
           <li>
-            <a href="mailto:hyoeun@example.com">
-              <span>hyoeun@example.com</span>
+            <a href="mailto:hyoeunkwak@gmail.com">
+              <span>hyoeunkwak@gmail.com</span>
               <span class="ext" aria-hidden="true">↗</span>
             </a>
           </li>
@@ -321,12 +357,6 @@
               <span class="ext" aria-hidden="true">↗</span>
             </a>
           </li> -->
-          <li>
-            <a href="www.linkedin.com/in/hyoeun2025" rel="noopener" target="_blank">
-              <span class="label-caps">LinkedIn</span>
-              <span class="ext" aria-hidden="true">↗</span>
-            </a>
-          </li>
         </ul>
       </div>
     </section>
