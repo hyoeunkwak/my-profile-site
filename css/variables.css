@@ -94,6 +94,9 @@
   --dur-slow: 500ms;
   --dur-nav: 650ms;
 
+  /* --- 팝업 백드롭(단색 딤) --- */
+  --color-backdrop: rgba(15, 16, 17, 0.72);
+
   /* --- 그림자 (거의 안 보이는 수준) --- */
   --shadow-float: 0 2px 8px rgba(15, 16, 17, 0.06),
     0 12px 32px rgba(15, 16, 17, 0.1);

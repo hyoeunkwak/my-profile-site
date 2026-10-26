@@ -44,8 +44,9 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] Work: **대표 프로젝트 3(첫 항목 전폭 + 이후 좌우 교차) + MORE WORK 8(작은 썸네일, 4열 × 2행 → 2열 → 1열)**
 - [x] 작품 썸네일 비율 **3:2** (`--ratio-work`), 프로젝트 상세 와이드 16:9 (`--ratio-wide`), 모바일 결과물 9:16 (`--ratio-mobile`)
 - [x] Work 썸네일: **선 없이 프레임 가득**(플레이스홀더의 점선 프레임 제거) + **마우스오버 · 포커스 확대**(대표는 중앙 원형 → 버튼 추가, reduced-motion 대응)
+- [x] More work: 썸네일 클릭 → **비핸스식 팝업**(`<dialog>`, 페이지 전환 없음 · X/Esc/바깥 클릭으로 닫기 · 포커스 복귀 · 배경 스크롤 잠금 · 모바일 전체 화면). 실제 이미지가 오면 `data-images`로 다중 이미지 연결
 - [x] **간격 일관성**: `.container` 하나 + `--section-y` 통일 리듬, 헤어라인은 내부 컴포넌트만
-- [x] **메인 텍스트 위계 한 스케일**: 64 / 35 / 20 / 16 / 14, 굵기 regular(워드마크 bold), 대문자 · 12/17/22/32px · semibold 제거, 위계는 크기 + 색(진함/연함)으로
+- [x] **메인 텍스트 위계 한 스케일**: 64(hero 하나) / 35 / 20 / 16 / 14, 국문 줄은 영문보다 작게, 굵기 regular(워드마크 bold), 대문자 · 12/17/22/32px · semibold 제거, 위계는 크기 + 색(진함/연함)으로
 - [x] **섹션 구분은 선 없이 배경 명암**(hero bg → Work surface → About bg → Contact surface → footer bg), 하위 제목 밑줄 · hero 경력 흐름 상단선 · footer 상단선 제거
 
 ### 3. 공통 CSS · 디자인 토큰
@@ -60,8 +61,8 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] `#hero` — **헤드라인 + 서브만**(참고 wolffolins.com/work; 경력 흐름 · CTA 제거)
 - [x] `#work` — `<h2>Work</h2>` 하나 + 대표 프로젝트 `article.feature` 3건(중간 제목 없음, `View Project` 링크) + `h3 More work`(`ul.more-grid` 4건, 링크 없음)
 - [x] 노출하지 않는 프로젝트는 `data/projects.json`에 보존(featured / more / candidate / archive, HTML 주석 코드 없음)
-- [x] `#about` — 참고 wolffolins.com/about: 라벨 → 64px 선언문 → 4열 사실 → Working approach(제목|설명 + 번호 3열)
-- [x] `#contact` — 라벨 → 64px 선언문 → 큰 이메일 링크 + 보조 링크
+- [x] `#about` — 참고 wolffolins.com/about: 라벨 → 35px 선언문 + 국문 줄 → 2열 사실 → Working approach(제목|설명 + 번호 3열)
+- [x] `#contact` — 라벨 → 35px 선언문 + 국문 줄 → 큰 이메일 링크 + 보조 링크
 - [x] `.footer`
 
 ### 5. 메인 페이지 스타일 (`css/style.css`)
@@ -97,7 +98,9 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [ ] MORE WORK: RAC/Aircare Buying Guide · HVAC Main Page · B2B Commercial Laundry Page 연도, 기존 항목(Galaxy A15 · B2B Home Appliances Asset · EPP)과의 동일 여부, 남은 후보 2개(`candidate`) 승격 여부, 아카이브(Pocket Rice · World IT Show 2012 · Tripitaka 2011) 역할 서술·영문 명칭 검수
 - [ ] LinkedIn URL (미확정 → 목록에서 제외, 이전 값은 `index.html` 주석)
 - [ ] 실제 영문 이력서 PDF → `assets/resume.pdf` 추가 후 다운로드 링크 복원
-- [ ] 선언문 · 사실 목록(Tools · Experience "2012 – present") · 직함 확정
+- [x] About 카피 정리: Tools(After Effects 삭제 · Firefly/ChatGPT/Claude Code 추가) · Clients(Samsung/LG Global, 연도 삭제) · Experience(2011~ 타임라인 3단) · Clients/Focus 삭제 · Working approach(Design systems · Design QA · Responsive design 삭제, 6개)
+- [x] hero 헤드라인(영문) · 서브(국문) · 메타 설명 · OG 문구 교체("design systems" 표현 제거)
+- [ ] 선언문 · 직함 확정
 - [ ] `assets/favicon.svg` + `favicon.ico`, `assets/og-image.png`(이전 문구 "Product · Campaign · Visual" → 새 포지셔닝)
 - [x] `index.html`의 `og:url` / `og:image` → `https://hyoeunkwak.github.io/my-profile-site/` (커스텀 도메인 사용 시 재변경)
 

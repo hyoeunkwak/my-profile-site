@@ -347,6 +347,7 @@ main > section {
 }
 
 .hero__statement {
+  word-break: keep-all;
   max-width: 40ch;
   margin-top: var(--space-5);
   font-size: var(--fs-350);
@@ -571,6 +572,14 @@ main > section {
   flex-direction: column;
 }
 
+/* 썸네일 전체가 하나의 버튼 — 클릭하면 팝업이 열린다 */
+.more-item__open {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+}
+
 .more-item__frame {
   display: block;
   overflow: hidden;
@@ -587,7 +596,7 @@ main > section {
   transition: transform var(--dur-slow) var(--ease);
 }
 
-.more-item:hover .more-item__frame img {
+.more-item__open:hover .more-item__frame img {
   transform: scale(1.05);
 }
 
@@ -604,20 +613,159 @@ main > section {
   color: var(--color-text-muted);
 }
 
-/* ---------- About / Contact (참고: wolffolins.com/about — 64px 선언문 + 라벨 + 2열/그리드) ---------- */
+/* ---------- 프로젝트 팝업 (비핸스식 플로팅 화면, 페이지 전환 없음) ---------- */
 
-.nowrap {
-  white-space: nowrap;
+html.is-modal-open {
+  overflow: hidden;
 }
 
+.project-modal {
+  width: min(calc(100% - 2 * var(--space-4)), 80rem);
+  max-width: none; /* <dialog> 기본 max-width 해제 */
+  max-height: calc(100dvh - 2 * var(--space-4));
+  margin: auto;
+  padding: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 0;
+  border-radius: var(--space-1);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.project-modal::backdrop {
+  background: var(--color-backdrop);
+}
+
+.project-modal[open],
+.project-modal[open]::backdrop {
+  animation: modal-fade var(--dur) var(--ease);
+}
+
+.project-modal[open] {
+  animation-name: modal-rise;
+}
+
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+}
+
+/* 닫기 버튼: 화면 우상단에 고정(패널 바깥에서도 보이도록 단색 원형) */
+.project-modal__close {
+  position: fixed;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-text);
+  color: var(--color-bg);
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.project-modal__close:hover {
+  transform: scale(1.08);
+}
+
+.project-modal__close svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.project-modal__head {
+  padding: var(--space-5) var(--space-3) var(--space-4);
+}
+
+.project-modal__title {
+  max-width: 24ch;
+  padding-right: var(--space-8);
+  font-size: var(--fs-600);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-tight);
+}
+
+.project-modal__meta {
+  margin-top: var(--space-1);
+  font-size: var(--fs-200);
+  color: var(--color-text-muted);
+}
+
+.project-modal__body {
+  display: grid;
+  gap: var(--grid-gap);
+  padding: 0 var(--space-3) var(--space-5);
+}
+
+.project-modal__body img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+@media (min-width: 768px) {
+  .project-modal__head {
+    padding: var(--space-8) var(--space-8) var(--space-5);
+  }
+  .project-modal__body {
+    padding: 0 var(--space-8) var(--space-8);
+  }
+}
+
+@media (max-width: 767px) {
+  .project-modal {
+    width: 100%;
+    max-height: 100dvh;
+    height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-modal[open],
+  .project-modal[open]::backdrop,
+  .project-modal__close {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ---------- About / Contact (참고: wolffolins.com/about — 선언문 + 라벨 + 2열/그리드) ---------- */
+
+/* About · Contact 선언문은 Hero(L1 64px)보다 한 단계 작은 L2 35px. 국문 줄은 20px 연한 색 */
 .about-statement,
 .contact-statement {
-  max-width: 18em;
+  max-width: 30em;
   text-wrap: balance;
-  font-size: var(--fs-700);
+  font-size: var(--fs-600);
   font-weight: var(--fw-regular);
-  line-height: var(--lh-tight);
-  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-tight);
+}
+
+.statement-ko {
+  max-width: 44ch;
+  margin-top: var(--space-3);
+  font-size: var(--fs-350);
+  line-height: var(--lh-snug);
+  color: var(--color-text-muted);
+  word-break: keep-all;
 }
 
 /* 라벨(진하게) 아래 값(연하게) — 4열 사실 목록 */
@@ -633,12 +781,6 @@ main > section {
   }
 }
 
-@media (min-width: 1024px) {
-  .about-facts {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 .about-facts dt {
   font-size: var(--fs-200);
   font-weight: var(--fw-regular);
@@ -648,6 +790,31 @@ main > section {
   margin: var(--space-1) 0 0;
   font-size: var(--fs-200);
   color: var(--color-text-muted);
+}
+
+/* Experience 타임라인: 기간(진하게) | 내용(연하게) */
+.about-timeline {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-timeline li {
+  display: grid;
+  align-items: baseline;
+  gap: 0 var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .about-timeline li {
+    grid-template-columns: 8rem 1fr;
+  }
+}
+
+.about-timeline__period {
+  color: var(--color-text);
 }
 
 /* Working approach: 제목 | 설명 2열 → 번호가 붙은 3열 항목 */
@@ -827,7 +994,7 @@ main > section {
   }
   .feature:hover .feature__media img,
   .feature:focus-within .feature__media img,
-  .more-item:hover .more-item__frame img {
+  .more-item__open:hover .more-item__frame img {
     transform: none;
   }
   .feature__hint {

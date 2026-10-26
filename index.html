@@ -7,7 +7,7 @@
   <!-- TODO(review): 메타 설명 · OG 문구(Samsung.com + LG.com 경력 표기) 확인 -->
   <meta
     name="description"
-    content="Hyoeun Kwak is a digital designer specializing in global e-commerce, design systems, and scalable content operations across Samsung.com and LG.com."
+    content="Hyoeun Kwak is a digital designer who designs digital experiences that connect brands and people, across Samsung.com and LG.com."
   />
   <meta name="author" content="Hyoeun Kwak" />
 
@@ -15,7 +15,7 @@
   <meta property="og:title" content="Hyoeun Kwak — Digital Designer · Samsung.com &amp; LG.com" />
   <meta
     property="og:description"
-    content="Digital designer specializing in global e-commerce, design systems, and scalable content operations across Samsung.com and LG.com."
+    content="Digital designer designing digital experiences that connect brands and people, across Samsung.com and LG.com."
   />
   <!-- TODO(review): og:url · og:image 는 현재 GitHub Pages 주소(hyoeunkwak.github.io/my-profile-site) 기준 —
        커스텀 도메인을 쓰면 교체. assets/og-image.png 는 이전 문구("Product · Campaign · Visual")의 플레이스홀더 — 교체 필요. -->
@@ -79,13 +79,12 @@
 
   <main id="main">
     <!-- ============ Hero ============ -->
-    <!-- TODO(review): h1 · 설명 문구 · 직함(Digital Designer) 확인. (참고 사이트처럼 헤드라인 + 서브 외 텍스트 없음 — 경력 흐름 · CTA 제거) -->
+    <!-- TODO(review): 헤드라인 · 서브(국문) 확인. 헤드라인 + 서브 외 텍스트 없음(경력 흐름 · CTA 제거). -->
     <section id="hero" class="hero">
       <div class="container">
-        <h1>Designing global commerce experiences with clarity and consistency.</h1>
-        <p class="hero__statement">
-          Digital designer specializing in global e-commerce, design systems,
-          and scalable content operations across Samsung.com and LG.com.
+        <h1>Designing Digital Experiences That Connect Brands and People.</h1>
+        <p class="hero__statement" lang="ko">
+          브랜드와 사용자를 연결하는 디지털 경험을 디자인합니다.
         </p>
       </div>
     </section>
@@ -183,7 +182,9 @@
         </article>
 
         <!-- ---------- More Work ---------- -->
-        <!-- Project Detail 가 없는 작업이라 링크 없음(404 방지). 썸네일은 플레이스홀더/기존 임시 이미지 — 실제 이미지로 교체.
+        <!-- 썸네일 클릭 → 페이지 전환 없이 팝업(<dialog class="project-modal">, 비핸스식)으로 확대 이미지를 보여준다.
+             팝업에는 제목 · 메타 · 이미지가 표시되며, 이미지는 버튼의 data-images="경로1, 경로2, …"(없으면 썸네일 1장)로 늘린다.
+             썸네일은 플레이스홀더/기존 임시 이미지 — 실제 이미지로 교체.
              TODO(review): 8건(4×2) — 연도 미확인: RAC/Aircare Buying Guide · HVAC Main Page · B2B Commercial Laundry Page. 카테고리·연도 확정,
              Galaxy A15 / B2B Home Appliances Asset / EPP 가 기존 항목(thumb-9 · thumb-8 · thumb-7)과 동일한지, 각 항목 NDA·공개 가능 여부.
              남은 후보(Galaxy Watch7 / X2 Bands · LG AX-R Washing Machine PDP)와 아카이브는 data/projects.json -->
@@ -191,60 +192,76 @@
           <h3 class="more-work__title reveal">More work</h3>
           <ul class="more-grid reveal">
             <li class="more-item">
+              <button class="more-item__open" type="button" aria-haspopup="dialog">
               <span class="more-item__frame">
                 <img src="assets/img/work/thumb-16.svg" width="1200" height="800" loading="lazy" alt="LG RAC / Aircare Buying Guide thumbnail" />
               </span>
               <span class="more-item__title">LG RAC / Aircare Buying Guide</span>
               <span class="more-item__meta">Buying guide</span>
+            </button>
             </li>
             <li class="more-item">
+              <button class="more-item__open" type="button" aria-haspopup="dialog">
               <span class="more-item__frame">
                 <img src="assets/img/work/thumb-1.svg" width="1200" height="800" loading="lazy" alt="LG Flatbed Microwave Oven PDP thumbnail" />
               </span>
               <span class="more-item__title">LG Flatbed Microwave Oven PDP</span>
               <span class="more-item__meta">Product page · 2026</span>
+            </button>
             </li>
             <li class="more-item">
+              <button class="more-item__open" type="button" aria-haspopup="dialog">
               <span class="more-item__frame">
                 <img src="assets/img/work/thumb-6.svg" width="1200" height="800" loading="lazy" alt="#YouMake 2H Promotion thumbnail" />
               </span>
               <span class="more-item__title">#YouMake 2H Promotion</span>
               <span class="more-item__meta">Campaign · 2023</span>
+            </button>
             </li>
             <li class="more-item">
+              <button class="more-item__open" type="button" aria-haspopup="dialog">
               <span class="more-item__frame">
                 <img src="assets/img/work/thumb-17.svg" width="1200" height="800" loading="lazy" alt="LG Global / PH HVAC Main Page thumbnail" />
               </span>
               <span class="more-item__title">LG Global / PH HVAC Main Page</span>
               <span class="more-item__meta">Main page</span>
+            </button>
             </li>
             <li class="more-item">
+              <button class="more-item__open" type="button" aria-haspopup="dialog">
               <span class="more-item__frame">
                 <img src="assets/img/work/thumb-9.svg" width="1200" height="800" loading="lazy" alt="Galaxy A15 LTE / 5G PDP thumbnail" />
               </span>
               <span class="more-item__title">Galaxy A15 LTE / 5G PDP</span>
               <span class="more-item__meta">Product page · 2023</span>
+            </button>
             </li>
             <li class="more-item">
+              <button class="more-item__open" type="button" aria-haspopup="dialog">
               <span class="more-item__frame">
                 <img src="assets/img/work/thumb-18.svg" width="1200" height="800" loading="lazy" alt="LG B2B Commercial Laundry Page thumbnail" />
               </span>
               <span class="more-item__title">LG B2B Commercial Laundry Page</span>
               <span class="more-item__meta">B2B page</span>
+            </button>
             </li>
             <li class="more-item">
+              <button class="more-item__open" type="button" aria-haspopup="dialog">
               <span class="more-item__frame">
                 <img src="assets/img/work/thumb-8.svg" width="1200" height="800" loading="lazy" alt="Samsung B2B Home Appliances Asset thumbnail" />
               </span>
               <span class="more-item__title">Samsung B2B Home Appliances Asset</span>
               <span class="more-item__meta">Visual · 2023</span>
+            </button>
             </li>
             <li class="more-item">
+              <button class="more-item__open" type="button" aria-haspopup="dialog">
               <span class="more-item__frame">
                 <img src="assets/img/work/thumb-7.svg" width="1200" height="800" loading="lazy" alt="EPP Flash Sale Campaign thumbnail" />
               </span>
               <span class="more-item__title">EPP Flash Sale Campaign</span>
               <span class="more-item__meta">Campaign · 2023</span>
+            </button>
             </li>
           </ul>
         </div>
@@ -252,36 +269,45 @@
     </section>
 
     <!-- ============ About ============ -->
-    <!-- TODO(review): 선언문 · Working approach 문구 · Tools · Experience "2012 – present" · 직함 확인.
-         Clients 기간은 확정값(Samsung 2022–2024 / LG 2025–현재). -->
+    <!-- TODO(review): About · Contact 카피는 처음 공유된 소개글("I'm a web designer with experience in digital campaigns and e-commerce platforms…")을 기반으로 정리.
+         직함은 사이트 전체 기준으로 "digital designer"(원문은 web designer). About/Contact/Hero 의 국문 줄은 영문의 번역본 — 표현 검수.
+         Samsung · LG 경력은 프로젝트 카드와 Experience 타임라인에 있음. 직함 확인.
+         사실 목록은 Experience(타임라인) · Tools 두 개만 둔다(Clients · Focus 삭제).
+         Experience 문구는 사용자 제공 국문의 영문 표기 — "종합몰" = general shopping malls, "전자제품 등" = consumer electronics and more.
+         Tools: Adobe 는 Firefly 에만 붙임. 순서 = Figma · Adobe Firefly · Photoshop · Illustrator · ChatGPT · Claude Code.
+         Working approach 6개(Responsive design · Component-based design · Design QA 삭제, Global site content operations design · Project leading 추가).
+         "Localization" 은 마이그레이션이 아니다: 현지 시장에 맞춘 콘텐츠 적응(LG RAC 인니향 PDP 등) — 마이그레이션 경험은 확인된 바 없어 쓰지 않음. -->
     <section id="about">
       <div class="container">
         <div class="section-head reveal">
           <h2>About</h2>
         </div>
         <p class="about-statement reveal">
-          I'm a digital designer with experience in global commerce and brand
-          sites, from Samsung.com Global projects
-          <span class="nowrap">(2022–2024)</span> to LG.com
-          <span class="nowrap">(2025–present)</span>.
+          I'm a digital designer with experience in digital campaigns and
+          e-commerce platforms, creating content that reflects both brand
+          identity and user needs — with a strong foundation in content design
+          and a growing focus on brand-led projects.
+        </p>
+        <p class="statement-ko reveal" lang="ko">
+          디지털 캠페인과 이커머스 플랫폼 경험을 바탕으로, 브랜드 정체성과
+          사용자 니즈를 함께 담은 콘텐츠를 만듭니다. 콘텐츠 디자인에 탄탄한
+          기반을 두고, 브랜드 중심 프로젝트로 영역을 넓혀가고 있습니다.
         </p>
 
         <dl class="about-facts reveal">
           <div>
-            <dt>Focus</dt>
-            <dd>Global e-commerce · Design systems · Localization · Design QA</dd>
+            <dt>Experience</dt>
+            <dd>
+              <ul class="about-timeline">
+                <li><span class="about-timeline__period">2011 – 2012</span><span>Exhibition graphics and editorial design</span></li>
+                <li><span class="about-timeline__period">2013 – 2021</span><span>Commerce design for fashion, F&amp;B and general shopping malls</span></li>
+                <li><span class="about-timeline__period">2022 – present</span><span>Digital design for consumer electronics and more</span></li>
+              </ul>
+            </dd>
           </div>
           <div>
             <dt>Tools</dt>
-            <dd>Figma · Photoshop · Illustrator · After Effects</dd>
-          </div>
-          <div>
-            <dt>Clients</dt>
-            <dd>Samsung.com Global (2022–2024) · LG.com (2025–present) · earlier: retail, healthcare, fashion, F&amp;B</dd>
-          </div>
-          <div>
-            <dt>Experience</dt>
-            <dd>2012 – present</dd>
+            <dd>Figma · Adobe Firefly · Photoshop · Illustrator · ChatGPT · Claude Code</dd>
           </div>
         </dl>
 
@@ -289,19 +315,18 @@
           <div class="approach__head">
             <h3 class="approach__title">Working approach</h3>
             <p class="approach__lead">
-              I work with design systems, global guidelines, localization and
-              design QA, and collaborate with planners, developers and
-              stakeholders across countries to keep large sites consistent and
-              scalable.
+              I handle content operations design for global commerce sites,
+              lead projects, and apply global design guidelines to local
+              markets, collaborating with planners, developers and stakeholders
+              across countries.
             </p>
           </div>
           <ul class="approach__list">
             <li>Following and applying global design guidelines</li>
-            <li>Component-based design</li>
-            <li>Responsive design</li>
-            <li>Localization awareness</li>
+            <li>Global site content operations design</li>
+            <li>Project leading</li>
+            <li>Localized content for local markets</li>
             <li>Cross-functional collaboration</li>
-            <li>Design QA and handoff</li>
             <li>Maintaining consistency across repeated operational work</li>
           </ul>
         </div>
@@ -316,8 +341,10 @@
           <h2>Contact</h2>
         </div>
         <p class="contact-statement reveal">
-          Open to global commerce and design operations opportunities, and to
-          product page, campaign and content design enquiries.
+          Open to digital campaign, e-commerce and brand-led design projects.
+        </p>
+        <p class="statement-ko reveal" lang="ko">
+          디지털 캠페인, 이커머스, 브랜드 중심 디자인 프로젝트에 열려 있습니다.
         </p>
         <ul class="contact-links reveal">
           <li>
@@ -376,6 +403,19 @@
       </svg>
     </button>
   </div>
+
+  <dialog class="project-modal" aria-labelledby="modal-title">
+    <button class="project-modal__close" type="button" aria-label="Close">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+      </svg>
+    </button>
+    <div class="project-modal__head">
+      <h2 class="project-modal__title" id="modal-title"></h2>
+      <p class="project-modal__meta"></p>
+    </div>
+    <div class="project-modal__body"></div>
+  </dialog>
 
   <script src="js/main.js" defer></script>
 </body>

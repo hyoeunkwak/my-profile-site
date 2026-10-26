@@ -1,6 +1,6 @@
 /* ============================================================
-   main.js — 다섯 개의 독립 IIFE
-   1) 테마 토글  2) 스크롤 스파이  3) 스크롤 등장(reveal)  4) 헤더(알약 + 모바일 메뉴)  5) 탑 버튼
+   main.js — 여섯 개의 독립 IIFE
+   1) 테마 토글  2) 스크롤 스파이  3) 스크롤 등장(reveal)  4) 헤더(알약 + 모바일 메뉴)  5) 탑 버튼  6) More work 팝업
    각 IIFE는 필요한 요소가 없으면 즉시 return → 프로젝트 상세 페이지에서도 안전하게 로드된다.
    ============================================================ */
 
@@ -162,4 +162,74 @@
 
   update();
   window.addEventListener("scroll", update, { passive: true });
+})();
+
+/* ---------- 6) More work 팝업 (비핸스식, 페이지 전환 없음) ---------- */
+(function moreWorkModal() {
+  var triggers = document.querySelectorAll(".more-item__open");
+  var dialog = document.querySelector(".project-modal");
+  if (!triggers.length || !dialog || typeof dialog.showModal !== "function") return;
+
+  var titleEl = dialog.querySelector(".project-modal__title");
+  var metaEl = dialog.querySelector(".project-modal__meta");
+  var bodyEl = dialog.querySelector(".project-modal__body");
+  var closeBtn = dialog.querySelector(".project-modal__close");
+  var lastTrigger = null;
+
+  function open(trigger) {
+    var title = trigger.querySelector(".more-item__title").textContent.trim();
+    var thumb = trigger.querySelector("img");
+    var sources = (trigger.getAttribute("data-images") || "")
+      .split(",")
+      .map(function (s) { return s.trim(); })
+      .filter(Boolean);
+    if (!sources.length && thumb) sources = [thumb.getAttribute("src")];
+
+    titleEl.textContent = title;
+    metaEl.textContent = trigger.querySelector(".more-item__meta").textContent.trim();
+    bodyEl.textContent = "";
+    sources.forEach(function (src, i) {
+      var img = document.createElement("img");
+      img.src = src;
+      img.width = 1200;
+      img.height = 800;
+      img.alt = title + (sources.length > 1 ? " — image " + (i + 1) : "");
+      bodyEl.appendChild(img);
+    });
+
+    lastTrigger = trigger;
+    dialog.showModal();
+    dialog.scrollTop = 0;
+    document.documentElement.classList.add("is-modal-open");
+  }
+
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener("click", function () { open(trigger); });
+  });
+
+  // 정리는 멱등 — 어떤 닫힘 경로(버튼 · 백드롭 · Esc)에서도 스크롤 잠금이 남지 않도록 직접 호출한다
+  function cleanup() {
+    document.documentElement.classList.remove("is-modal-open");
+    bodyEl.textContent = "";
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  function close() {
+    if (dialog.open) dialog.close();
+    cleanup();
+  }
+
+  closeBtn.addEventListener("click", close);
+
+  // 패널 바깥(백드롭) 클릭으로 닫기
+  dialog.addEventListener("click", function (event) {
+    if (event.target === dialog) close();
+  });
+
+  // Esc 는 cancel → close 순서로 온다. cancel 에서 먼저 정리하고, close 는 보험.
+  // 늦게 도착한 이전 close 이벤트가 다시 열린 팝업을 지우지 않도록 닫혀 있을 때만 정리한다
+  dialog.addEventListener("cancel", cleanup);
+  dialog.addEventListener("close", function () {
+    if (!dialog.open) cleanup();
+  });
 })();
