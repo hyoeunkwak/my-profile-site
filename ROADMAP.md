@@ -41,7 +41,7 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] **테마 토글은 우측 하단 플로팅 버튼**(상단바에서 분리)
 - [x] **단일 서체 Inter**(Aktiv Grotesk 스타일). 위계 = 사이즈(`--fs-50`~`--fs-700`) + 무게(`--fw-*`)
 - [x] **내용 제외 모든 타이틀·버튼·네비·탭·라벨 대문자**. 네비·탭 22px / 이름(HYOEUN K) 32px
-- [x] Work: **대표 프로젝트 3(첫 항목 전폭 + 이후 좌우 교차) + MORE WORK 8(작은 썸네일, 4열 × 2행 → 2열 → 1열)**
+- [x] Work: **대표 프로젝트 3(wolffolins.com/work 참고: 12열 엇갈린 카드 — 전폭 / 1~6열 / 8~12열, 3:2 이미지 + 제목·한 줄 설명·태그, 카드 전체 링크) + MORE WORK 8(작은 썸네일, 4열 × 2행 → 2열 → 1열)**
 - [x] 작품 썸네일 비율 **3:2** (`--ratio-work`), 프로젝트 상세 와이드 16:9 (`--ratio-wide`), 모바일 결과물 9:16 (`--ratio-mobile`)
 - [x] Work 썸네일: **선 없이 프레임 가득**(플레이스홀더의 점선 프레임 제거) + **마우스오버 · 포커스 확대**(대표는 중앙 원형 → 버튼 추가, reduced-motion 대응)
 - [x] More work: 썸네일 클릭 → **비핸스식 팝업**(`<dialog>`, 페이지 전환 없음 · X/Esc/바깥 클릭으로 닫기 · 포커스 복귀 · 배경 스크롤 잠금 · 모바일 전체 화면). 실제 이미지가 오면 `data-images`로 다중 이미지 연결
@@ -59,9 +59,9 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] `<head>` — 메타/OG(Samsung.com + LG.com 문구), favicon, Google Fonts, FOUC 방지 인라인 스크립트
 - [x] `.topbar` (이름 → `.nav`), `.theme-toggle`는 `<body>` 직속 플로팅
 - [x] `#hero` — **헤드라인 + 서브만**(참고 wolffolins.com/work; 경력 흐름 · CTA 제거)
-- [x] `#work` — `<h2>Work</h2>` 하나 + 대표 프로젝트 `article.feature` 3건(중간 제목 없음, `View Project` 링크) + `h3 More work`(`ul.more-grid` 4건, 링크 없음)
+- [x] `#work` — `<h2>Work</h2>` 하나 + 대표 프로젝트 `article.feature` 3건(중간 제목 없음, 카드 전체가 링크) + `h3 More work`(`ul.more-grid` 4건, 링크 없음)
 - [x] 노출하지 않는 프로젝트는 `data/projects.json`에 보존(featured / more / candidate / archive, HTML 주석 코드 없음)
-- [x] `#about` — 참고 wolffolins.com/about: 라벨 → 35px 선언문 + 국문 줄 → 2열 사실 → Working approach(제목|설명 + 번호 3열)
+- [x] `#about` — 참고 wolffolins.com/about: 라벨 → 35px 선언문(좌) | 국문 줄(우) 2단 분할(≥1024px) → 라벨|내용 3행(Experience · Tools · Working approach)
 - [x] `#contact` — 라벨 → 35px 선언문 + 국문 줄 → 큰 이메일 링크 + 보조 링크
 - [x] `.footer`
 
@@ -69,7 +69,8 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] Inter 단일 서체, 대문자 타이틀/버튼/네비/탭, 위계 = 사이즈+무게
 - [x] hero(유동 h1) + 경력 흐름 / section-head(대문자 h2, contact도 동일 사이즈)
 - [x] 탭 필터 22px + 활성 하단 액센트 언더라인, 모바일 가로 스크롤
-- [x] `.feature`(+`--lead`) 배치 + `.more-grid` 4열 + `.approach`
+- [x] `.feature-grid`(`.feature--wide/--left/--right`) 배치 + `.more-grid` 4열 + `.approach`
+- [x] **열 기준선 통일**: 대표 프로젝트 카드를 참고 사이트 방식(3:2 이미지 + 제목·설명·태그, 12열 엇갈림)으로 통일하고 Hero 국문 · About · Contact · More work 3번째 열과 같은 7열 선에 정렬(전에는 레이아웃 3종 · 6/9/10열이 섞여 있었음)
 - [x] about / contact / `.btn` / `.tag`
 - [x] 반응형 320/340/400/640/768/900/1024px (375px에서 헤더 메뉴가 잘리지 않도록 보정)
 
@@ -99,6 +100,7 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [ ] LinkedIn URL (미확정 → 목록에서 제외, 이전 값은 `index.html` 주석)
 - [ ] 실제 영문 이력서 PDF → `assets/resume.pdf` 추가 후 다운로드 링크 복원
 - [x] About 카피 정리: Tools(After Effects 삭제 · Firefly/ChatGPT/Claude Code 추가) · Clients(Samsung/LG Global, 연도 삭제) · Experience(2011~ 타임라인 3단) · Clients/Focus 삭제 · Working approach(Design systems · Design QA · Responsive design 삭제, 6개)
+- [x] 모든 프로젝트 Role = Design lead · Content/Asset production(중복 표현 제거), 대표 프로젝트 번호 제거, 섹션 타이틀 35px(프로젝트명과 동일), hero 영문 전폭 두 줄 + 국문 아래
 - [x] hero 헤드라인(영문) · 서브(국문) · 메타 설명 · OG 문구 교체("design systems" 표현 제거)
 - [ ] 선언문 · 직함 확정
 - [ ] `assets/favicon.svg` + `favicon.ico`, `assets/og-image.png`(이전 문구 "Product · Campaign · Visual" → 새 포지셔닝)

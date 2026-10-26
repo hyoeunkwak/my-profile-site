@@ -79,10 +79,10 @@
 
   <main id="main">
     <!-- ============ Hero ============ -->
-    <!-- TODO(review): 헤드라인 · 서브(국문) 확인. 헤드라인 + 서브 외 텍스트 없음(경력 흐름 · CTA 제거). -->
+    <!-- TODO(review): 헤드라인 · 서브(국문) 확인. 영문은 그리드 밖 전폭 두 줄(≥1280px), 국문은 그 아래. 헤드라인 + 서브 외 텍스트 없음(경력 흐름 · CTA 제거). -->
     <section id="hero" class="hero">
       <div class="container">
-        <h1>Designing Digital Experiences That Connect Brands and People.</h1>
+        <h1><span class="hero__line">Designing Digital Experiences</span> <span class="hero__line">That Connect Brands and People.</span></h1>
         <p class="hero__statement" lang="ko">
           브랜드와 사용자를 연결하는 디지털 경험을 디자인합니다.
         </p>
@@ -100,86 +100,65 @@
           <h2>Work</h2>
         </div>
 
-        <!-- TODO(review): Switch to Galaxy — 정확한 주차, 운영 여부, 공개 URL, NDA·고객 사용 승인 확인 (상세: work/switch-to-galaxy.html) -->
-        <article class="feature feature--lead reveal">
-          <a class="feature__media" href="work/switch-to-galaxy.html" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/work/feature-switch-to-galaxy.svg" width="1200" height="800" alt="Placeholder image for the Switch to Galaxy project" />
-            <span class="feature__hint" aria-hidden="true">→</span>
-          </a>
-          <div class="feature__body">
-            <div class="feature__head">
-              <p class="feature__index" aria-hidden="true">01</p>
-              <h3 class="feature__title">Switch to Galaxy</h3>
-            </div>
-            <dl class="feature__meta">
-              <div><dt>Client / Platform</dt><dd>Samsung Electronics / Samsung.com</dd></div>
-              <div><dt>Period</dt><dd>Jun – Oct 2024</dd></div>
-              <div><dt>My role</dt><dd>Project Leader · KV concept · Digital content design</dd></div>
-            </dl>
-            <div class="feature__text">
-              <p class="feature__summary">
-                A Samsung.com marketing page that eases the move from iPhone to Galaxy by presenting data transfer and cross-platform compatibility as intuitive content.
-              </p>
-              <a class="btn" href="work/switch-to-galaxy.html">
-                View Project <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- TODO(review): Data Center Solutions — 정확한 기간, 런칭 상태, 공개 URL, NDA·고객 사용 승인 확인. 페이지 전체 UX/UI 를 단독 수행했다고 쓰지 않는다 (상세: work/data-center-solutions.html) -->
-        <article class="feature reveal">
-          <a class="feature__media" href="work/data-center-solutions.html" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/work/feature-data-center-solutions.svg" width="1200" height="800" alt="Placeholder image for the Data Center Solutions project" />
-            <span class="feature__hint" aria-hidden="true">→</span>
-          </a>
-          <div class="feature__body">
-            <div class="feature__head">
-              <p class="feature__index" aria-hidden="true">02</p>
-              <h3 class="feature__title">Data Center Solutions</h3>
-            </div>
-            <dl class="feature__meta">
-              <div><dt>Client / Platform</dt><dd>LG Electronics / LG.com B2B</dd></div>
-              <div><dt>Period</dt><dd>2026</dd></div>
-              <div><dt>My role</dt><dd>B2B digital content design · Visual assets</dd></div>
-            </dl>
-            <div class="feature__text">
-              <p class="feature__summary">
-                Visual content and product information modules for LG.com B2B that connect key data center spaces with cooling solutions.
-              </p>
-              <a class="btn" href="work/data-center-solutions.html">
-                View Project <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- TODO(review): SmartThings Compatible Devices — 정확한 일자, 런칭 상태, 공개 URL, NDA·고객 사용 승인 확인 (상세: work/smartthings-compatible-devices.html) -->
-        <article class="feature reveal">
-          <a class="feature__media" href="work/smartthings-compatible-devices.html" tabindex="-1" aria-hidden="true">
-            <img src="assets/img/work/feature-smartthings-compatible-devices.svg" width="1200" height="800" alt="Placeholder image for the SmartThings Compatible Devices project" />
-            <span class="feature__hint" aria-hidden="true">→</span>
-          </a>
-          <div class="feature__body">
-            <div class="feature__head">
-              <p class="feature__index" aria-hidden="true">03</p>
-              <h3 class="feature__title">SmartThings Compatible Devices</h3>
-            </div>
-            <dl class="feature__meta">
-              <div><dt>Client / Platform</dt><dd>Samsung Electronics / Samsung.com</dd></div>
-              <div><dt>Period</dt><dd>Aug – Sep 2024</dd></div>
-              <div><dt>My role</dt><dd>UX/UI Designer · UI structure &amp; content design</dd></div>
-            </dl>
-            <div class="feature__text">
-              <p class="feature__summary">
-                A UX/UI project that brings SmartThings compatible-device information into Samsung.com's design system within an existing development structure.
-              </p>
-              <a class="btn" href="work/smartthings-compatible-devices.html">
-                View Project <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </article>
+        <div class="feature-grid">
+          <!-- TODO(review): Switch to Galaxy — 정확한 주차, 운영 여부, 공개 URL, NDA·고객 사용 승인 확인 (상세: work/switch-to-galaxy.html) -->
+          <article class="feature feature--wide reveal">
+            <a class="feature__link" href="work/switch-to-galaxy.html">
+              <div class="feature__media">
+                <img src="assets/img/work/feature-switch-to-galaxy.svg" width="1200" height="800" alt="Placeholder image for the Switch to Galaxy project" />
+                <span class="feature__hint" aria-hidden="true">→</span>
+              </div>
+              <div class="feature__body">
+                <h3 class="feature__title">Switch to Galaxy</h3>
+                <p class="feature__tagline">Easing the move from iPhone to Galaxy</p>
+                <ul class="feature__tags">
+                  <li>Samsung.com</li>
+                  <li>Jun – Oct 2024</li>
+                  <li>Design lead</li>
+                  <li>Content production</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+          <!-- TODO(review): Data Center Solutions — 정확한 기간, 런칭 상태, 공개 URL, NDA·고객 사용 승인 확인. 페이지 전체 UX/UI 를 단독 수행했다고 쓰지 않는다 (상세: work/data-center-solutions.html) -->
+          <article class="feature feature--left reveal">
+            <a class="feature__link" href="work/data-center-solutions.html">
+              <div class="feature__media">
+                <img src="assets/img/work/feature-data-center-solutions.svg" width="1200" height="800" alt="Placeholder image for the Data Center Solutions project" />
+                <span class="feature__hint" aria-hidden="true">→</span>
+              </div>
+              <div class="feature__body">
+                <h3 class="feature__title">Data Center Solutions</h3>
+                <p class="feature__tagline">Connecting data center spaces with cooling solutions</p>
+                <ul class="feature__tags">
+                  <li>LG.com B2B</li>
+                  <li>2026</li>
+                  <li>Design lead</li>
+                  <li>Asset production</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+          <!-- TODO(review): SmartThings Compatible Devices — 정확한 일자, 런칭 상태, 공개 URL, NDA·고객 사용 승인 확인 (상세: work/smartthings-compatible-devices.html) -->
+          <article class="feature feature--right reveal">
+            <a class="feature__link" href="work/smartthings-compatible-devices.html">
+              <div class="feature__media">
+                <img src="assets/img/work/feature-smartthings-compatible-devices.svg" width="1200" height="800" alt="Placeholder image for the SmartThings Compatible Devices project" />
+                <span class="feature__hint" aria-hidden="true">→</span>
+              </div>
+              <div class="feature__body">
+                <h3 class="feature__title">SmartThings Compatible Devices</h3>
+                <p class="feature__tagline">Bringing compatible devices into Samsung.com's design system</p>
+                <ul class="feature__tags">
+                  <li>Samsung.com</li>
+                  <li>Aug – Sep 2024</li>
+                  <li>Design lead</li>
+                  <li>Content production</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+        </div>
 
         <!-- ---------- More Work ---------- -->
         <!-- 썸네일 클릭 → 페이지 전환 없이 팝업(<dialog class="project-modal">, 비핸스식)으로 확대 이미지를 보여준다.
@@ -269,6 +248,10 @@
     </section>
 
     <!-- ============ About ============ -->
+    <!-- About 구조: 선언문(영문 큰 글씨 + 국문 줄은 우측 열) → 라벨|내용 3행(Experience · Tools · Working approach). Working approach 설명문 · 번호는 중복이라 삭제.
+         Working approach 문구 축약: Applying global design guidelines / Global site content operations design / Project leading /
+         Localized content for local markets / Cross-functional collaboration / Consistency across repeated operational work.
+         국문 줄(Hero · About · Contact)과 연락처 링크는 모두 같은 우측 열(.statement-grid 2열)에 정렬. -->
     <!-- TODO(review): About · Contact 카피는 처음 공유된 소개글("I'm a web designer with experience in digital campaigns and e-commerce platforms…")을 기반으로 정리.
          직함은 사이트 전체 기준으로 "digital designer"(원문은 web designer). About/Contact/Hero 의 국문 줄은 영문의 번역본 — 표현 검수.
          Samsung · LG 경력은 프로젝트 카드와 Experience 타임라인에 있음. 직함 확인.
@@ -282,17 +265,19 @@
         <div class="section-head reveal">
           <h2>About</h2>
         </div>
-        <p class="about-statement reveal">
-          I'm a digital designer with experience in digital campaigns and
-          e-commerce platforms, creating content that reflects both brand
-          identity and user needs — with a strong foundation in content design
-          and a growing focus on brand-led projects.
-        </p>
-        <p class="statement-ko reveal" lang="ko">
-          디지털 캠페인과 이커머스 플랫폼 경험을 바탕으로, 브랜드 정체성과
-          사용자 니즈를 함께 담은 콘텐츠를 만듭니다. 콘텐츠 디자인에 탄탄한
-          기반을 두고, 브랜드 중심 프로젝트로 영역을 넓혀가고 있습니다.
-        </p>
+        <div class="statement-grid">
+          <p class="about-statement reveal">
+            I'm a digital designer with experience in digital campaigns and
+            e-commerce platforms, creating content that reflects both brand
+            identity and user needs — with a strong foundation in content
+            design and a growing focus on brand-led projects.
+          </p>
+          <p class="statement-ko reveal" lang="ko">
+            디지털 캠페인과 이커머스 플랫폼 경험을 바탕으로, 브랜드 정체성과
+            사용자 니즈를 함께 담은 콘텐츠를 만듭니다. 콘텐츠 디자인에 탄탄한
+            기반을 두고, 브랜드 중심 프로젝트로 영역을 넓혀가고 있습니다.
+          </p>
+        </div>
 
         <dl class="about-facts reveal">
           <div>
@@ -309,27 +294,20 @@
             <dt>Tools</dt>
             <dd>Figma · Adobe Firefly · Photoshop · Illustrator · ChatGPT · Claude Code</dd>
           </div>
-        </dl>
-
-        <div class="approach reveal">
-          <div class="approach__head">
-            <h3 class="approach__title">Working approach</h3>
-            <p class="approach__lead">
-              I handle content operations design for global commerce sites,
-              lead projects, and apply global design guidelines to local
-              markets, collaborating with planners, developers and stakeholders
-              across countries.
-            </p>
+          <div>
+            <dt>Working approach</dt>
+            <dd>
+              <ul class="about-list">
+                <li>Applying global design guidelines</li>
+                <li>Global site content operations design</li>
+                <li>Project leading</li>
+                <li>Localized content for local markets</li>
+                <li>Cross-functional collaboration</li>
+                <li>Consistency across repeated operational work</li>
+              </ul>
+            </dd>
           </div>
-          <ul class="approach__list">
-            <li>Following and applying global design guidelines</li>
-            <li>Global site content operations design</li>
-            <li>Project leading</li>
-            <li>Localized content for local markets</li>
-            <li>Cross-functional collaboration</li>
-            <li>Maintaining consistency across repeated operational work</li>
-          </ul>
-        </div>
+        </dl>
       </div>
     </section>
 
@@ -340,26 +318,28 @@
         <div class="section-head reveal">
           <h2>Contact</h2>
         </div>
-        <p class="contact-statement reveal">
-          Open to digital campaign, e-commerce and brand-led design projects.
-        </p>
-        <p class="statement-ko reveal" lang="ko">
-          디지털 캠페인, 이커머스, 브랜드 중심 디자인 프로젝트에 열려 있습니다.
-        </p>
-        <ul class="contact-links reveal">
-          <li>
-            <a class="contact-mail" href="mailto:hyoeunkwak@gmail.com">
-              <span>hyoeunkwak@gmail.com</span>
-              <span class="ext" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://hyoni-k.tistory.com/" rel="noopener" target="_blank">
-              <span>Blog</span>
-              <span class="ext" aria-hidden="true">↗</span>
-            </a>
-          </li>
-        </ul>
+        <div class="statement-grid">
+          <p class="contact-statement reveal">
+            Open to digital campaign, e-commerce and brand-led design projects.
+          </p>
+          <p class="statement-ko reveal" lang="ko">
+            디지털 캠페인, 이커머스, 브랜드 중심 디자인 프로젝트에 열려 있습니다.
+          </p>
+          <ul class="contact-links reveal">
+            <li>
+              <a class="contact-mail" href="mailto:hyoeunkwak@gmail.com">
+                <span>hyoeunkwak@gmail.com</span>
+                <span class="ext" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://hyoni-k.tistory.com/" rel="noopener" target="_blank">
+                <span>Blog</span>
+                <span class="ext" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>

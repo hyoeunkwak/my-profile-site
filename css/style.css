@@ -310,12 +310,13 @@ main > section {
   margin-bottom: var(--space-7);
 }
 
-/* 섹션 라벨(Work/About/Contact): 20px · 레귤러 · 일반 대소문자 · 라인 없이 */
+/* 섹션 타이틀(Work/About/Contact · More work): 프로젝트명과 같은 L2 35px · 레귤러 · 라인 없이 */
 .section-head h2 {
   margin: 0;
-  font-size: var(--fs-350);
+  font-size: var(--fs-600);
   font-weight: var(--fw-regular);
-  line-height: var(--lh-snug);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-tight);
 }
 
 .section-head p {
@@ -338,12 +339,46 @@ main > section {
 }
 
 .hero h1 {
-  max-width: 18em;
   text-wrap: balance;
   font-size: var(--fs-700);
   font-weight: var(--fw-regular);
   line-height: var(--lh-tight);
   letter-spacing: var(--tracking-display);
+}
+
+/* 2단 분할: 영문(1~6열) | 국문 · 연락처(7~12열) — 가로로 겹치지 않고 첫 줄 기준선을 맞춘다.
+   1024px 미만은 영문 → 국문 순으로 쌓는다. */
+@media (min-width: 1024px) {
+  .statement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--grid-gap);
+    align-items: baseline;
+  }
+  .statement-grid > .about-statement,
+  .statement-grid > .contact-statement {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+  .statement-grid > .statement-ko,
+  .statement-grid > .contact-links {
+    grid-column: 2;
+    margin-top: 0;
+  }
+  .statement-grid > .statement-ko {
+    grid-row: 1;
+  }
+  .statement-grid > .contact-links {
+    grid-row: 2;
+    margin-top: var(--space-6);
+  }
+}
+
+/* 영문은 그리드 밖 전폭 — ≥1280px에서 두 줄로 고정, 그보다 좁으면 자연 줄바꿈 */
+@media (min-width: 1280px) {
+  .hero__line {
+    display: block;
+  }
 }
 
 .hero__statement {
@@ -355,21 +390,45 @@ main > section {
   color: var(--color-text-muted);
 }
 
-/* 메인 페이지 텍스트 위계(한 스케일, 굵기는 regular — 위계는 크기 + 색으로):
-   L1 64 선언문(hero · About · Contact) / L2 35 타이틀(대표 프로젝트 · Working approach · 이메일)
-   L3 20 라벨 · 리드 · 목록 · 링크(섹션 라벨 · More work · 요약 · GNB) / L4 16 라벨(진하게) · 값(연하게) · 항목명 / L5 14 캡션 · 번호 */
+/* 메인 페이지 텍스트 위계(참고: wolffolins.com/work — 한 스케일, 굵기는 regular, 위계는 크기 + 색으로):
+   L1 64 hero 헤드라인 / L2 35 섹션 타이틀(Work · About · Contact · More work) · 선언문 · 이메일
+   L3 20 프로젝트 제목(흰색) · 한 줄 설명(회색) · GNB · 목록 · 링크 / L4 16 라벨 · 값 · 푸터 / L5 14 태그 · 캡션 */
 
 /* ---------- Work — 대표 프로젝트(.feature) + MORE WORK(.more-grid) ---------- */
 
-/* 대표 프로젝트: 큰 이미지 + 메타 + 짧은 설명. 모바일은 세로, 768px↑는 12열(이미지 7 / 텍스트 4),
-   짝수 항목은 좌우 반전, 첫 항목(.feature--lead)은 1024px↑에서 이미지를 전폭으로 두고 텍스트를 아래 3단으로 배치 */
-.feature {
+/* 대표 프로젝트 3건(참고: wolffolins.com/work): 12열 그리드에 크기가 다른 카드를 엇갈려 놓는다.
+   01 = 전폭(12열) / 02 = 1~6열 / 03 = 8~12열(5열). 카드 전체가 하나의 링크이며,
+   3:2 이미지 아래에 제목(20px 흰색) · 한 줄 설명(20px 회색) · 태그(14px 알약)를 둔다. 모바일은 한 줄로 쌓는다. */
+.feature-grid {
   display: grid;
-  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  gap: var(--space-8) var(--col-gap);
 }
 
-.feature + .feature {
-  margin-top: var(--space-12);
+@media (min-width: 768px) {
+  .feature-grid {
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+  }
+  .feature--wide {
+    grid-column: 1 / -1;
+  }
+  .feature--left {
+    grid-column: 1 / span 6;
+  }
+  .feature--right {
+    grid-column: 8 / span 5;
+  }
+}
+
+@media (min-width: 1024px) {
+  .feature-grid {
+    row-gap: var(--space-12);
+  }
+}
+
+.feature__link {
+  display: block;
 }
 
 .feature__media {
@@ -409,129 +468,50 @@ main > section {
   transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
 
-.feature:hover .feature__media img,
-.feature:focus-within .feature__media img {
+.feature__link:hover .feature__media img,
+.feature__link:focus-visible .feature__media img {
   transform: scale(1.05);
 }
 
-.feature:hover .feature__hint,
-.feature:focus-within .feature__hint {
+.feature__link:hover .feature__hint,
+.feature__link:focus-visible .feature__hint {
   opacity: 1;
   transform: none;
 }
 
-.feature__index {
-  font-size: var(--fs-200);
-  font-weight: var(--fw-regular);
-  color: var(--color-text-muted);
-}
-
-.feature__title {
-  margin-top: var(--space-1);
-  font-size: var(--fs-600);
-  font-weight: var(--fw-regular);
-  line-height: var(--lh-heading);
-  letter-spacing: var(--tracking-tight);
-}
-
-.feature__meta {
-  margin-top: var(--space-4);
-}
-
-.feature__meta > div {
-  display: grid;
-  grid-template-columns: 8rem 1fr;
-  align-items: baseline;
-  gap: var(--space-2);
-  padding-block: var(--space-1);
-  font-size: var(--fs-200);
-}
-
-.feature__meta dt {
-  font-size: var(--fs-200);
-  font-weight: var(--fw-regular);
-}
-
-.feature__meta dd {
-  margin: 0;
-  color: var(--color-text-muted);
-}
-
-.feature__text {
+.feature__body {
+  display: block;
   margin-top: var(--space-3);
 }
 
-.feature__summary {
-  max-width: 40ch;
+.feature__title,
+.feature__tagline {
   font-size: var(--fs-350);
-  line-height: var(--lh-snug);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-title);
+}
+
+.feature__tagline {
+  margin-top: var(--space-1);
   color: var(--color-text-muted);
 }
 
-.feature .btn {
-  margin-top: var(--space-3);
+.feature__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-@media (min-width: 768px) {
-  .feature {
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: var(--col-gap);
-    align-items: center;
-  }
-  .feature__media {
-    grid-column: 1 / span 7;
-  }
-  .feature__body {
-    grid-column: 9 / span 4;
-  }
-  .feature:nth-of-type(even) .feature__media {
-    grid-column: 6 / span 7;
-    grid-row: 1;
-  }
-  .feature:nth-of-type(even) .feature__body {
-    grid-column: 1 / span 4;
-    grid-row: 1;
-  }
-}
-
-@media (min-width: 1024px) {
-  .feature--lead {
-    grid-template-columns: 1fr;
-    align-items: start;
-    row-gap: var(--space-4);
-  }
-  .feature--lead .feature__media,
-  .feature--lead .feature__body {
-    grid-column: 1 / -1;
-  }
-  .feature--lead .feature__media img {
-    aspect-ratio: var(--ratio-wide);
-  }
-  .feature--lead .feature__body {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: var(--col-gap);
-    align-items: start;
-  }
-  .feature--lead .feature__head {
-    grid-column: 1 / span 5;
-  }
-  .feature--lead .feature__meta {
-    grid-column: 6 / span 4;
-    margin-top: 0;
-  }
-  .feature--lead .feature__text {
-    grid-column: 10 / span 3;
-    margin-top: 0;
-  }
-}
-
-/* 텍스트 칸이 좁은 768~1099px: 라벨을 값 위로 쌓아 값 칼럼이 짓눌리지 않게 */
-@media (min-width: 768px) and (max-width: 1099px) {
-  .feature__meta > div {
-    grid-template-columns: 1fr;
-    gap: var(--space-1);
-  }
+.feature__tags li {
+  padding: 0 var(--space-2);
+  border: 1px solid var(--color-text-muted);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-100);
+  line-height: var(--lh-normal);
+  color: var(--color-text-muted);
 }
 
 /* MORE WORK: 대표 프로젝트보다 작은 썸네일 · 가벼운 캡션 (링크 없음) */
@@ -541,9 +521,10 @@ main > section {
 
 .more-work__title {
   margin-bottom: var(--space-4);
-  font-size: var(--fs-350);
+  font-size: var(--fs-600);
   font-weight: var(--fw-regular);
-  line-height: var(--lh-snug);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-tight);
 }
 
 .more-grid {
@@ -768,16 +749,22 @@ html.is-modal-open {
   word-break: keep-all;
 }
 
-/* 라벨(진하게) 아래 값(연하게) — 4열 사실 목록 */
+/* 라벨(좌) | 내용(우) 행 — 우측 열은 국문 줄과 같은 세로선 */
 .about-facts {
   display: grid;
-  gap: var(--space-4) var(--grid-gap);
-  margin: var(--space-12) 0 0;
+  gap: var(--space-5);
+  margin: var(--space-8) 0 0;
+}
+
+.about-facts > div {
+  display: grid;
+  gap: var(--space-1) var(--grid-gap);
 }
 
 @media (min-width: 768px) {
-  .about-facts {
+  .about-facts > div {
     grid-template-columns: repeat(2, 1fr);
+    align-items: baseline;
   }
 }
 
@@ -787,13 +774,14 @@ html.is-modal-open {
 }
 
 .about-facts dd {
-  margin: var(--space-1) 0 0;
+  margin: 0;
   font-size: var(--fs-200);
   color: var(--color-text-muted);
 }
 
 /* Experience 타임라인: 기간(진하게) | 내용(연하게) */
-.about-timeline {
+.about-timeline,
+.about-list {
   display: grid;
   gap: var(--space-1);
   margin: 0;
@@ -815,69 +803,6 @@ html.is-modal-open {
 
 .about-timeline__period {
   color: var(--color-text);
-}
-
-/* Working approach: 제목 | 설명 2열 → 번호가 붙은 3열 항목 */
-.approach {
-  margin-top: var(--space-12);
-}
-
-.approach__head {
-  display: grid;
-  gap: var(--space-3) var(--grid-gap);
-}
-
-@media (min-width: 1024px) {
-  .approach__head {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.approach__title {
-  font-size: var(--fs-600);
-  font-weight: var(--fw-regular);
-  line-height: var(--lh-heading);
-}
-
-.approach__lead {
-  max-width: 40ch;
-  font-size: var(--fs-350);
-  line-height: var(--lh-snug);
-}
-
-.approach__list {
-  display: grid;
-  gap: var(--space-5) var(--grid-gap);
-  margin: var(--space-8) 0 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: approach;
-}
-
-@media (min-width: 768px) {
-  .approach__list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .approach__list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.approach__list li {
-  font-size: var(--fs-350);
-  line-height: var(--lh-snug);
-  counter-increment: approach;
-}
-
-.approach__list li::before {
-  content: counter(approach, decimal-leading-zero);
-  display: block;
-  margin-bottom: var(--space-1);
-  font-size: var(--fs-100);
-  color: var(--color-text-muted);
 }
 
 /* Contact: 선언문 → 큰 이메일 링크 → 보조 링크 */
@@ -960,7 +885,7 @@ html.is-modal-open {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-2);
-  font-size: var(--fs-100);
+  font-size: var(--fs-200);
   color: var(--color-text-muted);
 }
 
@@ -992,8 +917,8 @@ html.is-modal-open {
   .more-item__frame img {
     transition: none;
   }
-  .feature:hover .feature__media img,
-  .feature:focus-within .feature__media img,
+  .feature__link:hover .feature__media img,
+  .feature__link:focus-visible .feature__media img,
   .more-item__open:hover .more-item__frame img {
     transform: none;
   }
