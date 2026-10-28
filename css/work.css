@@ -186,6 +186,12 @@
   font-size: var(--fs-200);
 }
 
+/* 개요 우측 Role 이하 국문: 메인 페이지 국문 번역 줄과 같은 16px 회색(영문만 잉크색) */
+.project-rows [lang="ko"] {
+  font-size: var(--fs-200);
+  color: var(--color-text-muted);
+}
+
 /* ---------- More Info (접이식) ---------- */
 
 .project-more summary {

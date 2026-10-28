@@ -41,7 +41,7 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] **테마 토글은 우측 하단 플로팅 버튼**(상단바에서 분리)
 - [x] **단일 서체 Inter**(Aktiv Grotesk 스타일). 위계 = 사이즈(`--fs-50`~`--fs-700`) + 무게(`--fw-*`)
 - [x] **내용 제외 모든 타이틀·버튼·네비·탭·라벨 대문자**. 네비·탭 22px / 이름(HYOEUN K) 32px
-- [x] Work: **대표 프로젝트 3(wolffolins.com/work 참고: 12열 엇갈린 카드 — 전폭 / 1~6열 / 8~12열, 3:2 이미지 + 제목·한 줄 설명·태그, 카드 전체 링크) + MORE WORK 8(작은 썸네일, 4열 × 2행 → 2열 → 1열)**
+- [x] Work: **대표 프로젝트 3(wolffolins.com/work 참고: 12열 엇갈린 카드 — 전폭 / 1~6열 / 7~12열, 3:2 이미지 + 제목·한 줄 설명·태그, 카드 전체 링크) + MORE WORK 8(작은 썸네일, 4열 × 2행 → 2열 → 1열)**
 - [x] 작품 썸네일 비율 **3:2** (`--ratio-work`), 프로젝트 상세 와이드 16:9 (`--ratio-wide`), 모바일 결과물 9:16 (`--ratio-mobile`)
 - [x] Work 썸네일: **선 없이 프레임 가득**(플레이스홀더의 점선 프레임 제거) + **마우스오버 · 포커스 확대**(대표는 중앙 원형 → 버튼 추가, reduced-motion 대응)
 - [x] More work: 썸네일 클릭 → **비핸스식 팝업**(`<dialog>`, 페이지 전환 없음 · X/Esc/바깥 클릭으로 닫기 · 포커스 복귀 · 배경 스크롤 잠금 · 모바일 전체 화면). 실제 이미지가 오면 `data-images`로 다중 이미지 연결
@@ -59,9 +59,9 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] `<head>` — 메타/OG(Samsung.com + LG.com 문구), favicon, Google Fonts, FOUC 방지 인라인 스크립트
 - [x] `.topbar` (이름 → `.nav`), `.theme-toggle`는 `<body>` 직속 플로팅
 - [x] `#hero` — **헤드라인 + 서브만**(참고 wolffolins.com/work; 경력 흐름 · CTA 제거)
-- [x] `#work` — `<h2>Work</h2>` 하나 + 대표 프로젝트 `article.feature` 3건(중간 제목 없음, 카드 전체가 링크) + `h3 More work`(`ul.more-grid` 4건, 링크 없음)
+- [x] `#work` — `<h2>Work</h2>` 하나 + 대표 프로젝트 `article.feature` 3건(중간 제목 없음, 카드 전체가 링크) + `h3 Archive`(`ul.more-grid` 4건, 링크 없음)
 - [x] 노출하지 않는 프로젝트는 `data/projects.json`에 보존(featured / more / candidate / archive, HTML 주석 코드 없음)
-- [x] `#about` — 참고 wolffolins.com/about: 라벨 → 35px 선언문(좌) | 국문 줄(우) 2단 분할(≥1024px) → 라벨|내용 3행(Experience · Tools · Working approach)
+- [x] `#about` — 참고 wolffolins.com/about: 라벨 → 35px 선언문(20px 영문) + 바로 아래 국문 번역(16px), 전폭 → 라벨|내용 3행(Experience · Tools · Working approach)
 - [x] `#contact` — 라벨 → 35px 선언문 + 국문 줄 → 큰 이메일 링크 + 보조 링크
 - [x] `.footer`
 

@@ -310,7 +310,7 @@ main > section {
   margin-bottom: var(--space-7);
 }
 
-/* 섹션 타이틀(Work/About/Contact · More work): 프로젝트명과 같은 L2 35px · 레귤러 · 라인 없이 */
+/* 섹션 타이틀(Work/About/Contact · Archive): 프로젝트명과 같은 L2 35px · 레귤러 · 라인 없이 */
 .section-head h2 {
   margin: 0;
   font-size: var(--fs-600);
@@ -346,58 +346,25 @@ main > section {
   letter-spacing: var(--tracking-display);
 }
 
-/* 2단 분할: 영문(1~6열) | 국문 · 연락처(7~12열) — 가로로 겹치지 않고 첫 줄 기준선을 맞춘다.
-   1024px 미만은 영문 → 국문 순으로 쌓는다. */
-@media (min-width: 1024px) {
-  .statement-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: var(--grid-gap);
-    align-items: baseline;
-  }
-  .statement-grid > .about-statement,
-  .statement-grid > .contact-statement {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-  }
-  .statement-grid > .statement-ko,
-  .statement-grid > .contact-links {
-    grid-column: 2;
-    margin-top: 0;
-  }
-  .statement-grid > .statement-ko {
-    grid-row: 1;
-  }
-  .statement-grid > .contact-links {
-    grid-row: 2;
-    margin-top: var(--space-6);
-  }
-}
-
-/* 영문은 그리드 밖 전폭 — ≥1280px에서 두 줄로 고정, 그보다 좁으면 자연 줄바꿈 */
-@media (min-width: 1280px) {
-  .hero__line {
-    display: block;
-  }
-}
+/* About · Contact 선언문 블록: 2단 그리드 없이 컨테이너 전폭을 쓴다. 섹션 타이틀(35) → 영문 선언문(20) → 국문 번역(16, Tools 내용과 같은 크기·색) 순으로 쌓는다. */
 
 .hero__statement {
   word-break: keep-all;
   max-width: 40ch;
   margin-top: var(--space-5);
-  font-size: var(--fs-350);
+  font-size: var(--fs-200);
   line-height: var(--lh-snug);
   color: var(--color-text-muted);
 }
 
 /* 메인 페이지 텍스트 위계(참고: wolffolins.com/work — 한 스케일, 굵기는 regular, 위계는 크기 + 색으로):
-   L1 64 hero 헤드라인 / L2 35 섹션 타이틀(Work · About · Contact · More work) · 선언문 · 이메일
-   L3 20 프로젝트 제목(흰색) · 한 줄 설명(회색) · GNB · 목록 · 링크 / L4 16 라벨 · 값 · 푸터 / L5 14 태그 · 캡션 */
+   L1 64 hero 헤드라인 / L2 35 섹션 타이틀(Work · About · Contact · Archive) · 이메일
+   L3 20 프로젝트 제목 · About/Contact 선언문(흰색) · 한 줄 설명 · 국문 번역(회색) · GNB · 목록 · 링크 / L4 16 라벨 · 값 · 푸터 / L5 14 태그 · 캡션 */
 
 /* ---------- Work — 대표 프로젝트(.feature) + MORE WORK(.more-grid) ---------- */
 
 /* 대표 프로젝트 3건(참고: wolffolins.com/work): 12열 그리드에 크기가 다른 카드를 엇갈려 놓는다.
-   01 = 전폭(12열) / 02 = 1~6열 / 03 = 8~12열(5열). 카드 전체가 하나의 링크이며,
+   01 = 전폭(12열) / 02 = 1~6열 / 03 = 7~12열(02와 같은 크기). 카드 전체가 하나의 링크이며,
    3:2 이미지 아래에 제목(20px 흰색) · 한 줄 설명(20px 회색) · 태그(14px 알약)를 둔다. 모바일은 한 줄로 쌓는다. */
 .feature-grid {
   display: grid;
@@ -417,7 +384,7 @@ main > section {
     grid-column: 1 / span 6;
   }
   .feature--right {
-    grid-column: 8 / span 5;
+    grid-column: 7 / span 6;
   }
 }
 
@@ -729,22 +696,17 @@ html.is-modal-open {
 
 /* ---------- About / Contact (참고: wolffolins.com/about — 선언문 + 라벨 + 2열/그리드) ---------- */
 
-/* About · Contact 선언문은 Hero(L1 64px)보다 한 단계 작은 L2 35px. 국문 줄은 20px 연한 색 */
 .about-statement,
 .contact-statement {
-  max-width: 30em;
-  text-wrap: balance;
-  font-size: var(--fs-600);
+  font-size: var(--fs-350);
   font-weight: var(--fw-regular);
-  line-height: var(--lh-heading);
-  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-title);
 }
 
 .statement-ko {
-  max-width: 44ch;
-  margin-top: var(--space-3);
-  font-size: var(--fs-350);
-  line-height: var(--lh-snug);
+  margin-top: var(--space-1);
+  font-size: var(--fs-200);
+  line-height: var(--lh-title);
   color: var(--color-text-muted);
   word-break: keep-all;
 }
