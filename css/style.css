@@ -109,7 +109,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-1);
+  gap: var(--space-2); /* 세 메뉴 사이 간격 */
   padding: var(--space-4) var(--page-pad) var(--space-12);
   overflow-y: auto;
   background: var(--color-nav-bg);
@@ -135,30 +135,12 @@ body {
   transition: opacity var(--dur-fast) var(--ease);
 }
 
-.site-nav .site-nav__cta {
-  margin-top: var(--space-8);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-pill);
-  background: var(--color-on-image);
-  color: var(--color-on-light);
-  font-size: var(--fs-200);
-  font-weight: var(--fw-regular);
-  line-height: var(--lh-snug);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
 .site-nav a:hover {
   opacity: 0.7;
 }
 
 .site-nav a[aria-current="page"] {
   text-decoration: underline;
-}
-
-.site-nav .site-nav__cta[aria-current="page"] {
-  text-decoration: none;
 }
 
 .site-search-toggle,
@@ -234,20 +216,6 @@ body {
     line-height: var(--lh-title);
     letter-spacing: 0.02em;
     text-transform: uppercase;
-  }
-  .site-nav .site-nav__cta {
-    margin: 0;
-    padding: 0;
-    border-radius: 0;
-    background: none;
-    color: var(--color-on-image);
-    font-size: var(--fs-200);
-    font-weight: var(--fw-regular);
-    line-height: var(--lh-title);
-    letter-spacing: 0.02em;
-  }
-  .site-nav .site-nav__cta[aria-current="page"] {
-    text-decoration: underline;
   }
 }
 
@@ -631,6 +599,25 @@ body {
 /* 칸 안에서 아이콘이 가운데라 생기는 좌측 여백만큼 당겨 첫 아이콘을 텍스트 시작선(Fields 목록 · 제목)에 맞춘다 */
 .tool-list {
   margin-left: calc((var(--tool-icon) - var(--tool-cell)) / 2);
+}
+
+/* 모바일: 아이콘을 줄여 3×3 그리드를 패널 가운데에 균등 배치 */
+@media (max-width: 767px) {
+  .tool-list {
+    --tool-icon: 3.5rem; /* 56 */
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: stretch;
+    gap: var(--space-3) var(--space-1);
+    margin-left: 0;
+    padding-inline: var(--space-2);
+  }
+  .tool-list .tool {
+    font-size: var(--fs-50);
+  }
+  .tool-list .tool img {
+    width: var(--tool-icon);
+    height: var(--tool-icon);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
