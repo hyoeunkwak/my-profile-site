@@ -6,7 +6,7 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 > **현재 상태**: 메인 페이지 + 대표 프로젝트 상세 3종 **확정 브리프 반영 완료 — 이미지는 NDA·고객 승인 확인 전이라 플레이스홀더**.
 > 대표: **01 Switch to Galaxy / 02 Data Center Solutions(LG.com B2B) / 03 SmartThings Compatible Devices**
 > (`work/switch-to-galaxy.html` · `data-center-solutions.html` · `smartthings-compatible-devices.html`).
-> MORE WORK 8건(4×2): LG RAC / Aircare Buying Guide · LG Flatbed Microwave Oven PDP · #YouMake 2H Promotion · LG Global / PH HVAC Main Page ·
+> Work 팝업 8건(2단 그리드의 나머지): LG RAC / Aircare Buying Guide · LG Flatbed Microwave Oven PDP · #YouMake 2H Promotion · LG Global / PH HVAC Main Page ·
 > Galaxy A15 LTE / 5G PDP · LG B2B Commercial Laundry Page · Samsung B2B Home Appliances Asset · EPP Flash Sale Campaign.
 > 남은 후보(Galaxy Watch7 / X2 Bands · LG AX-R Washing Machine PDP)와 아카이브는 `data/projects.json`. 경력 흐름: Samsung 2022–2024 → LG 2025–현재.
 > **확인된 사실만 화면에 쓰고, 미확인 항목은 화면에 표시하지 않은 채 `TODO(review)` 주석으로만 남긴다.**
@@ -41,7 +41,7 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] **테마 토글은 우측 하단 플로팅 버튼**(상단바에서 분리)
 - [x] **단일 서체 Inter**(Aktiv Grotesk 스타일). 위계 = 사이즈(`--fs-50`~`--fs-700`) + 무게(`--fw-*`)
 - [x] **내용 제외 모든 타이틀·버튼·네비·탭·라벨 대문자**. 네비·탭 22px / 이름(HYOEUN K) 32px
-- [x] Work: **대표 프로젝트 3(wolffolins.com/work 참고: 12열 엇갈린 카드 — 전폭 / 1~6열 / 7~12열, 3:2 이미지 + 제목·한 줄 설명·태그, 카드 전체 링크) + MORE WORK 8(작은 썸네일, 4열 × 2행 → 2열 → 1열)**
+- [x] Work: **대표 프로젝트 3(wolffolins.com/work 참고: 12열 엇갈린 카드 — 전폭 / 1~6열 / 7~12열, 3:2 이미지 + 제목·한 줄 설명·태그, 카드 전체 링크) + 팝업 8건(Archive 구분 없이 2단 그리드) 8(작은 썸네일, 4열 × 2행 → 2열 → 1열)**
 - [x] 작품 썸네일 비율 **3:2** (`--ratio-work`), 프로젝트 상세 와이드 16:9 (`--ratio-wide`), 모바일 결과물 9:16 (`--ratio-mobile`)
 - [x] Work 썸네일: **선 없이 프레임 가득**(플레이스홀더의 점선 프레임 제거) + **마우스오버 · 포커스 확대**(대표는 중앙 원형 → 버튼 추가, reduced-motion 대응)
 - [x] More work: 썸네일 클릭 → **비핸스식 팝업**(`<dialog>`, 페이지 전환 없음 · X/Esc/바깥 클릭으로 닫기 · 포커스 복귀 · 배경 스크롤 잠금 · 모바일 전체 화면). 실제 이미지가 오면 `data-images`로 다중 이미지 연결
@@ -93,17 +93,18 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 - [x] 가상 인물 → 실제 인물 **Hyoeun Kwak**, 프로젝트 데이터 영문화
 - [x] 확정 브리프 반영: 대표 3건(기간 · 역할 · Contribution · Deliverables · Requirements · Approach · Notes), MORE WORK 8건, 경력 기간(Samsung 2022–2024 / LG 2025–현재), 공개 이메일 `hyoeunkwak@gmail.com`
 - [x] 가상 인물 `assets/resume.pdf` 제거 + Hero·About 다운로드 링크 숨김 (복원 방법은 `index.html` TODO 주석)
-- [ ] **실제 프로젝트 이미지 연결** — 대표 3건(Hero · What I Designed 2 · Final Deliverables) + MORE WORK 8건. NDA·고객 사용 승인·내부 가이드/어드민/코멘트/사내 수치 제거 확인 후. 현재는 `feature-*.svg` · `project-placeholder-*.svg` · `thumb-*.svg` 플레이스홀더
+- [x] **실제 프로젝트 이미지 연결** — 대표 3건(16:9 커버 · Media flow 블록) + Archive 8건(thumb + 팝업 1~3장). `assets/resource` 원본(git 제외)에서 가공
+- [ ] 이미지 NDA·고객 사용 승인·내부 가이드/어드민/코멘트/사내 수치 노출 여부 확인(승인 전 push 금지) · 03 모바일(450×800)·MWO 등 저해상도 컷 교체 검토
 - [ ] 프로젝트별 미확인 항목(상세 페이지 상단 `TODO(review)`): 정확한 기간 · 런칭 상태 · 공개 URL · 팀 구성 · 담당 범위 체크 · 미확인 Requirements/Process 항목 · 모바일 산출물
 - [ ] Data Center Solutions 공개 표기명 확정 ("Data Center Solutions" vs "LG Data Center Solutions"), 페이지 전체 UX/UI 단독 수행으로 읽히지 않는지 확인
-- [ ] MORE WORK: RAC/Aircare Buying Guide · HVAC Main Page · B2B Commercial Laundry Page 연도, 기존 항목(Galaxy A15 · B2B Home Appliances Asset · EPP)과의 동일 여부, 남은 후보 2개(`candidate`) 승격 여부, 아카이브(Pocket Rice · World IT Show 2012 · Tripitaka 2011) 역할 서술·영문 명칭 검수
+- [ ] 팝업 8건: RAC/Aircare Buying Guide · HVAC Main Page · B2B Commercial Laundry Page 연도, 기존 항목(Galaxy A15 · B2B Home Appliances Asset · EPP)과의 동일 여부, 남은 후보 2개(`candidate`) 승격 여부, 아카이브(Pocket Rice · World IT Show 2012 · Tripitaka 2011) 역할 서술·영문 명칭 검수
 - [ ] LinkedIn URL (미확정 → 목록에서 제외, 이전 값은 `index.html` 주석)
 - [ ] 실제 영문 이력서 PDF → `assets/resume.pdf` 추가 후 다운로드 링크 복원
 - [x] About 카피 정리: Tools(After Effects 삭제 · Firefly/ChatGPT/Claude Code 추가) · Clients(Samsung/LG Global, 연도 삭제) · Experience(2011~ 타임라인 3단) · Clients/Focus 삭제 · Working approach(Design systems · Design QA · Responsive design 삭제, 6개)
 - [x] 모든 프로젝트 Role = Design lead · Content/Asset production(중복 표현 제거), 대표 프로젝트 번호 제거, 섹션 타이틀 35px(프로젝트명과 동일), hero 영문 전폭 두 줄 + 국문 아래
 - [x] hero 헤드라인(영문) · 서브(국문) · 메타 설명 · OG 문구 교체("design systems" 표현 제거)
 - [ ] 선언문 · 직함 확정
-- [ ] `assets/favicon.svg` + `favicon.ico`, `assets/og-image.png`(이전 문구 "Product · Campaign · Visual" → 새 포지셔닝)
+- [x] 파비콘 H(흰 원 + 굵은 검정 H): `assets/favicon.svg` · `favicon.ico`(16/32/48) · `apple-touch-icon.png`(180), `assets/og-image.png`(다크 배경 + 이름 · 직함) 재제작
 - [x] `index.html`의 `og:url` / `og:image` → `https://hyoeunkwak.github.io/my-profile-site/` (커스텀 도메인 사용 시 재변경)
 
 ### 10. 품질 점검
@@ -139,7 +140,7 @@ HTML / CSS / AI 도구만으로 만드는 반응형 **디지털 디자이너 포
 
 ### 13. 지원용 개편 (PTKOREA — Samsung.com 글로벌 관련 포지션)
 - [x] Hero: 새 헤드라인/설명 + 경력 흐름 + CTA
-- [x] Work: WORK 하나 안에서 대표 3 + MORE WORK 8 위계 분리, 필터 제거, 용어 통일(Project Detail 계열)
+- [x] Work: WORK 하나 안에서 대표 3 + 팝업 8건(Archive 구분 없이 2단 그리드) 8 위계 분리, 필터 제거, 용어 통일(Project Detail 계열)
 - [x] 대표 프로젝트 확정(Switch to Galaxy / Data Center Solutions / SmartThings Compatible Devices), 확정 브리프 카피 반영
 - [x] About 단문화 + Working approach(Design Operations를 프로젝트 카드 대신 역량으로)
 - [x] 메타 설명 / OG 문구, README · ROADMAP 저장소/배포 정보 정리

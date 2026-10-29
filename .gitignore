@@ -22,3 +22,6 @@ settings.json
 
 # 로컬 미리보기 서버 캐시 등
 .cache/
+
+# 작업 원본 자료(PDF · 시안 등, NDA 가능성 — 사이트용 가공본만 assets/img/work 에 둔다)
+assets/resource/

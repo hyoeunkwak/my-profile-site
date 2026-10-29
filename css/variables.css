@@ -11,6 +11,18 @@
   /* --- 색: 라이트 (거의 모노크롬 + 미세한 블루) --- */
   --color-bg: #ffffff;
   --color-surface: #f5f5f5;
+  --color-surface-raised: #2b2b2c;  /* 폼 입력 · 버튼 배경(어두운 테마 고정) */
+  /* 이미지 스테이지: 라이트/다크와 무관하게 고정(흰 배경 캡처가 어느 테마에서도 같은 무대 위에 놓이도록) */
+  --stage-bg: #ffffff;
+  /* 썸네일 위 텍스트: 테마와 무관하게 흰색 + 하단 스크림 */
+  --color-on-image: #ffffff;
+  --color-on-light: #000000;       /* 밝은 배경 위 아이콘(팝업 컨트롤 자동 반전) */
+  --scrim: rgba(0, 0, 0, 0.35);
+  --scrim-strong: rgba(0, 0, 0, 0.6);
+  --scrim-more: rgba(0, 0, 0, 0.5);        /* You may also like — 블랙 딤 */
+  --scrim-more-hover: rgba(0, 0, 0, 0.7);
+  --stage-bar: #ececee;
+  --stage-dot: #cfcfd3;
   --color-border: #e5e5e5;
   --color-text: #0f0f10;
   --color-text-muted: #707074;
@@ -38,6 +50,7 @@
   --fs-700: clamp(2.25rem, 1.4rem + 4vw, 4rem);          /* 64 — hero · About · Contact 선언문 */
 
   /* 무게 */
+  --fw-light: 300;
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
@@ -75,15 +88,23 @@
   --container-pad: var(--space-3);   /* 24 → 768px↑ 40 → 1280px↑ 56 */
   --content-narrow: 46rem;           /* 736 */
   --section-y: var(--space-8);       /* 64 → 768px↑ 96 → 1280px↑ 128 */
-  --grid-gap: var(--space-2);        /* 16 → 768px↑ 24 → 1280px↑ 32 */
+  --grid-gap: var(--space-3);        /* 24 — 콘텐츠 사이 간격(모든 폭 고정) */
+  --page-pad: var(--space-4);        /* 32 → 768px↑ 48 — 콘텐츠 좌우 마진 */
   --col-gap: var(--grid-gap);
-  --header-height: 4.5rem;           /* 72 → 768px↑ 88 */
+  --header-height: 4rem;             /* 64 → 768px↑ 80 */
+  --color-nav-bg: #000000;           /* nav 바 · 검색 패널 배경(블랙) */
+  --color-nav-line: rgba(255, 255, 255, 0.16); /* nav 구분선 · 아이콘 호버 톤 */
+  --color-nav-muted: #8a8a90;        /* nav 검색 패널 보조 텍스트(페이지 테마와 무관하게 블랙 위) */
+  --color-nav-surface: #161617;      /* nav 검색 결과 썸네일 로딩 배경 */
+  --color-footer-bg: #000000;         /* 푸터 배경(페이지 테마와 무관하게 고정) */
+  --color-footer-text: #777777;       /* 푸터 저작권 문구 */
   --ratio-work: 3 / 2;
   --ratio-wide: 16 / 9;    /* 프로젝트 상세 와이드 이미지 */
   --ratio-mobile: 9 / 16;  /* 프로젝트 상세 모바일 결과물 */
 
   /* --- 형태 --- */
   --radius: 2px;
+  --radius-stage: 8px;   /* 이미지 스테이지(.media-frame / .browser) 모서리 */
   --radius-pill: 999px;
   --border-hairline: 1px solid var(--color-border);
 
@@ -96,7 +117,7 @@
   --dur-nav: 650ms;
 
   /* --- 팝업 백드롭(단색 딤) --- */
-  --color-backdrop: rgba(15, 16, 17, 0.72);
+  --color-backdrop: rgba(0, 0, 0, 0.6);
 
   /* --- 그림자 (거의 안 보이는 수준) --- */
   --shadow-float: 0 2px 8px rgba(15, 16, 17, 0.06),
@@ -107,10 +128,10 @@
 
 @media (min-width: 768px) {
   :root {
-    --header-height: 5.5rem;
+    --header-height: 5rem;
     --container-pad: var(--space-5);
     --section-y: var(--space-12);
-    --grid-gap: var(--space-3);
+    --page-pad: var(--space-6);
   }
 }
 
@@ -118,14 +139,13 @@
   :root {
     --container-pad: var(--space-7);
     --section-y: var(--space-16);
-    --grid-gap: var(--space-4);
   }
 }
 
 /* --- 색: 다크 (OS 설정) --- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #0b0b0c;
+    --color-bg: #000000;
     --color-surface: #161617;
     --color-border: #262629;
     --color-text: #f3f3f4;
@@ -134,7 +154,7 @@
     --color-accent: #7aa2ff;
     --color-accent-hover: #9bb8ff;
     --color-accent-soft: #171d33;
-    --color-accent-contrast: #0b0b0c;
+    --color-accent-contrast: #111111;
 
     --shadow-float: 0 2px 8px rgba(0, 0, 0, 0.5),
       0 12px 32px rgba(0, 0, 0, 0.6);
@@ -145,7 +165,7 @@
 
 /* --- 색: 다크 (명시적 토글, 항상 우선) --- */
 :root[data-theme="dark"] {
-  --color-bg: #0b0b0c;
+  --color-bg: #000000;
   --color-surface: #161617;
   --color-border: #262629;
   --color-text: #f3f3f4;
@@ -154,10 +174,22 @@
   --color-accent: #7aa2ff;
   --color-accent-hover: #9bb8ff;
   --color-accent-soft: #171d33;
-  --color-accent-contrast: #0b0b0c;
+  --color-accent-contrast: #111111;
 
   --shadow-float: 0 2px 8px rgba(0, 0, 0, 0.5),
     0 12px 32px rgba(0, 0, 0, 0.6);
 
   color-scheme: dark;
+}
+
+/* --- 색: 라이트 페이지(Experiences · Contact — <html class="page-light">). nav 는 --color-nav-* 라 영향 없음 --- */
+:root.page-light[data-theme="dark"] {
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-surface-raised: #f0f0f0;
+  --color-border: #e4e4e7;
+  --color-text: #111111;
+  --color-text-muted: #6b6b70;
+
+  color-scheme: light;
 }
