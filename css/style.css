@@ -911,6 +911,25 @@ body {
   height: 1.5rem;
 }
 
+/* 모바일: 소셜 글리프 → 저작권 순으로 가운데 정렬 */
+@media (max-width: 767px) {
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    text-align: center;
+  }
+  .contact-links {
+    order: -1;
+    justify-content: center;
+    margin: 0;
+  }
+  .site-footer__legal {
+    order: 1;
+  }
+}
+
 @media (min-width: 768px) {
   .has-footer > main.page,
   .has-footer .work-grid {
@@ -1202,7 +1221,7 @@ html.is-menu-open {
 .project-modal__more-name {
   display: block;
   max-width: 24ch;
-  font-size: var(--fs-350);
+  font-size: var(--fs-200); /* You may also like 제목(20px)보다 작게 */
   font-weight: var(--fw-semibold);
   line-height: var(--lh-title);
   text-transform: uppercase;
@@ -1210,7 +1229,7 @@ html.is-menu-open {
 
 .project-modal__more-year {
   display: block;
-  font-size: var(--fs-200);
+  font-size: var(--fs-100);
   opacity: 0.75;
 }
 
