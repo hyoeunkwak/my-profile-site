@@ -64,7 +64,7 @@
   <main id="main" class="page">
     <h1 class="page__title">Designing experiences, end to end.</h1>
     <p class="page__lede">From exhibition graphics to global commerce &mdash; a practice built on consistency and cross-functional collaboration.</p>
-    <!-- TODO(review): 이전 About 의 확인된 사실(타임라인 · Tools · 업무 방식)과 포트폴리오 15건의 분류만 사용. 분야 이름은 프로젝트 성격에 따른 분류이며 담당 역할 서술이 아니다. 회사명 · 정확한 기간 · 담당 범위는 확인 후 보강. 툴 아이콘은 App Store 앱 아이콘(Illustrator 는 로컬 설치 앱 아이콘)이며 Claude Code 는 Claude 앱 아이콘을 쓴다. -->
+    <!-- TODO(review): 이전 About 의 확인된 사실(타임라인 · Tools · 업무 방식)과 포트폴리오 15건의 분류만 사용. 분야 이름은 프로젝트 성격에 따른 분류이며 담당 역할 서술이 아니다. 링크 없는 항목(class="is-plain": LG.com HVAC · Buying Guide · PDP 묶음)은 소유자가 직접 제공한 목록이며 팝업이 없다 — 공개 가능 여부 확인 필요. 회사명 · 정확한 기간 · 담당 범위는 확인 후 보강. 툴 아이콘은 App Store 앱 아이콘(Illustrator 는 로컬 설치 앱 아이콘)이며 Claude Code 는 Claude 앱 아이콘을 쓴다. -->
 
     <section class="exp-block" aria-labelledby="exp-experience">
       <h2 class="exp-block__title" id="exp-experience">Experience</h2>
@@ -100,10 +100,11 @@
           <li class="field">
             <h3 class="field__name">Marketing Pages</h3>
             <ul class="field__projects">
+            <li class="is-plain">LG.com RAC / Aircare Buying Guide <span>2026</span></li>
             <li><a href="index.html#switch-to-galaxy">Switch to Galaxy</a> <span>2024</span></li>
             <li><a href="index.html#healthcare-contents">Healthcare Contents &amp; Marketing</a> <span>2021</span></li>
-            <li><a href="index.html#fashion-contents">Fashion Contents</a> <span>2017</span></li>
-            <li><a href="index.html#retail-crm-marketing">Retail CRM &amp; Marketing</a> <span>2016</span></li>
+            <li><a href="index.html#fashion-contents">Enter6 mall Fashion Contents</a> <span>2017</span></li>
+            <li><a href="index.html#retail-crm-marketing">AK mall CRM &amp; Marketing</a> <span>2016</span></li>
             </ul>
           </li>
           <li class="field">
@@ -113,6 +114,8 @@
             <li><a href="index.html#watch-bands">Watch Bands Product Page</a> <span>2024</span></li>
             <li><a href="index.html#galaxy-a15">Galaxy A15 Product Page</a> <span>2023</span></li>
             <li><a href="index.html#oled-tv-s95c-s90c">OLED TV S95C &middot; S90C Product Page</a> <span>2022</span></li>
+            <li class="is-plain">LG.com localized RAC PDPs <span>4 projects</span></li>
+            <li class="is-plain">LG.com Global PDPs &mdash; refrigerators, washers, air purifiers and more <span>7 projects</span></li>
             </ul>
           </li>
           <li class="field">
@@ -124,7 +127,9 @@
           <li class="field">
             <h3 class="field__name">B2B Asset</h3>
             <ul class="field__projects">
-            <li><a href="index.html#home-appliances-b2b">Home Appliances B2B Key Visual</a> <span>2023</span></li>
+            <li class="is-plain">LG.com Global HVAC Data Center Solution Page <span>2026</span></li>
+            <li class="is-plain">LG.com Global / PH HVAC Main Page <span>2025</span></li>
+            <li><a href="index.html#home-appliances-b2b">Samsung.com Home Appliances B2B Key Visual</a> <span>2023</span></li>
             </ul>
           </li>
           <li class="field">
@@ -147,14 +152,20 @@
 
     <section class="exp-block" aria-labelledby="exp-tools">
       <div class="tool-panel">
-        <h2 class="exp-block__title tool-panel__title" id="exp-tools">Tools</h2>
+        <div class="tool-panel__intro">
+          <h2 class="exp-block__title tool-panel__title" id="exp-tools">Tools</h2>
+          <p class="tool-panel__note">Design, AI and code tools I work with.</p>
+        </div>
         <ul class="tool-list">
           <li class="tool"><img src="assets/img/logos/figma.jpg" width="64" height="64" alt="" loading="lazy" /><span>Figma</span></li>
           <li class="tool"><img src="assets/img/logos/firefly.jpg" width="64" height="64" alt="" loading="lazy" /><span>Adobe Firefly</span></li>
+          <li class="tool"><img src="assets/img/logos/midjourney.svg" width="64" height="64" alt="" loading="lazy" /><span>Midjourney</span></li>
           <li class="tool"><img src="assets/img/logos/photoshop.jpg" width="64" height="64" alt="" loading="lazy" /><span>Photoshop</span></li>
           <li class="tool"><img src="assets/img/logos/illustrator.png" width="64" height="64" alt="" loading="lazy" /><span>Illustrator</span></li>
           <li class="tool"><img src="assets/img/logos/chatgpt.jpg" width="64" height="64" alt="" loading="lazy" /><span>ChatGPT</span></li>
           <li class="tool"><img src="assets/img/logos/claude.jpg" width="64" height="64" alt="" loading="lazy" /><span>Claude Code</span></li>
+          <li class="tool"><img src="assets/img/logos/cursor.png" width="64" height="64" alt="" loading="lazy" /><span>Cursor</span></li>
+          <li class="tool"><img src="assets/img/logos/vscode.svg" width="64" height="64" alt="" loading="lazy" /><span>VS Code</span></li>
         </ul>
       </div>
     </section>
@@ -178,7 +189,7 @@
     </svg>
   </button>
 
-  <script type="application/json" id="search-data">[{"id": "flatbed-microwave-oven", "cover": "assets/img/portfolio/flatbed-microwave-oven/cover.jpg", "title": "Flatbed Microwave Oven (페이지 업데이트 예정)", "year": "2026", "keywords": "LG LG.com LG Electronics 엘지 LG전자 엘지전자 플랫베드 플랫배드 Flatbed 전자레인지 Microwave Oven MWO 호주 Australia 제품 상세 PDP 전자제품 Electronics Project Lead Claude Firefly Photoshop"}, {"id": "compatible-devices", "cover": "assets/img/portfolio/compatible-devices/cover.jpg", "title": "Compatible Devices Page", "year": "2025", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 SmartThings 스마트싱스 ST몰 호환 기기 호환기기 Compatible Devices UXUI UX UI 디자인 UX/UI Designer"}, {"id": "switch-to-galaxy", "cover": "assets/img/portfolio/switch-to-galaxy/cover.jpg", "title": "Switch to Galaxy", "year": "2024", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 Galaxy 갤럭시 Switch 갈아타기 iPhone 아이폰 iOS Android 안드로이드 마케팅 페이지 Marketing Page 캠페인 Campaign Trade in 보상판매 Project Leader Key Visual"}, {"id": "watch-bands", "cover": "assets/img/portfolio/watch-bands/cover.jpg", "title": "Watch Bands Product Page", "year": "2024", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 Galaxy Watch7 갤럭시 워치 워치7 X2 Bands 밴드 워치밴드 웨어러블 Wearable W7 Sport Fabric 스포츠 Use Case 제품 상세 Product Detail"}, {"id": "youmake-2023", "cover": "assets/img/portfolio/youmake-2023/cover.jpg", "title": "#YouMake 2023 Campaign", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 YouMake 유메이크 캠페인 Campaign 프로모션 Promotion 마케팅 Marketing Assets 배너 MZ 세대 나만의 시간 Use Case Key Visual Orbit"}, {"id": "epp-flash-sale", "cover": "assets/img/portfolio/epp-flash-sale/cover.jpg", "title": "EPP Flash Sale Campaign", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 EPP Employee Purchase Program Direct EPP 임직원 구매 플래시 세일 Flash Sale 캠페인 Campaign 랜딩 페이지 Landing Page 뉴스레터 Newsletter Secret Sale 할인 프로모션 Key Visual"}, {"id": "home-appliances-b2b", "cover": "assets/img/portfolio/home-appliances-b2b/cover.jpg", "title": "Home Appliances B2B Key Visual", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 B2B US Home Appliances 가전 홈어플라이언스 Digital Appliances 디지털 어플라이언스 Home Appliances Asset 키 비주얼 Key Visual 현지화 Localization 기업 비즈니스 사무공간 키친 오피스"}, {"id": "galaxy-a15", "cover": "assets/img/portfolio/galaxy-a15/cover.jpg", "title": "Galaxy A15 Product Page", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 Galaxy A15 갤럭시 LTE 5G 스마트폰 Smartphone Super AMOLED 50MP Knox 녹스 제품 상세 상세페이지 Product Detail PDP"}, {"id": "oled-tv-s95c-s90c", "cover": "assets/img/portfolio/oled-tv-s95c-s90c/cover.jpg", "title": "OLED TV S95C · S90C Product Page", "year": "2022", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 OLED TV 올레드 티비 텔레비전 S95C S90C S95B 제품 상세 상세페이지 Product Detail PDP Feature Localization"}, {"id": "healthcare-contents", "cover": "assets/img/portfolio/healthcare-contents/cover.jpg", "title": "Healthcare Contents & Marketing (페이지 업데이트 예정)", "year": "2021", "keywords": "마이카인드 mykind 넬리 Nellie 마이카인드X넬리 콜라보 기획전 이벤트 배너 인스타그램 카카오톡 네이버 브랜드 검색 유기농 비타민 헬스케어 상세페이지"}, {"id": "fb-product-design", "cover": "assets/img/portfolio/fb-product-design/cover.jpg", "title": "F&B Product Design", "year": "2019", "keywords": "포켓라이스 포켓샐러드 Pocket Rice Pocket Salad 패키지 디자인 Package Design Photography 촬영 디지털 콘텐츠 Digital Content 식품 F&B Season 시즌"}, {"id": "fashion-contents", "cover": "assets/img/portfolio/fashion-contents/cover.jpg", "title": "Fashion Contents (페이지 업데이트 예정)", "year": "2017", "keywords": "노스페이스 The North Face 디스커버리 Discovery Expedition 뉴발란스 New Balance 닥터마틴 Dr. Martens 지프 Jeep 엔터식스 Enter-6 Enter6 패션몰 패션 17FW 쉬즈미스 LIST 로엠 게스 Guess CK 리바이스 Levi's W.Dressroom OK캐쉬백 OK CASHBAG 기획전 이벤트 배너"}, {"id": "retail-crm-marketing", "cover": "assets/img/portfolio/retail-crm-marketing/cover.jpg", "title": "Retail CRM & Marketing", "year": "2016", "keywords": "AK몰 AKmall AK Mall AK PLAZA AK플라자 백화점 쇼핑몰 카테고리 배너 메인 배너 날개 배너 신규 배너 CRM 마케팅 Marketing"}, {"id": "exhibition-graphic", "cover": "assets/img/portfolio/exhibition-graphic/cover.jpg", "title": "Exhibition Graphic (페이지 업데이트 예정)", "year": "2012", "keywords": "KT Connected House MWC 2012 Leaflet 리플렛 Hyundai 현대자동차 현대 기아 DM LG생활건강 천기단 자생에센스 KT Calendar 캘린더 World IT Show 대장경 천년 세계문화축전 지식문명관 전시 그래픽 부스 Brochure"}, {"id": "editorial", "cover": "assets/img/portfolio/editorial/cover.jpg", "title": "Editorial (페이지 업데이트 예정)", "year": "2026", "keywords": "에디토리얼 Editorial 비주얼 Visual"}]</script>
+  <script type="application/json" id="search-data">[{"id": "flatbed-microwave-oven", "cover": "assets/img/portfolio/flatbed-microwave-oven/cover.jpg", "title": "Flatbed Microwave Oven", "year": "2026", "keywords": "LG LG.com LG Electronics 엘지 LG전자 엘지전자 플랫베드 플랫배드 Flatbed 전자레인지 Microwave Oven MWO 호주 Australia 제품 상세 PDP 전자제품 Electronics Project Lead Claude Firefly Photoshop"}, {"id": "compatible-devices", "cover": "assets/img/portfolio/compatible-devices/cover.jpg", "title": "Compatible Devices Page", "year": "2025", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 SmartThings 스마트싱스 ST몰 호환 기기 호환기기 Compatible Devices UXUI UX UI 디자인 UX/UI Designer"}, {"id": "switch-to-galaxy", "cover": "assets/img/portfolio/switch-to-galaxy/cover.jpg", "title": "Switch to Galaxy", "year": "2024", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 Galaxy 갤럭시 Switch 갈아타기 iPhone 아이폰 iOS Android 안드로이드 마케팅 페이지 Marketing Page 캠페인 Campaign Trade in 보상판매 Project Leader Key Visual"}, {"id": "watch-bands", "cover": "assets/img/portfolio/watch-bands/cover.jpg", "title": "Watch Bands Product Page", "year": "2024", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 Galaxy Watch7 갤럭시 워치 워치7 X2 Bands 밴드 워치밴드 웨어러블 Wearable W7 Sport Fabric 스포츠 Use Case 제품 상세 Product Detail"}, {"id": "youmake-2023", "cover": "assets/img/portfolio/youmake-2023/cover.jpg", "title": "#YouMake 2023 Campaign", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 YouMake 유메이크 캠페인 Campaign 프로모션 Promotion 마케팅 Marketing Assets 배너 MZ 세대 나만의 시간 Use Case Key Visual Orbit"}, {"id": "epp-flash-sale", "cover": "assets/img/portfolio/epp-flash-sale/cover.jpg", "title": "EPP Flash Sale Campaign", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 EPP Employee Purchase Program Direct EPP 임직원 구매 플래시 세일 Flash Sale 캠페인 Campaign 랜딩 페이지 Landing Page 뉴스레터 Newsletter Secret Sale 할인 프로모션 Key Visual"}, {"id": "home-appliances-b2b", "cover": "assets/img/portfolio/home-appliances-b2b/cover.jpg", "title": "Home Appliances B2B Key Visual", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 B2B US Home Appliances 가전 홈어플라이언스 Digital Appliances 디지털 어플라이언스 Home Appliances Asset 키 비주얼 Key Visual 현지화 Localization 기업 비즈니스 사무공간 키친 오피스"}, {"id": "galaxy-a15", "cover": "assets/img/portfolio/galaxy-a15/cover.jpg", "title": "Galaxy A15 Product Page", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 Galaxy A15 갤럭시 LTE 5G 스마트폰 Smartphone Super AMOLED 50MP Knox 녹스 제품 상세 상세페이지 Product Detail PDP"}, {"id": "oled-tv-s95c-s90c", "cover": "assets/img/portfolio/oled-tv-s95c-s90c/cover.jpg", "title": "OLED TV S95C · S90C Product Page", "year": "2022", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 OLED TV 올레드 티비 텔레비전 S95C S90C S95B 제품 상세 상세페이지 Product Detail PDP Feature Localization"}, {"id": "healthcare-contents", "cover": "assets/img/portfolio/healthcare-contents/cover.jpg", "title": "Healthcare Contents & Marketing", "year": "2021", "keywords": "마이카인드 mykind 넬리 Nellie 마이카인드X넬리 콜라보 기획전 이벤트 배너 인스타그램 카카오톡 네이버 브랜드 검색 유기농 비타민 헬스케어 상세페이지"}, {"id": "fb-product-design", "cover": "assets/img/portfolio/fb-product-design/cover.jpg", "title": "F&B Product Design", "year": "2019", "keywords": "포켓라이스 포켓샐러드 Pocket Rice Pocket Salad 패키지 디자인 Package Design Photography 촬영 디지털 콘텐츠 Digital Content 식품 F&B Season 시즌"}, {"id": "fashion-contents", "cover": "assets/img/portfolio/fashion-contents/cover.jpg", "title": "Enter6 mall Fashion Contents", "year": "2017", "keywords": "노스페이스 The North Face 디스커버리 Discovery Expedition 뉴발란스 New Balance 닥터마틴 Dr. Martens 지프 Jeep 엔터식스 Enter-6 Enter6 패션몰 패션 17FW 쉬즈미스 LIST 로엠 게스 Guess CK 리바이스 Levi's W.Dressroom OK캐쉬백 OK CASHBAG 기획전 이벤트 배너"}, {"id": "retail-crm-marketing", "cover": "assets/img/portfolio/retail-crm-marketing/cover.jpg", "title": "AK mall CRM & Marketing", "year": "2016", "keywords": "Retail CRM AK몰 AKmall AK Mall AK PLAZA AK플라자 백화점 쇼핑몰 카테고리 배너 메인 배너 날개 배너 신규 배너 CRM 마케팅 Marketing"}, {"id": "exhibition-graphic", "cover": "assets/img/portfolio/exhibition-graphic/cover.jpg", "title": "Exhibition Graphic", "year": "2012", "keywords": "KT Connected House MWC 2012 Leaflet 리플렛 Hyundai 현대자동차 현대 기아 DM LG생활건강 천기단 자생에센스 KT Calendar 캘린더 World IT Show 대장경 천년 세계문화축전 지식문명관 전시 그래픽 부스 Brochure"}, {"id": "editorial", "cover": "assets/img/portfolio/editorial/cover.jpg", "title": "Editorial", "year": "2026", "keywords": "에디토리얼 Editorial 비주얼 Visual"}]</script>
   <script src="js/main.js"></script>
 </body>
 </html>

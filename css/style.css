@@ -476,20 +476,30 @@ body {
   text-align: left;
 }
 
-.tool-panel__title,
+.tool-panel__intro,
 .tool-list {
   padding-inline: var(--page-pad);
 }
 
 .tool-panel__title {
-  margin-bottom: 0;
+  margin-bottom: var(--space-3);
 }
 
+.tool-panel__note {
+  max-width: 28rem;
+  font-size: var(--fs-200);
+  line-height: var(--lh-normal);
+  color: var(--color-text-muted);
+}
+
+/* 아이콘 그리드: 가장 넓은 라벨(Adobe Firefly ≈ 88px)을 한 칸의 폭으로 삼아 모든 칸을 같은 크기로, 가로 · 세로 간격은 같은 32px */
 .tool-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: var(--space-4) var(--space-8);
+  --tool-cell: 5.5rem; /* 88 */
+  --tool-icon: 4rem; /* 64 */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--tool-cell));
+  justify-content: start;
+  gap: var(--space-4);
   margin: 0;
   padding-block: 0;
   list-style: none;
@@ -498,7 +508,9 @@ body {
 .tool {
   display: grid;
   justify-items: center;
+  align-content: start;
   gap: var(--space-1);
+  white-space: nowrap;
   font-size: var(--fs-100);
   color: var(--color-text-muted);
 }
@@ -568,6 +580,15 @@ body {
   color: var(--color-text-muted);
 }
 
+/* 팝업이 없는 항목(링크 없음): 링크와 같은 본문색 */
+.field__projects .is-plain {
+  color: var(--color-text);
+}
+
+.field__projects .is-plain span {
+  color: var(--color-text-muted); /* 연도 · 건수는 링크 항목과 같은 보조색 */
+}
+
 .field__projects a {
   color: var(--color-text);
   text-decoration: underline;
@@ -604,6 +625,11 @@ body {
   .tool-list {
     padding-left: 0;
   }
+}
+
+/* 칸 안에서 아이콘이 가운데라 생기는 좌측 여백만큼 당겨 첫 아이콘을 텍스트 시작선(Fields 목록 · 제목)에 맞춘다 */
+.tool-list {
+  margin-left: calc((var(--tool-icon) - var(--tool-cell)) / 2);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -662,17 +688,19 @@ body {
   justify-content: center;
   gap: var(--space-1);
   padding: var(--space-3);
-  background: var(--scrim);
+  background: var(--scrim-strong);
   color: var(--color-on-image);
   text-align: center;
-  transition: background var(--dur) var(--ease);
+  /* 기본: 프로젝트 정보 숨김 → 마우스 오버(키보드 포커스)에서만 표시 */
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
 }
 
 .tile__title {
   display: block;
-  max-width: 24ch;
+  max-width: 37.5rem; /* 600px — 이 폭에서 줄바꿈 */
   font-size: var(--fs-350);
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-semibold); /* 프로젝트명(세미볼드) > 연도(레귤러)로 위계 */
   line-height: var(--lh-title);
   text-transform: uppercase;
 }
@@ -680,6 +708,7 @@ body {
 .tile__year {
   display: block;
   font-size: var(--fs-200);
+  font-weight: var(--fw-regular);
   opacity: 0.75;
 }
 
@@ -690,7 +719,15 @@ body {
 
 .tile__link:hover .tile__caption,
 .tile__link:focus-visible .tile__caption {
-  background: var(--scrim-strong);
+  opacity: 1;
+}
+
+/* 마우스 오버가 없는 터치 기기에서는 정보가 영영 안 보이므로 항상 표시 */
+@media (hover: none) {
+  .tile__caption {
+    opacity: 1;
+    background: var(--scrim);
+  }
 }
 
 /* ---------- Contact: 밑줄형 필드 + 알약 전송 버튼 ---------- */
@@ -1107,7 +1144,7 @@ html.is-menu-open {
 
 /* 하단 More projects: 다음 프로젝트 4건 */
 .project-modal__more {
-  padding: var(--space-8) var(--page-pad) var(--space-10);
+  padding: var(--space-12) var(--page-pad) var(--space-10); /* 위 96 → 데스크톱 160: 본문 끝(이미지 · 텍스트)과 You may also like 사이 간격 */
 }
 
 .project-modal__more-title {
@@ -1144,7 +1181,8 @@ html.is-menu-open {
   transition: transform var(--dur-slow) var(--ease);
 }
 
-/* 프로젝트명 · 연도: 메인 그리드와 같이 이미지 위 가운데 정렬(어두운 막) */
+/* 프로젝트명 · 연도: 메인 그리드와 같이 이미지 위 가운데 정렬.
+   기본은 카피도 딤도 없음 → 마우스 오버(키보드 포커스)에서 딤과 함께 표시 */
 .project-modal__more-caption {
   position: absolute;
   inset: 0;
@@ -1153,24 +1191,26 @@ html.is-menu-open {
   align-items: center;
   justify-content: center;
   gap: var(--space-1);
-  padding: var(--space-2);
-  background: var(--scrim-more);
+  padding: var(--space-3);
+  background: var(--scrim-more-hover);
   color: var(--color-on-image);
   text-align: center;
-  transition: background var(--dur) var(--ease);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
 }
 
 .project-modal__more-name {
   display: block;
   max-width: 24ch;
-  font-size: var(--fs-200);
+  font-size: var(--fs-350);
+  font-weight: var(--fw-semibold);
   line-height: var(--lh-title);
   text-transform: uppercase;
 }
 
 .project-modal__more-year {
   display: block;
-  font-size: var(--fs-100);
+  font-size: var(--fs-200);
   opacity: 0.75;
 }
 
@@ -1181,12 +1221,20 @@ html.is-menu-open {
 
 .project-modal__more-item:hover .project-modal__more-caption,
 .project-modal__more-item:focus-visible .project-modal__more-caption {
-  background: var(--scrim-more-hover);
+  opacity: 1;
+}
+
+/* 마우스 오버가 없는 터치 기기에서는 정보가 안 보이므로 항상 표시 */
+@media (hover: none) {
+  .project-modal__more-caption {
+    opacity: 1;
+    background: var(--scrim-more);
+  }
 }
 
 @media (min-width: 768px) {
   .project-modal__more {
-    padding: var(--space-10) var(--page-pad) var(--space-12);
+    padding: var(--space-20) var(--page-pad) var(--space-12);
   }
   .project-modal__more-list {
     grid-template-columns: repeat(4, 1fr);
@@ -1256,18 +1304,58 @@ html.is-menu-open {
   margin-top: var(--space-12);
 }
 
-.module-text:last-child,
 .module-text:has(+ :not(.module-text)) {
   margin-bottom: var(--space-12);
+}
+
+/* 본문 맨 끝(You may also like 바로 앞)에 오는 텍스트는 가운데 정렬. 아래 간격은 More 영역의 위 패딩이 맡는다 */
+.module-text:last-child {
+  margin-bottom: 0;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   :not(.module-text) + .module-text {
     margin-top: var(--space-20);
   }
-  .module-text:last-child,
   .module-text:has(+ :not(.module-text)) {
     margin-bottom: var(--space-20);
+  }
+}
+
+/* 제목만 있는 텍스트 모듈(예: Exhibition Graphic 의 "WORD IT SHOW 2012 …"): 이미지 없이도 제목으로 읽히도록 가운데 정렬 · 타이틀 크기, 위 · 아래 여유(160 / 모바일 96)는 위 규칙을 그대로 쓴다 */
+.module-text--title {
+  text-align: center;
+  font-size: max(var(--fs-350), calc(var(--fs-700) * 0.5)); /* 타이틀 크기(64px)의 50% = 32px, 모바일은 최소 20px */
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-title);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+}
+
+/* 제목 블록 배경을 뒤따르는 이미지의 배경색(--module-bg, 이미지에서 추출)에 맞추고 글자는 블랙.
+   위 · 아래 여유는 margin 대신 padding 으로 줘서 배경이 여유 공간까지 이어지게 한다(160 / 모바일 96) */
+.project-modal .module-text.module-text--tinted {
+  margin-block: 0;
+  padding-block: var(--space-12);
+  background: var(--module-bg);
+  color: var(--color-on-light);
+}
+
+@media (min-width: 768px) {
+  .project-modal .module-text.module-text--tinted {
+    padding-block: var(--space-20);
+  }
+}
+
+/* 팝업 맨 위에 오는 제목은 위쪽에도 같은 여유를 둔다 */
+.module-text--title:first-child {
+  margin-top: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .module-text--title:first-child {
+    margin-top: var(--space-20);
   }
 }
 

@@ -91,6 +91,11 @@
       var el = stack[i];
       if (controls.indexOf(el) !== -1 || controls.some(function (c) { return c.contains(el); })) continue;
       if (el.closest(".project-modal__more")) return 0; // 블랙 딤 위 캡션 영역
+      var tint = el.closest(".module-text--tinted"); // 밝은 배경색을 가진 제목 블록: 배경색 밝기를 쓴다
+      if (tint) {
+        var m = window.getComputedStyle(tint).backgroundColor.match(/\d+/g);
+        if (m) return 0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2];
+      }
       if (el.tagName !== "IMG") return 0; // 텍스트 모듈 · 패널 배경(어두운 면)
       var r = el.getBoundingClientRect();
       if (!el.naturalWidth || !r.width) return 0;
