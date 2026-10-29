@@ -98,6 +98,7 @@
   --color-nav-surface: #161617;      /* nav 검색 결과 썸네일 로딩 배경 */
   --color-footer-bg: #000000;         /* 푸터 배경(페이지 테마와 무관하게 고정) */
   --color-footer-text: #777777;       /* 푸터 저작권 문구 */
+  --color-footer-icon: #b3b3b3;       /* 푸터 소셜 글리프(흰색 대비 30% 어둡게) */
   --ratio-work: 3 / 2;
   --ratio-wide: 16 / 9;    /* 프로젝트 상세 와이드 이미지 */
   --ratio-mobile: 9 / 16;  /* 프로젝트 상세 모바일 결과물 */
