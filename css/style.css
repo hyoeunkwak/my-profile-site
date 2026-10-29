@@ -109,7 +109,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2); /* 세 메뉴 사이 간격 */
+  gap: var(--space-8); /* 세 메뉴 사이 간격 64 */
   padding: var(--space-4) var(--page-pad) var(--space-12);
   overflow-y: auto;
   background: var(--color-nav-bg);
@@ -125,10 +125,13 @@ body {
 }
 
 .site-nav a {
+  position: relative;
+  top: calc(-1 * var(--space-5)); /* 모바일: 메뉴 묶음 전체를 가운데에서 40px 위로 */
   font-size: var(--fs-700);
   font-weight: var(--fw-light);
   line-height: var(--lh-title);
   letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
   color: var(--color-on-image);
   text-underline-offset: 0.5rem;
   text-decoration-thickness: 1px;
@@ -211,6 +214,7 @@ body {
     visibility: visible;
   }
   .site-nav a {
+    top: 0;
     font-size: var(--fs-200);
     font-weight: var(--fw-regular);
     line-height: var(--lh-title);
