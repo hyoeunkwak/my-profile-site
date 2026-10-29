@@ -566,6 +566,7 @@ body {
   font-size: var(--fs-200);
   line-height: var(--lh-snug);
   color: var(--color-text-muted);
+  font-style: italic; /* 부연 설명은 기울임 */
 }
 
 .field__projects {
