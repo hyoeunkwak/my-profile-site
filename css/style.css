@@ -433,8 +433,16 @@ body {
 }
 
 .module-notice__title .ko-sub {
+  margin-top: var(--space-2);
   font-size: var(--fs-350);
   color: var(--color-text-muted);
+}
+
+/* 모바일에서는 국문을 프로젝트명 라벨과 같은 크기로 */
+@media (max-width: 47.9375rem) {
+  .module-notice__title .ko-sub {
+    font-size: var(--fs-100);
+  }
 }
 
 /* ---------- Experiences ---------- */
@@ -1479,7 +1487,7 @@ html.is-menu-open {
 }
 
 .module-notice__label {
-  margin-bottom: var(--space-2) !important;
+  margin-bottom: var(--space-4) !important;
   font-size: var(--fs-100);
   font-weight: var(--fw-medium);
   letter-spacing: var(--tracking-label);
