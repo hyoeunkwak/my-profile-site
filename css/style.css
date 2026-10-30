@@ -1477,7 +1477,7 @@ html.is-menu-open {
 .module-notice__icon {
   width: var(--space-16);
   height: var(--space-16);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-3);
   color: var(--color-text-muted);
 }
 
@@ -1487,7 +1487,7 @@ html.is-menu-open {
 }
 
 .module-notice__label {
-  margin-bottom: var(--space-4) !important;
+  margin-bottom: var(--space-6) !important;
   font-size: var(--fs-100);
   font-weight: var(--fw-medium);
   letter-spacing: var(--tracking-label);
