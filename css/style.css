@@ -391,6 +391,56 @@ body {
   text-wrap: balance;
 }
 
+/* Experiences 리드 문장: 영문 · 국문 모두 데스크톱에서는 한 줄 */
+@media (min-width: 75rem) {
+  .page__lede--oneline {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
+/* ---------- 국문 병기: 영문이 주, 국문은 영문 아래의 작고 연한 한 줄 ---------- */
+.ko {
+  font-family: var(--font-ko);
+  word-break: keep-all;
+}
+
+.ko-sub {
+  display: block;
+  margin-top: var(--space-1);
+  font-style: normal;
+  font-weight: var(--fw-regular);
+  letter-spacing: normal;
+  line-height: var(--lh-normal);
+}
+
+.page__lede .ko-sub,
+.exp-fields__intro .ko-sub {
+  font-size: var(--fs-200);
+}
+
+.exp-card__text .ko-sub {
+  font-size: var(--fs-100);
+}
+
+.contact-form__field .ko {
+  letter-spacing: normal;
+}
+
+.contact-form__sent .ko-sub,
+.site-search__empty .ko-sub {
+  font-size: var(--fs-100);
+}
+
+.module-notice__title .ko-sub {
+  font-size: var(--fs-350);
+  color: var(--color-text-muted);
+}
+
+.module-notice__text .ko-sub {
+  font-size: var(--fs-200);
+}
+
 /* ---------- Experiences ---------- */
 
 .exp-block + .exp-block {

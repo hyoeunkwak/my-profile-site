@@ -23,10 +23,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- 국문 병기용 한글 폰트(Pretendard, 필요한 글자만 불러오는 dynamic subset) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 
-  <link rel="stylesheet" href="css/reset.css?v=20261030d" />
-  <link rel="stylesheet" href="css/variables.css?v=20261030d" />
-  <link rel="stylesheet" href="css/style.css?v=20261030d" />
+  <link rel="stylesheet" href="css/reset.css?v=20261030f" />
+  <link rel="stylesheet" href="css/variables.css?v=20261030f" />
+  <link rel="stylesheet" href="css/style.css?v=20261030f" />
 </head>
 <body class="has-footer">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -57,7 +59,7 @@
           </button>
         </form>
         <ul class="site-search__results"></ul>
-        <p class="site-search__empty" hidden>No projects found.</p>
+        <p class="site-search__empty" hidden>No projects found.<span class="ko-sub ko" lang="ko">검색 결과가 없습니다.</span></p>
       </div>
     </div>
   </header>
@@ -272,8 +274,8 @@
       <div class="module-notice">
         <svg class="module-notice__icon" viewBox="-32 -32 128 128" width="160" height="160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="module-notice__ring" cx="32" cy="32" r="63.5" stroke-width="0.8"/><rect x="6" y="14" width="52" height="36" rx="4"/><rect x="12" y="20" width="31" height="24" rx="2"/><path d="M50 22h2M50 28h2"/><circle cx="51" cy="38" r="3"/><path d="M14 50v4M50 50v4"/></svg>
         <p class="module-notice__label">Flatbed Microwave Oven</p>
-        <p class="module-notice__title">Project update coming soon.</p>
-        <p class="module-notice__text">This project is being prepared. Full details will be added shortly.</p>
+        <p class="module-notice__title">Project update coming soon.<span class="ko-sub ko" lang="ko">프로젝트가 곧 업데이트됩니다.</span></p>
+        <p class="module-notice__text">This project is being prepared. Full details will be added shortly.<span class="ko-sub ko" lang="ko">프로젝트를 준비 중입니다. 자세한 내용은 곧 추가됩니다.</span></p>
       </div>
   </template>
   <template id="tpl-compatible-devices">
@@ -337,8 +339,8 @@
       <div class="module-notice">
         <svg class="module-notice__icon" viewBox="-32 -32 128 128" width="160" height="160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="module-notice__ring" cx="32" cy="32" r="63.5" stroke-width="0.8"/><path d="M32 54S8 40 8 24a12 12 0 0 1 24-3 12 12 0 0 1 24 3c0 16-24 30-24 30z"/><path d="M14 32h9l4-9 7 17 4-8h12"/></svg>
         <p class="module-notice__label">Healthcare Contents &amp; Marketing</p>
-        <p class="module-notice__title">Project update coming soon.</p>
-        <p class="module-notice__text">This project is being prepared. Full details will be added shortly.</p>
+        <p class="module-notice__title">Project update coming soon.<span class="ko-sub ko" lang="ko">프로젝트가 곧 업데이트됩니다.</span></p>
+        <p class="module-notice__text">This project is being prepared. Full details will be added shortly.<span class="ko-sub ko" lang="ko">프로젝트를 준비 중입니다. 자세한 내용은 곧 추가됩니다.</span></p>
       </div>
   </template>
   <template id="tpl-fb-product-design">
@@ -403,28 +405,28 @@
       <div class="module-notice">
         <svg class="module-notice__icon" viewBox="-32 -32 128 128" width="160" height="160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="module-notice__ring" cx="32" cy="32" r="63.5" stroke-width="0.8"/><rect x="6" y="8" width="52" height="14" rx="3"/><rect x="6" y="25" width="52" height="14" rx="3"/><rect x="6" y="42" width="52" height="14" rx="3"/><path d="M14 15h.01M14 32h.01M14 49h.01M22 15h4M22 32h4M22 49h4M42 15h10M42 32h10M42 49h10"/></svg>
         <p class="module-notice__label">LG HVAC Digital Experience Renewal</p>
-        <p class="module-notice__title">Project update coming soon.</p>
-        <p class="module-notice__text">This project is being prepared. Full details will be added shortly.</p>
+        <p class="module-notice__title">Project update coming soon.<span class="ko-sub ko" lang="ko">프로젝트가 곧 업데이트됩니다.</span></p>
+        <p class="module-notice__text">This project is being prepared. Full details will be added shortly.<span class="ko-sub ko" lang="ko">프로젝트를 준비 중입니다. 자세한 내용은 곧 추가됩니다.</span></p>
       </div>
   </template>
   <template id="tpl-aircare-rac-buying-guide">
       <div class="module-notice">
         <svg class="module-notice__icon" viewBox="-32 -32 128 128" width="160" height="160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="module-notice__ring" cx="32" cy="32" r="63.5" stroke-width="0.8"/><rect x="6" y="10" width="52" height="22" rx="4"/><path d="M12 26h40M16 18h8"/><path d="M16 40c0 4 4 4 4 8M32 40c0 4 4 4 4 8M48 40c0 4 4 4 4 8"/></svg>
         <p class="module-notice__label">Aircare &amp; RAC Buying Guide</p>
-        <p class="module-notice__title">Project update coming soon.</p>
-        <p class="module-notice__text">This project is being prepared. Full details will be added shortly.</p>
+        <p class="module-notice__title">Project update coming soon.<span class="ko-sub ko" lang="ko">프로젝트가 곧 업데이트됩니다.</span></p>
+        <p class="module-notice__text">This project is being prepared. Full details will be added shortly.<span class="ko-sub ko" lang="ko">프로젝트를 준비 중입니다. 자세한 내용은 곧 추가됩니다.</span></p>
       </div>
   </template>
   <template id="tpl-twin-tub-washing-machine-pdp">
       <div class="module-notice">
         <svg class="module-notice__icon" viewBox="-32 -32 128 128" width="160" height="160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="module-notice__ring" cx="32" cy="32" r="63.5" stroke-width="0.8"/><rect x="10" y="6" width="44" height="52" rx="4"/><path d="M10 18h44"/><circle cx="18" cy="12" r="2"/><circle cx="26" cy="12" r="2"/><path d="M42 12h6"/><circle cx="32" cy="38" r="14"/><circle cx="32" cy="38" r="9"/></svg>
         <p class="module-notice__label">Twin Tub Washing Machine PDP</p>
-        <p class="module-notice__title">Project update coming soon.</p>
-        <p class="module-notice__text">This project is being prepared. Full details will be added shortly.</p>
+        <p class="module-notice__title">Project update coming soon.<span class="ko-sub ko" lang="ko">프로젝트가 곧 업데이트됩니다.</span></p>
+        <p class="module-notice__text">This project is being prepared. Full details will be added shortly.<span class="ko-sub ko" lang="ko">프로젝트를 준비 중입니다. 자세한 내용은 곧 추가됩니다.</span></p>
       </div>
   </template>
 
   <script type="application/json" id="search-data">[{"id": "lg-hvac-digital-experience-renewal", "cover": "assets/img/portfolio/lg-hvac-digital-experience-renewal/cover.jpg", "title": "LG HVAC Digital Experience Renewal", "year": "2026", "keywords": "LG LG.com LG Electronics 엘지 LG전자 엘지전자 HVAC Global HVAC Main Data Center Solutions 데이터센터 데이터 센터 솔루션 리뉴얼 Renewal B2B Chiller 칠러 CDU CRAH FWU Product Lineup 아이소메트릭 Isometric Key Features heritage Claude ChatGPT Firefly Photoshop Designer 공조"}, {"id": "aircare-rac-buying-guide", "cover": "assets/img/portfolio/aircare-rac-buying-guide/cover.jpg", "title": "Aircare & RAC Buying Guide", "year": "2026", "keywords": "LG LG.com LG Electronics 엘지 LG전자 엘지전자 Aircare Air Care Buying Guide 바잉가이드 구매 가이드 공기청정기 Air Purifier PuriCare 퓨리케어 microsite 마이크로사이트 공기질 Designer 전자제품 Electronics LG LG.com LG Electronics 엘지 LG전자 엘지전자 RAC Residential Air Conditioner Buying Guide 바잉가이드 구매 가이드 에어컨 냉방 용량 Capacity BTU 방 크기 Room Size 냉방 microsite 마이크로사이트 Designer 전자제품 Electronics"}, {"id": "flatbed-microwave-oven", "cover": "assets/img/portfolio/flatbed-microwave-oven/cover.jpg", "title": "Flatbed Microwave Oven", "year": "2026", "keywords": "LG LG.com LG Electronics 엘지 LG전자 엘지전자 플랫베드 플랫배드 Flatbed 전자레인지 Microwave Oven MWO 호주 Australia 제품 상세 PDP 전자제품 Electronics Project Lead Claude Firefly Photoshop"}, {"id": "twin-tub-washing-machine-pdp", "cover": "assets/img/portfolio/twin-tub-washing-machine-pdp/cover.jpg", "title": "Twin Tub Washing Machine PDP", "year": "2026", "keywords": "LG LG.com LG Electronics 엘지 LG전자 엘지전자 Twin Tub 트윈텁 세탁기 Washing Machine Washer AX-Armstrong AX-R Wash Dynamics Technology PDP 제품 상세 상세페이지 Product Detail 전자제품 Electronics Designer"}, {"id": "compatible-devices", "cover": "assets/img/portfolio/compatible-devices/cover.jpg", "title": "Compatible Devices Page", "year": "2025", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 SmartThings 스마트싱스 ST몰 호환 기기 호환기기 Compatible Devices UXUI UX UI 디자인 UX/UI Designer"}, {"id": "switch-to-galaxy", "cover": "assets/img/portfolio/switch-to-galaxy/cover.jpg", "title": "Switch to Galaxy", "year": "2024", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 Galaxy 갤럭시 Switch 갈아타기 iPhone 아이폰 iOS Android 안드로이드 마케팅 페이지 Marketing Page 캠페인 Campaign Trade in 보상판매 Project Leader Key Visual"}, {"id": "watch-bands", "cover": "assets/img/portfolio/watch-bands/cover.jpg", "title": "Watch Bands Product Page", "year": "2024", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 Galaxy Watch7 갤럭시 워치 워치7 X2 Bands 밴드 워치밴드 웨어러블 Wearable W7 Sport Fabric 스포츠 Use Case 제품 상세 Product Detail"}, {"id": "youmake-2023", "cover": "assets/img/portfolio/youmake-2023/cover.jpg", "title": "#YouMake 2023 Campaign", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 YouMake 유메이크 캠페인 Campaign 프로모션 Promotion 마케팅 Marketing Assets 배너 MZ 세대 나만의 시간 Use Case Key Visual Orbit"}, {"id": "epp-flash-sale", "cover": "assets/img/portfolio/epp-flash-sale/cover.jpg", "title": "EPP Flash Sale Campaign", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 EPP Employee Purchase Program Direct EPP 임직원 구매 플래시 세일 Flash Sale 캠페인 Campaign 랜딩 페이지 Landing Page 뉴스레터 Newsletter Secret Sale 할인 프로모션 Key Visual"}, {"id": "home-appliances-b2b", "cover": "assets/img/portfolio/home-appliances-b2b/cover.jpg", "title": "Home Appliances B2B Key Visual", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 B2B US Home Appliances 가전 홈어플라이언스 Digital Appliances 디지털 어플라이언스 Home Appliances Asset 키 비주얼 Key Visual 현지화 Localization 기업 비즈니스 사무공간 키친 오피스"}, {"id": "galaxy-a15", "cover": "assets/img/portfolio/galaxy-a15/cover.jpg", "title": "Galaxy A15 Product Page", "year": "2023", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 Galaxy A15 갤럭시 LTE 5G 스마트폰 Smartphone Super AMOLED 50MP Knox 녹스 제품 상세 상세페이지 Product Detail PDP"}, {"id": "oled-tv-s95c-s90c", "cover": "assets/img/portfolio/oled-tv-s95c-s90c/cover.jpg", "title": "OLED TV S95C · S90C Product Page", "year": "2022", "keywords": "삼성 삼성전자 삼성닷컴 Samsung Samsung.com Samsung Electronics Global Site 글로벌 사이트 Cheil 제일기획 OLED TV 올레드 티비 텔레비전 S95C S90C S95B 제품 상세 상세페이지 Product Detail PDP Feature Localization"}, {"id": "healthcare-contents", "cover": "assets/img/portfolio/healthcare-contents/cover.jpg", "title": "Healthcare Contents & Marketing", "year": "2021", "keywords": "마이카인드 mykind 넬리 Nellie 마이카인드X넬리 콜라보 기획전 이벤트 배너 인스타그램 카카오톡 네이버 브랜드 검색 유기농 비타민 헬스케어 상세페이지"}, {"id": "fb-product-design", "cover": "assets/img/portfolio/fb-product-design/cover.jpg", "title": "F&B Product Design", "year": "2019", "keywords": "포켓라이스 포켓샐러드 Pocket Rice Pocket Salad 패키지 디자인 Package Design Photography 촬영 디지털 콘텐츠 Digital Content 식품 F&B Season 시즌"}, {"id": "fashion-contents", "cover": "assets/img/portfolio/fashion-contents/cover.jpg", "title": "Enter6 mall Fashion Contents", "year": "2017", "keywords": "노스페이스 The North Face 디스커버리 Discovery Expedition 뉴발란스 New Balance 닥터마틴 Dr. Martens 지프 Jeep 엔터식스 Enter-6 Enter6 패션몰 패션 17FW 쉬즈미스 LIST 로엠 게스 Guess CK 리바이스 Levi's W.Dressroom OK캐쉬백 OK CASHBAG 기획전 이벤트 배너"}, {"id": "retail-crm-marketing", "cover": "assets/img/portfolio/retail-crm-marketing/cover.jpg", "title": "AK mall CRM & Marketing", "year": "2016", "keywords": "Retail CRM AK몰 AKmall AK Mall AK PLAZA AK플라자 백화점 쇼핑몰 카테고리 배너 메인 배너 날개 배너 신규 배너 CRM 마케팅 Marketing"}, {"id": "exhibition-graphic", "cover": "assets/img/portfolio/exhibition-graphic/cover.jpg", "title": "Exhibition Graphic", "year": "2012", "keywords": "KT Connected House MWC 2012 Leaflet 리플렛 Hyundai 현대자동차 현대 기아 DM LG생활건강 천기단 자생에센스 KT Calendar 캘린더 World IT Show 대장경 천년 세계문화축전 지식문명관 전시 그래픽 부스 Brochure"}, {"id": "editorial", "cover": "assets/img/portfolio/editorial/cover.jpg", "title": "Editorial", "year": "2026", "keywords": "에디토리얼 Editorial 비주얼 Visual"}]</script>
-  <script src="js/main.js?v=20261030d"></script>
+  <script src="js/main.js?v=20261030f"></script>
 </body>
 </html>

@@ -35,6 +35,8 @@
   /* --- 타이포 (단일 서체: Inter — Aktiv Grotesk 스타일) --- */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Apple SD Gothic Neo", sans-serif;
+  /* 국문 병기 전용(영문 아래 한 줄) — Pretendard, 불러오지 못하면 시스템 한글 서체 */
+  --font-ko: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
   --font-heading: var(--font-sans);
   --font-body: var(--font-sans);
 
