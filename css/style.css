@@ -1403,6 +1403,71 @@ html.is-menu-open {
   }
 }
 
+/* 업데이트 예정 안내(본문 업로드 전): 원형 픽토그램 → 프로젝트명(아이브로) → 헤드라인 → 보조 문구를 한 줄기로 가운데 정렬.
+   패널을 어느 정도 채우도록 최소 높이를 주고 세로 가운데에 둔다 */
+.module-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: min(70vh, 40rem);
+  padding: var(--space-12) var(--page-pad);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.module-notice > * {
+  margin: 0;
+}
+
+.module-notice__icon {
+  width: var(--space-16);
+  height: var(--space-16);
+  margin-bottom: var(--space-5);
+  color: var(--color-text-muted);
+}
+
+/* 원형 테두리는 SVG 안에서 그린다(img/svg 에 border-radius 를 주면 내용이 원 안쪽으로 잘린다) */
+.module-notice__ring {
+  stroke: var(--color-border);
+}
+
+.module-notice__label {
+  margin-bottom: var(--space-2) !important;
+  font-size: var(--fs-100);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.module-notice__title {
+  margin-bottom: var(--space-2) !important;
+  font-size: max(var(--fs-500), calc(var(--fs-700) * 0.5));
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-title);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+}
+
+.module-notice__text {
+  max-width: 28rem;
+  font-size: var(--fs-300);
+  line-height: var(--lh-normal);
+  color: var(--color-text-muted);
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .module-notice {
+    padding-block: var(--space-20);
+  }
+  .module-notice__icon {
+    width: var(--space-20);
+    height: var(--space-20);
+  }
+}
+
 .project-modal__body:focus {
   outline: none;
 }
