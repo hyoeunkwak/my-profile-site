@@ -1513,6 +1513,17 @@ html.is-menu-open {
   }
 }
 
+/* 이미지 사이를 띄우는 팝업(예: Enter6 — 서로 다른 보드를 나열): 모바일 48px, 768px↑ 80px. 이어지는 보드(대부분의 팝업)는 틈 없이 쌓는다 */
+.project-modal__body img.module-img--spaced + img.module-img--spaced {
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .project-modal__body img.module-img--spaced + img.module-img--spaced {
+    margin-top: var(--space-10);
+  }
+}
+
 .project-modal__body:focus {
   outline: none;
 }
