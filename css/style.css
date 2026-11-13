@@ -1398,18 +1398,22 @@ html.is-menu-open {
   text-wrap: balance;
 }
 
-/* 제목 블록 배경을 뒤따르는 이미지의 배경색(--module-bg, 이미지에서 추출)에 맞추고 글자는 블랙.
-   위 · 아래 여유는 margin 대신 padding 으로 줘서 배경이 여유 공간까지 이어지게 한다(160 / 모바일 96) */
-.project-modal .module-text.module-text--tinted {
-  margin-block: 0;
-  padding-block: var(--space-12);
-  background: var(--module-bg);
-  color: var(--color-on-light);
+/* Exhibition Graphic 제목: 팝업 배경(어두운 면) 위에 흰 글씨. 제목 아래 여유는 80(모바일 48)으로 좁히고,
+   두 프로젝트를 가르는 제목(--section)은 위 여유를 240(모바일 144)으로 넓힌다 */
+.module-text.module-text--tight {
+  margin-bottom: var(--space-6);
+}
+
+.module-text.module-text--section {
+  margin-top: calc(var(--space-12) + var(--space-6));
 }
 
 @media (min-width: 768px) {
-  .project-modal .module-text.module-text--tinted {
-    padding-block: var(--space-20);
+  .module-text.module-text--tight {
+    margin-bottom: var(--space-10);
+  }
+  .module-text.module-text--section {
+    margin-top: calc(var(--space-20) + var(--space-10));
   }
 }
 
